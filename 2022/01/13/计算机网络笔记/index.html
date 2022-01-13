@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"carbda.github.io","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar_1.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -126,7 +126,7 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/avatar_1.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
@@ -143,6 +143,17 @@
         <span class="mobile">2022-01-13 00:59</span>
     </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -302,39 +313,315 @@
 <h3 id="开放最短路径优先OSPF的基本工作原理"><a href="#开放最短路径优先OSPF的基本工作原理" class="headerlink" title="开放最短路径优先OSPF的基本工作原理"></a>开放最短路径优先OSPF的基本工作原理</h3><p>OSPF是基于链路状态的，而非距离向量<br>保证了不会产生路由环路<br>不限制网络规模，收敛速度快<br>链路状态是指本路由器和哪些路由器相邻，以及链路的”代价“：<br>思科路由器中OSPF计算代价的方法：100Mbps / 链路带宽：<br>计算结果小于1的记为1，大于1的舍去小数<br>路由器间通过交互问候（hello）分组，建立邻居关系：<br>发送周期为10秒<br>40秒未收到邻居路由器的Hello分组，认为该邻居路由器不可达<br>每个路由器会产生链路状态通告LSA，包含：<br>直连网络的链路状态信息<br>邻居路由器的链路状态信息<br>OSPF有五种分组：<br>问候组、数据库描述分组、链路状态请求分组、链路状态更新分组、链路状态确认分组<br>OSPF把一个自治系统分为更小的范围，叫做区域：<br>主干区域、区域</p>
 <h3 id="边界网关协议BGP的基本工作原理"><a href="#边界网关协议BGP的基本工作原理" class="headerlink" title="边界网关协议BGP的基本工作原理"></a>边界网关协议BGP的基本工作原理</h3><p>在不同的自治系统内，度量路由的“代价”（距离、带宽等）可能不同<br>所以对于自治系统之间的路由选择，使用“代价”作度量是不行的<br>BGP只是力求寻找一条到达目的网络比较好的路由（不能兜圈子）</p>
 <p>配置BGP时，每个自治系统的管理员要选择至少一个路由器作为该自治系统的“BGP发言人”<br>不同自治系统的BGP发言人要交换路由信息，首先必须建立TCP连接，端口号为179<br>在此TCP连接上交换BGP报文，来建立BGP会话<br>利用BGP会话交换路由信息<br>使用TCP连接交换路由信息的两个BGP发言人，彼此称对方为邻站或对等站<br>BGP发言人交换网络可达性的信息<br>各BGP发言人根据所采用的策略找出到达各自治系统较好的路由。<br>BGP-4有以下4种报文：<br>打开报文、更新报文、保活报文、通知报文</p>
-<h2 id="IPv4数据报的首部格式"><a href="#IPv4数据报的首部格式" class="headerlink" title="IPv4数据报的首部格式"></a>IPv4数据报的首部格式</h2><p>分为：<br>固定部分（20字节）、可变部分（40字节）<br>固定部分：<br>版本、首部长度、区分服务、总长度、标识、标志、片偏移、生存时间、协议、首部检验和、源IP地址、目的IP地址<br>片偏移：要是整数<br>生存时间：防止IP数据报在网络种永久兜圈<br>协议：指明IPv4数据报的数据部分是何种协议数据单元</p>
-<h2 id="网际控制报文协议ICMP"><a href="#网际控制报文协议ICMP" class="headerlink" title="网际控制报文协议ICMP"></a>网际控制报文协议ICMP</h2><p>主机或路由器使用ICMP来发送差错报告报文和询问报文<br>ICMP差错报告报文有以下5种：<br>终点不可达、源点抑制、时间超过、参数问题、改变路由<br>重点不可达：不知道如何转发该IP数据报，丢弃，并向源点发送报文<br>源点抑制：因阻塞而丢弃，向源点发送报文<br>时间超过：TTL-1后=0，向源点发送时间超过报文<br>参数问题：首部在传输过程中出现误码，丢弃，并向源点发送报文<br>改变路由：路由器让主机知道下次应将数据报发给另外的路由器（可通过更好的路由）</p>
-<p>常用的ICMP询问报文有以下2种：<br>回送请求和回答、时间戳请求和回答</p>
-<h2 id="虚拟专用网VPN与网络地址转换NAT"><a href="#虚拟专用网VPN与网络地址转换NAT" class="headerlink" title="虚拟专用网VPN与网络地址转换NAT"></a>虚拟专用网VPN与网络地址转换NAT</h2><p>虚拟专用网VPN：<br>…<br>网络地址转换NAT：<br>用NAT路由器</p>
-<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h2 id="运输层概述"><a href="#运输层概述" class="headerlink" title="运输层概述"></a>运输层概述</h2><p>物理层、数据层、网络层实现了主机到主机的通信<br>但实际上通信的真正实体是位于通信两端主机中的进程。<br>运输层的任务：如何为运行在不同主机上的应用进程提供直接的通信服务<br>可以看作是运输层直接为应用进程之间的逻辑通信提供服务（其实并不是）</p>
-<h2 id="运输层端口号、复用与分用的概念"><a href="#运输层端口号、复用与分用的概念" class="headerlink" title="运输层端口号、复用与分用的概念"></a>运输层端口号、复用与分用的概念</h2><p>端口号：<br>运行在计算机上的进程用进程标识符PID来表示<br>不同操作系统又使用不同格式的进程标识符<br>要使用统一的方法对TCP/IP体系的应用进程进行标识<br>TCP/IP协议用端口号来区分不同应用进程<br>端口号用16比特表示，取值0<del>65535：<br>熟知端口号：0</del>1023（如HTTP用80、DNS用53）<br>登记端口号：1024<del>49151（要在IANA按照规定的手续登记）<br>短暂端口号：49152</del>65535（留给客户进程选择暂时使用）<br>端口号只具有本地意义，不同计算机中的相同端口号没有联系<br>发送方的复用和接收方的分用：<br>复用：UDP复用和TCP复用<br>分用：UDP分用和TCP分用<br>UDP、TCP属于运输层，IP协议属于网络层</p>
-<h2 id="UDP和TCP的对比"><a href="#UDP和TCP的对比" class="headerlink" title="UDP和TCP的对比"></a>UDP和TCP的对比</h2><p>UDP和TCP是TCP/IP体系结构运输层中的两个重要协议<br>UDP：随时发送数据<br>TCP：“三报文握手”建立连接，之后数据传输，“四报文挥手”释放连接<br>所以：<br>UDP：无连接<br>TCP：面向连接<br>UDP：支持单播、多播以及广播<br>TCP：仅支持单播<br>UDP：面向应用报文<br>TCP：面向字节流<br>UDP：向上层提供无连接不可靠传输服务（适用于IP电话、视频会议等实时服务）<br>TCP：向上层提供面向连接可靠传输服务（例如文件传输）<br>用户数据报：<br>UDP：首部仅8字节<br>TCP：首部最小20字节，最大60字节</p>
-<h2 id="TCP的流量控制"><a href="#TCP的流量控制" class="headerlink" title="TCP的流量控制"></a>TCP的流量控制</h2><p>流量控制：让发送方的发送速率不要太快，要让接收方来得及接收。<br>利用滑动窗口机制可以实现<br>举例：<br>A给B发送数据，B对A流量控制<br>B接收到数据可以对以前的数据进行累计确认，累计确认后A窗口滑动<br>B可以向A发送报文调整接收窗口<br>确认报文段：rwnd（接收窗口），ack（希望下一个数据的序号）<br>接收窗口为0时A不能再发送<br>窗口为0时定期发送零窗口探测报文，防止死锁（永远发不了数据）</p>
-<h2 id="TCP的拥塞控制"><a href="#TCP的拥塞控制" class="headerlink" title="TCP的拥塞控制"></a>TCP的拥塞控制</h2><p>拥塞：在某段时间，对网络中某一资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏。<br>若出现拥塞而不控制，网络的吞吐量随输入负荷的增大而下降<br>发送方发送TCP数据报文，接收方发送TCP确认报文<br>发送方维护一个叫拥塞窗口cwnd的状态变量，值取决于网络的拥塞程度，并且动态变化<br>发送方将拥塞窗口作为发送窗口swnd，即swnd=cwnd。<br>慢开始门限：ssthresh<br>cwnd&lt;ssthresh时，用慢开始算法<br>cwnd&gt;=ssthresh时，用拥塞避免算法<br>慢开始：每次传输轮次结束，cwnd翻倍<br>拥塞避免：每次传输轮次结束，cwnd+1<br>当发送方判断网络可能出现拥塞，进行以下工作：<br>将ssthresh值更新为发送拥塞时的cwnd的一半<br>将cwnd值变为1，重新开始执行慢开始算法<br>快重传：<br>接收方不要等待自己发送数据时才进行捎带确认，而是要立即发送确认。<br>即使收到了失序的，也要立即发出对已收到的报文段的重复确认<br>发送方一旦收到3个连续的重复确认，就将相应的报文段立即重传。<br>发送方一旦收到3个重复确认，就知道只是丢失了个别的报文段，于是不启动慢开始算法<br>而是执行快恢复算法：<br>发送方将ssthresh和cwnd值调整为当前窗口的一半，开始执行拥塞避免算法</p>
-<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><p>这是TCP最复杂的问题之一<br>往返时间：RTT<br>超时重传时间：RTO<br>超时重传时间的值RTO应略大于往返时间RTT<br>不能直接使用某次测得的RTT样本来计算RTO<br>要利用每次测量到的RTT样本，计算加权平均往返时间RTTs：<br>新的RTTs = （1-α）× 旧的RTTS + α × 新的RTT样本<br>推荐的α值为0.125<br>RTO = RTTs + 4×RTTd<br>RTT偏差的加权平均RTTd：<br>RTTd1 = RTT1 ÷ 2<br>新的RTTd = （1-β）× 旧的RTTd + β × | RTTs - 新的RTT样本 |<br>推荐的β值为0.25</p>
-<p>往返时间RTT的测量比较复杂：<br>报文段每重传一次，就把超时重传时间RTO增大一些。<br>典型的做法是：出现超时重传时，新RTO = 2倍旧的RTO。</p>
-<h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><p>TCP基于以字节为单位的滑动窗口来实现可靠传输<br>发送窗口有前沿、后沿：<br>后沿之前的数据已经发送并被确认接收，可以删除<br>前沿之后的数据不允许发送<br>发送窗口内的数据可以发送<br>发送窗口和接收窗口并不总是一样大（网络有时间滞后）<br>TCP通常对于不按序到达的数据是先临时存在接收窗口中，等待字节流中缺少的字节收到后，再按序交付上层的应用进程。<br>TCP要求接收方必须有累计确认和捎带确认机制。接收方在自己有数据要发送时把确认信息顺便捎带上。<br>接收方不应该过分推迟发送确认。<br>TCP的通信是全双工通信。通信中的每一方都在发送和接收报文段，每一方都有自己的发送窗口和接收窗口。</p>
-<h2 id="TCP的运输连接管理"><a href="#TCP的运输连接管理" class="headerlink" title="TCP的运输连接管理"></a>TCP的运输连接管理</h2><h3 id="TCP的运输连接管理——TCP的连接建立"><a href="#TCP的运输连接管理——TCP的连接建立" class="headerlink" title="TCP的运输连接管理——TCP的连接建立"></a>TCP的运输连接管理——TCP的连接建立</h3><p>TCP运输连接有以下3个阶段：<br>1、建立TCP连接（三报文握手）<br>2、数据传送<br>3、释放TCP连接（四报文挥手）<br>三报文握手：<br>服务器创建传输控制块，存储重要信息，进入监听状态<br>客户端创建传输控制块，发送TCP连接请求，进入同步已发送状态<br>（SYN=1，seq=x）<br>服务器接收到后，发送TCP连接请求的确认，进入同步已接收状态<br>（SYN=1，ACK=1，sql=y，ack=x+1）<br>客户端接收到后，发送针对TCP连接请求的确认的确认，进入连接已建立状态<br>（ACK=1，seq=x+1，ack=y+1)<br>服务器接收到后，进入连接已建立状态</p>
-<h3 id="TCP的运输连接管理——TCP的连接释放"><a href="#TCP的运输连接管理——TCP的连接释放" class="headerlink" title="TCP的运输连接管理——TCP的连接释放"></a>TCP的运输连接管理——TCP的连接释放</h3><p>四报文挥手：<br>客户端发送TCP连接释放，进入终止等待1状态<br>（FIN=1，ACK=1，seq=u，ack=v）<br>服务器收到后，发送TCP普通确认，进入关闭等待状态，此时服务器还可以继续发未发完的数据<br>（ACK=1，seq=v，ack=u+1）<br>客户端收到后，进入终止等待2状态<br>等服务器数据传输完成，发送TCP连接释放，进入最后确认状态<br>（FIN=1，ACK=1，seq=w，ack=u+1）<br>客户端收到后，发送TCP普通确认，进入时间等待状态，2MSL后进入关闭状态<br>（ACK=1，seq=u+1，ack=w+1）<br>服务器收到后，进入关闭状态<br>MSL：最长报文段寿命<br>保活计时器：<br>服务器每收到一次客户进程的数据，就重新设置并启动保活计时器（2小时定时）<br>若定时周期内未收到客户端发来的数据，到时间后，服务器发送一个探测报文段，之后每隔75秒发一个，一连发10次后仍无响应，就关闭连接。</p>
-<h2 id="TCP报文段的首部格式"><a href="#TCP报文段的首部格式" class="headerlink" title="TCP报文段的首部格式"></a>TCP报文段的首部格式</h2><p>为了实现可靠传输，TCP用了面向字节流的方式<br>TCP在发送数据时，是从发送缓存取出一部分或全部字节并给其添加一个首部，使之称为TCP报文段<br>一个TCP报文段由首部和数据载荷两部分构成<br>首部：<br>源端口、目的端口：标识发送、接受的应用进程<br>序号seq：本TCP报文段数据载荷的第一个字节的序号<br>确认号ack：期望收到对方下一个TCP报文段的数据载荷的第一个字节的序号，同时也是对前面收到的所有数据的确认（TCP规定，连接建立后所有传送的TCP报文段都要把标志位ACK置1）<br>数据偏移：TCP报文段的首部长度（数据载荷距离报文段起始处的距离）<br>窗口：发送本报文段的一方的接收窗口<br>同步标志位SYN：TCP连接建立时用来同步序号<br>终止标志位FIN：用来释放TCP连接<br>复位标志位RST：用来复位TCP连接<br>推送标识位PSH：尽快上交应用进程<br>紧急标志位URG：为1时紧急指针字段有效<br>填充：保证首部长度能被4整除</p>
+<h2 id="IPv4数据报的首部格式"><a href="#IPv4数据报的首部格式" class="headerlink" title="IPv4数据报的首部格式"></a>IPv4数据报的首部格式</h2><p>分为：</p>
+<ul>
+<li>固定部分（20字节）、可变部分（40字节）</li>
+</ul>
+<p>固定部分：</p>
+<ul>
+<li>版本、首部长度、区分服务、总长度、标识、标志、片偏移、生存时间、协议、首部检验和、源IP地址、目的IP地址</li>
+<li>片偏移：要是整数</li>
+<li>生存时间：防止IP数据报在网络种永久兜圈</li>
+<li>协议：指明IPv4数据报的数据部分是何种协议数据单元</li>
+</ul>
+<h2 id="网际控制报文协议ICMP"><a href="#网际控制报文协议ICMP" class="headerlink" title="网际控制报文协议ICMP"></a>网际控制报文协议ICMP</h2><p>主机或路由器使用ICMP来发送<strong>差错报告报文</strong>和<strong>询问报文</strong></p>
+<p><strong>ICMP差错报告报文</strong>有以下5种：</p>
+<ul>
+<li>重点不可达：不知道如何转发该IP数据报，丢弃，并向源点发送报文</li>
+<li>源点抑制：因阻塞而丢弃，向源点发送报文</li>
+<li>时间超过：TTL-1后=0，向源点发送时间超过报文</li>
+<li>参数问题：首部在传输过程中出现误码，丢弃，并向源点发送报文</li>
+<li>改变路由：路由器让主机知道下次应将数据报发给另外的路由器（可通过更好的路由）</li>
+</ul>
+<p>常用的<strong>ICMP询问报文</strong>有以下2种：</p>
+<ul>
+<li>回送请求和回答、时间戳请求和回答</li>
+</ul>
+<h2 id="虚拟专用网VPN与网络地址转换NAT"><a href="#虚拟专用网VPN与网络地址转换NAT" class="headerlink" title="虚拟专用网VPN与网络地址转换NAT"></a>虚拟专用网VPN与网络地址转换NAT</h2><p><strong>虚拟专用网VPN：</strong>…</p>
+<p><strong>网络地址转换NAT：</strong></p>
+<ul>
+<li>用NAT路由器</li>
+</ul>
+<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h2 id="运输层概述"><a href="#运输层概述" class="headerlink" title="运输层概述"></a>运输层概述</h2><p>物理层、数据层、网络层实现了主机到主机的通信<br>但实际上通信的真正实体是位于通信两端主机中的进程。<br>运输层的<strong>任务：如何为运行在不同主机上的应用进程提供直接的通信服务</strong><br>可以看作是运输层直接为应用进程之间的逻辑通信提供服务（其实并不是）</p>
+<h2 id="运输层端口号、复用与分用的概念"><a href="#运输层端口号、复用与分用的概念" class="headerlink" title="运输层端口号、复用与分用的概念"></a>运输层端口号、复用与分用的概念</h2><p>端口号：<br>运行在计算机上的进程用<strong>进程标识符PID</strong>来表示<br>不同操作系统又使用<strong>不同格式的进程标识符</strong><br>要使用统一的方法对<strong>TCP/IP体系</strong>的应用进程进行标识<br>TCP/IP协议用端口号来区分不同应用进程</p>
+<p>端口号用<strong>16比特</strong>表示，取值0~65535：</p>
+<ul>
+<li>熟知端口号：0~1023（如HTTP用80、DNS用53）</li>
+<li>登记端口号：1024~49151（要在IANA按照规定的手续登记）</li>
+<li>短暂端口号：49152~65535（留给客户进程选择暂时使用）</li>
+</ul>
+<p>端口号只具有本地意义，不同计算机中的相同端口号没有联系</p>
+<p><strong>发送方的复用和接收方的分用：</strong></p>
+<ul>
+<li>复用：UDP复用和TCP复用</li>
+<li>分用：UDP分用和TCP分用</li>
+</ul>
+<p>UDP、TCP属于运输层，IP协议属于网络层</p>
+<h2 id="UDP和TCP的对比"><a href="#UDP和TCP的对比" class="headerlink" title="UDP和TCP的对比"></a>UDP和TCP的对比</h2><p>UDP和TCP是TCP/IP体系结构运输层中的两个重要协议<br>UDP：随时发送数据<br>TCP：“三报文握手”建立连接，之后数据传输，“四报文挥手”释放连接</p>
+<p>所以：</p>
+<ul>
+<li>UDP：无连接<br>TCP：面向连接</li>
+<li>UDP：支持单播、多播以及广播<br>TCP：仅支持单播</li>
+<li>UDP：面向应用报文<br>TCP：面向字节流</li>
+<li>UDP：向上层提供无连接不可靠传输服务（适用于IP电话、视频会议等实时服务）<br>TCP：向上层提供面向连接可靠传输服务（例如文件传输）</li>
+</ul>
+<p>用户数据报：</p>
+<ul>
+<li>UDP：首部仅8字节</li>
+<li>TCP：首部最小20字节，最大60字节</li>
+</ul>
+<h2 id="TCP的流量控制"><a href="#TCP的流量控制" class="headerlink" title="TCP的流量控制"></a>TCP的流量控制</h2><p><strong>流量控制</strong>：让发送方的发送速率不要太快，要让接收方来得及接收。<br>利用<strong>滑动窗口</strong>机制可以实现</p>
+<p>举例：</p>
+<ul>
+<li>A给B发送数据，B对A流量控制</li>
+<li>B接收到数据可以对以前的数据进行<strong>累计确认</strong>，累计确认后A窗口滑动</li>
+<li>B可以向A发送报文调整接收窗口</li>
+<li>确认报文段：rwnd（接收窗口），ack（希望下一个数据的序号）</li>
+<li>接收窗口为0时A不能再发送</li>
+<li>窗口为0时定期发送零窗口探测报文，防止死锁（永远发不了数据）</li>
+</ul>
+<h2 id="TCP的拥塞控制"><a href="#TCP的拥塞控制" class="headerlink" title="TCP的拥塞控制"></a>TCP的拥塞控制</h2><p><strong>拥塞</strong>：在某段时间，对网络中某一资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏。<br>若出现拥塞而不控制，网络的吞吐量随输入负荷的增大而下降<br>发送方发送TCP数据报文，接收方发送TCP确认报文<br>发送方维护一个叫<strong>拥塞窗口cwnd</strong>的状态变量，值取决于网络的拥塞程度，并且动态变化<br>发送方将拥塞窗口作为<strong>发送窗口swnd</strong>，即<strong>swnd=cwnd</strong>。<br><strong>慢开始门限：ssthresh</strong><br>cwnd&lt;ssthresh时，用慢开始算法<br>cwnd&gt;=ssthresh时，用拥塞避免算法</p>
+<p><strong>慢开始</strong>：每次传输轮次结束，cwnd翻倍</p>
+<p><strong>拥塞避免</strong>：每次传输轮次结束，cwnd+1<br>当发送方判断网络可能出现拥塞，进行以下工作：</p>
+<ul>
+<li>将ssthresh值更新为发送拥塞时的cwnd的一半</li>
+<li>将cwnd值变为1，重新开始执行慢开始算法</li>
+</ul>
+<p><strong>快重传：</strong></p>
+<ul>
+<li>接收方不要等待自己发送数据时才进行捎带确认，而是要<strong>立即发送确认</strong>。</li>
+<li>即使收到了失序的，也要立即发出对已收到的报文段的<strong>重复确认</strong></li>
+<li>发送方一旦收到<strong>3个连续的重复确认</strong>，就将相应的报文段<strong>立即重传</strong>。</li>
+</ul>
+<p>发送方一旦收到3个重复确认，就知道只是丢失了个别的报文段，于是不启动慢开始算法<br>而是执行<strong>快恢复算法</strong>：</p>
+<ul>
+<li>发送方将ssthresh和cwnd值调整为当前窗口的一半，开始执行拥塞避免算法</li>
+</ul>
+<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><p>这是TCP最复杂的问题之一<br>往返时间：RTT<br>超时重传时间：RTO<br>超时重传时间的值RTO应略大于往返时间RTT<br><strong>不能直接使用某次测得的RTT样本来计算RTO</strong></p>
+<p>要利用每次测量到的RTT样本，计算加权平均往返时间RTTs：</p>
+<ul>
+<li>新的RTTs = （1-α）× 旧的RTTS + α × 新的RTT样本</li>
+</ul>
+<p>推荐的α值为0.125<br><strong>RTO = RTTs + 4×RTTd</strong></p>
+<p>RTT偏差的加权平均RTTd：</p>
+<ul>
+<li>RTTd1 = RTT1 ÷ 2</li>
+<li>新的RTTd = （1-β）× 旧的RTTd + β × | RTTs - 新的RTT样本 |</li>
+</ul>
+<p>推荐的β值为0.25</p>
+<p>往返时间RTT的测量比较复杂：<br><strong>报文段每重传一次，就把超时重传时间RTO增大一些。</strong><br>典型的做法是：出现超时重传时，新RTO = 2倍旧的RTO。</p>
+<h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><p>TCP基于<strong>以字节为单位的滑动窗口</strong>来实现可靠传输</p>
+<p>发送窗口有前沿、后沿：</p>
+<ul>
+<li>后沿之前的数据已经发送并被确认接收，可以删除</li>
+<li>前沿之后的数据不允许发送</li>
+<li>发送窗口内的数据可以发送</li>
+</ul>
+<p>发送窗口和接收窗口并不总是一样大（网络有时间滞后）<br>TCP通常对于<strong>不按序</strong>到达的数据是先临时存在接收窗口中，等待字节流中缺少的字节收到后，再<strong>按序交付上层的应用进程</strong>。<br>TCP要求接收方必须有<strong>累计确认和捎带确认机制</strong>。接收方在自己有数据要发送时把确认信息顺便捎带上。<br>接收方不应该过分推迟发送确认。<br><strong>TCP的通信是全双工通信</strong>。通信中的每一方都在发送和接收报文段，每一方都有自己的发送窗口和接收窗口。</p>
+<h2 id="TCP的运输连接管理"><a href="#TCP的运输连接管理" class="headerlink" title="TCP的运输连接管理"></a>TCP的运输连接管理</h2><h3 id="TCP的运输连接管理——TCP的连接建立"><a href="#TCP的运输连接管理——TCP的连接建立" class="headerlink" title="TCP的运输连接管理——TCP的连接建立"></a>TCP的运输连接管理——TCP的连接建立</h3><p>TCP运输连接有以下3个阶段：</p>
+<ol>
+<li>建立TCP连接（三报文握手）</li>
+<li>数据传送</li>
+<li>释放TCP连接（四报文挥手）</li>
+</ol>
+<p>三报文握手：</p>
+<ul>
+<li>服务器创建传输控制块，存储重要信息，进入<strong>监听状态</strong></li>
+<li>客户端创建传输控制块，发送TCP连接请求，进入<strong>同步已发送状态</strong><br>（SYN=1，seq=x）</li>
+<li>服务器接收到后，发送TCP连接请求的确认，进入<strong>同步已接收状态</strong><br>（SYN=1，ACK=1，sql=y，ack=x+1）</li>
+<li>客户端接收到后，发送针对TCP连接请求的确认的确认，进入<strong>连接已建立状态</strong><br>（ACK=1，seq=x+1，ack=y+1)</li>
+<li>服务器接收到后，进入<strong>连接已建立状态</strong></li>
+</ul>
+<h3 id="TCP的运输连接管理——TCP的连接释放"><a href="#TCP的运输连接管理——TCP的连接释放" class="headerlink" title="TCP的运输连接管理——TCP的连接释放"></a>TCP的运输连接管理——TCP的连接释放</h3><p>四报文挥手：</p>
+<ul>
+<li>客户端发送TCP连接释放，进入<strong>终止等待1状态</strong><br>（FIN=1，ACK=1，seq=u，ack=v）</li>
+<li>服务器收到后，发送TCP普通确认，进入<strong>关闭等待状态</strong>，此时服务器还可以继续发未发完的数据<br>（ACK=1，seq=v，ack=u+1）</li>
+<li>客户端收到后，进入<strong>终止等待2状态</strong></li>
+<li>等服务器数据传输完成，发送TCP连接释放，进入<strong>最后确认状态</strong><br>（FIN=1，ACK=1，seq=w，ack=u+1）</li>
+<li>客户端收到后，发送TCP普通确认，进入<strong>时间等待状态</strong>，2MSL后进入<strong>关闭状态</strong><br>（ACK=1，seq=u+1，ack=w+1）</li>
+<li>服务器收到后，进入<strong>关闭状态</strong></li>
+</ul>
+<p>MSL：最长报文段寿命</p>
+<p>保活计时器：</p>
+<ul>
+<li>服务器每收到一次客户进程的数据，就重新设置并启动保活计时器（2小时定时）</li>
+<li>若定时周期内未收到客户端发来的数据，到时间后，服务器发送一个探测报文段，之后每隔75秒发一个，一连发10次后仍无响应，就关闭连接。</li>
+</ul>
+<h2 id="TCP报文段的首部格式"><a href="#TCP报文段的首部格式" class="headerlink" title="TCP报文段的首部格式"></a>TCP报文段的首部格式</h2><p>为了实现可靠传输，TCP用了<strong>面向字节流</strong>的方式<br>TCP在发送数据时，是从发送缓存取出一部分或全部字节并给其添加一个首部，使之称为TCP报文段<br>一个TCP报文段由<strong>首部</strong>和<strong>数据载荷</strong>两部分构成</p>
+<p>首部：</p>
+<ul>
+<li>源端口、目的端口：标识发送、接受的应用进程</li>
+<li>序号seq：本TCP报文段数据载荷的第一个字节的序号<br>确认号ack：期望收到对方下一个TCP报文段的数据载荷的第一个字节的序号，同时也是对前面收到的所有数据的确认（TCP规定，连接建立后所有传送的TCP报文段都要把标志位ACK置1）</li>
+<li>数据偏移：TCP报文段的首部长度（数据载荷距离报文段起始处的距离）</li>
+<li>窗口：发送本报文段的一方的接收窗口</li>
+<li>同步标志位SYN：TCP连接建立时用来同步序号</li>
+<li>终止标志位FIN：用来释放TCP连接</li>
+<li>复位标志位RST：用来复位TCP连接</li>
+<li>推送标识位PSH：尽快上交应用进程</li>
+<li>紧急标志位URG：为1时紧急指针字段有效</li>
+<li>填充：保证首部长度能被4整除</li>
+</ul>
 <h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><h2 id="应用层概述"><a href="#应用层概述" class="headerlink" title="应用层概述"></a>应用层概述</h2><p>应用层：通过应用进程的交互来实现特定网络应用的问题<br>运输层：进程之间基于网络的通信问题<br>网络层：分组在多个网络上传输（路由）的问题<br>数据链路层：分组在一个网络上（或一段链路）上传输的问题<br>物理层：用何种信号来传输比特的问题</p>
-<h2 id="客户-服务器方式和对等方式"><a href="#客户-服务器方式和对等方式" class="headerlink" title="客户-服务器方式和对等方式"></a>客户-服务器方式和对等方式</h2><p>客户/服务器方式：C/S方式<br>对等方式：P2P方式<br>客户/服务器（C/S）方式：<br>客户和服务器是指通信中涉及的两个应用进程<br>客户是服务请求方，服务器是服务提供方。<br>服务器总是处于运行状态，并等待客户的服务请求。服务器有固定端口号（例如HTTP服务器的默认端口号是80），而运行服务器的主机也具有固定的IP地址。<br>基于C/S的应用服务通常是服务集中型的。<br>常用计算机群集构建一个强大的虚拟服务器。<br>对等（P2P）方式：<br>没有固定的服务请求者和服务提供者，分布在网络边缘各端的应用进程是对等的，称为对等方。<br>对等方相互之间直接通信。<br>应用：P2P文件共享、即时通信…<br>基于P2P的应用是服务分散型的。<br>P2P方式最突出特性是其可拓展性。系统每增加一个对等方，不仅增加的是服务的请求者，同时也增加了服务的提供者，系统性能不会因规模的增大而降低。<br>P2P方式有成本上的优势。</p>
-<h2 id="动态主机配置协议DHCP"><a href="#动态主机配置协议DHCP" class="headerlink" title="动态主机配置协议DHCP"></a>动态主机配置协议DHCP</h2><p>DHCP的作用：<br>给网络添加DHCP服务器，为局域网中各主机配置网络配置信息<br>主机开机后启动DHCP程序，从DHCP服务器获取自己的网络配置信息<br>DHCP中继代理：<br>广播报文不会被路由器转发，解决方式是给路由器配置DHCP服务器的IP地址，并使之称为DHCP中继代理</p>
-<h2 id="域名系统DNS"><a href="#域名系统DNS" class="headerlink" title="域名系统DNS"></a>域名系统DNS</h2><p>作用：<br>输入某个域名时，主机先在自己的DNS高速缓存中查找域名对应的IP地址。<br>若没有找到，会向网络中的某台DNS服务器查询。<br>DNS服务器中有域名和IP地址映射关系的数据库，收到DNS查询报文后，在其中进行查询，之后将查询结果发送给用户主机。<br>之后，用户主机中的浏览器可以通过web服务器的IP地址进行访问。<br>因特网采用层次结构的域名树作为主机名字（即域名），使用分布式的域名系统DNS。<br>DNS使大多数域名都在本地解析，效率高。<br>因特网采用层次树状的域名结构：<br>域名结构由若干分量组成，分量间用“点”隔开<br>***.三级域名.二级域名.顶级域名<br>如：nic.hnust.edu.cn<br>顶级域名TLD分类：<br>国家顶级域名nTLD：cn、us、uk…<br>通用顶级域名gTLD：com、net、org…<br>反向域arpa：用于反向域名解析，即IP地址反向解析为域名<br>因特网的域名空间：<br>树状<br>域名服务器分为：<br>根域名服务器：最高层次<br>顶级域名服务器：管理该顶级域名下的所有二级域名<br>权限域名服务器：管理某个区的域名<br>本地域名服务器：起代理作用，会将报文转发到上述域名服务器的等级结构中<br>域名解析的过程：<br>递归查询：…<br>迭代查询：本地向根域名服务器查，根域名服务器告诉本地应该查哪，然后本地服务器向顶级域名查，顶级域名服务器告诉本地下次应该查的权限域名服务器IP地址，然后本地服务器查权限域名服务器。（主机到本地域名服务器使递归查询，本地到根域名服务器、顶级域名服务器、权限域名服务器是迭代查询）</p>
+<h2 id="客户-服务器方式和对等方式"><a href="#客户-服务器方式和对等方式" class="headerlink" title="客户-服务器方式和对等方式"></a>客户-服务器方式和对等方式</h2><p>客户/服务器方式：C/S方式<br>对等方式：P2P方式<br><strong>客户/服务器（C/S）方式：</strong></p>
+<ul>
+<li>客户和服务器是指通信中涉及的两个应用进程</li>
+<li>客户是服务请求方，服务器是服务提供方。</li>
+<li>服务器总是处于运行状态，并等待客户的服务请求。服务器有固定端口号（例如HTTP服务器的默认端口号是80），而运行服务器的主机也具有固定的IP地址。</li>
+<li>基于C/S的应用服务通常是服务集中型的。</li>
+<li>常用计算机群集构建一个强大的虚拟服务器。</li>
+</ul>
+<p><strong>对等（P2P）方式：</strong></p>
+<ul>
+<li>没有固定的服务请求者和服务提供者，分布在网络边缘各端的应用进程是对等的，称为对等方。</li>
+<li>对等方相互之间直接通信。</li>
+<li>应用：P2P文件共享、即时通信…</li>
+<li>基于P2P的应用是服务分散型的。</li>
+<li>P2P方式最突出特性是其可拓展性。系统每增加一个对等方，不仅增加的是服务的请求者，同时也增加了服务的提供者，系统性能不会因规模的增大而降低。</li>
+<li>P2P方式有成本上的优势。</li>
+</ul>
+<h2 id="动态主机配置协议DHCP"><a href="#动态主机配置协议DHCP" class="headerlink" title="动态主机配置协议DHCP"></a>动态主机配置协议DHCP</h2><p>DHCP的作用：</p>
+<ul>
+<li>给网络添加DHCP服务器，为局域网中各主机配置网络配置信息</li>
+<li>主机开机后启动DHCP程序，从DHCP服务器获取自己的网络配置信息<br>DHCP中继代理：</li>
+<li>广播报文不会被路由器转发，解决方式是给路由器配置DHCP服务器的IP地址，并使之称为DHCP中继代理<h2 id="域名系统DNS"><a href="#域名系统DNS" class="headerlink" title="域名系统DNS"></a>域名系统DNS</h2></li>
+</ul>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>输入某个域名时，主机先在自己的DNS高速缓存中查找域名对应的IP地址。</li>
+<li>若没有找到，会向网络中的某台DNS服务器查询。</li>
+<li>DNS服务器中有域名和IP地址映射关系的数据库，收到DNS查询报文后，在其中进行查询，之后将查询结果发送给用户主机。</li>
+<li>之后，用户主机中的浏览器可以通过web服务器的IP地址进行访问。</li>
+<li>因特网采用层次结构的域名树作为主机名字（即域名），使用分布式的域名系统DNS。</li>
+<li>DNS使大多数域名都在本地解析，效率高。</li>
+</ul>
+<p>因特网采用层次树状的域名结构：</p>
+<ul>
+<li>域名结构由若干分量组成，分量间用“点”隔开</li>
+<li>***.三级域名.二级域名.顶级域名</li>
+<li>如：nic.hnust.edu.cn</li>
+</ul>
+<p>顶级域名TLD分类：</p>
+<ul>
+<li>国家顶级域名nTLD：cn、us、uk…</li>
+<li>通用顶级域名gTLD：com、net、org…</li>
+<li>反向域arpa：用于反向域名解析，即IP地址反向解析为域名</li>
+</ul>
+<p>因特网的域名空间：</p>
+<ul>
+<li>树状</li>
+</ul>
+<p>域名服务器分为：</p>
+<ul>
+<li>根域名服务器：最高层次</li>
+<li>顶级域名服务器：管理该顶级域名下的所有二级域名</li>
+<li>权限域名服务器：管理某个区的域名</li>
+<li>本地域名服务器：起代理作用，会将报文转发到上述域名服务器的等级结构中</li>
+</ul>
+<p><strong>域名解析的过程：</strong></p>
+<ul>
+<li>递归查询：…</li>
+<li>迭代查询：本地向根域名服务器查，根域名服务器告诉本地应该查哪，然后本地服务器向顶级域名查，顶级域名服务器告诉本地下次应该查的权限域名服务器IP地址，然后本地服务器查权限域名服务器。（主机到本地域名服务器使递归查询，本地到根域名服务器、顶级域名服务器、权限域名服务器是迭代查询）<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"></li>
+</ul>
 <p>域名服务器中广泛使用了高速缓存，提高效率，减轻负担。<br>高速缓存中，域名服务器应为每项内容设置计时器并删除超过合理时间的项。</p>
-<h2 id="文件传送协议FTP"><a href="#文件传送协议FTP" class="headerlink" title="文件传送协议FTP"></a>文件传送协议FTP</h2><p>文件传送协议FTP是因特网上使用最广泛的文件传送协议<br>FTP提供交互式的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。<br>FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。<br>应用：<br>常见用途是在计算机之间传输文件<br>另一个常见用途是让网站设计者将网站内容的大量文件批量上传到他的Web服务器<br>基本工作原理：</p>
-<p>主动模式：<br>1、建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接<br>2、有数据要传输时，FTP客户通过命令通道告诉FTP服务器来与另一个临时端口号建立连接，建立数据通道，这是FTP服务器发起的TCP连接，用于传送数据<br>被动模式：<br>1、建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接<br>2、有数据要传输时，FTP客户通过命令通道告诉FTP服务器开启某个临时端口等待TCP连接，建立数据通道，这是FTP客户发起的TCP连接，用于传送数据<br>数据连接在传输结束之后就关闭。<br>默认情况下，FTP使用TCP 21端口进行控制连接，TCP 20端口进行数据连接。<br>但是否用TCP 20端口建立数据连接与传输模式有关，主动模式用TCP 20端口，被动模式由服务器和客户端自行协商决定。</p>
-<h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><p>①发件人将邮件发送到自己使用的邮件服务器；<br>②发件人的服务器将收到的邮件按其目的地址转发到收件人邮件服务器的收件人邮箱；<br>③收件人在方便时访问收件人邮件服务器中自己的邮箱，获取电子邮件<br>电子邮件采用客户/服务器方式。<br>电子邮件的3个主要组成构件：用户代理、邮件服务器、电子邮件所需的协议。<br>用户代理是用户与电子邮件系统的接口，又称为电子邮件客户端软件。<br>邮件服务器是电子邮件系统的基础设施，其功能是发送和接收邮件。<br>协议包括邮件发送协议（如SMTP）和邮件读取协议（如POP3）<br>简单邮件传送协议SMTP：<br>发送方邮件服务器周期性对邮件缓存扫描<br>如发现有邮件，就与接收方邮件服务器中的SMTP服务器进行TCP连接，端口号25<br>基于TCP，发送方连接发送SMTP命令，接收方发送SMTP应答<br>过程（了解就行）：<br>服务器主动推送服务就绪应答220，客户端向服务器说明身份，告知自己SMTP服务器的域名，服务器：250，客户端告诉服务器邮件来自何方，服务器：250，客户端告诉服务器邮件去往何处，服务器：250，客户端告诉服务器自己准备发送邮件内容（DATA），服务器：354（准备好接收），客户端向服务器发送邮件内容（&lt;邮件内容&gt;），客户端发完后，还要发结束符（.），服务器：250，客户端：QUIT，服务器：221<br>SMTP协议只能传送ASCII码文本数据<br>常用邮件读取协议有以下两个：<br>邮局协议POP、因特网邮件访问协议IMAP</p>
-<h2 id="万维网WWW"><a href="#万维网WWW" class="headerlink" title="万维网WWW"></a>万维网WWW</h2><p>万维网是运行在因特网上的一个分布式应用。<br>万维网利用网页间的超链接将不同网站的网页连接成一张逻辑上的信息网。<br>万维网使用统一资源定位符URL来指明因特网上任何种类“资源”的位置。<br>URL组成：<br>&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;<br>超文本传输协议HTTP：<br>HTTP定义了浏览器怎样向万维网服务器请求万维网文档，以及万维网服务器怎样把万维网文档传送给浏览器。<br>举例：<br>客户进程与服务器进程建立TCP连接，使用端口号80<br>浏览器进程向服务器发送HTTP请求报文<br>服务器进程收到后，向浏览器进程发HTTP响应报文<br>HTTP/1.0采用非持续连接方式，每次浏览器请求一个文件都要与服务器建立TCP连接，收到响应后就关闭连接：<br>每请求一个文档就要有2倍的RTT的开销。<br>为了减少时延，浏览器通常会建立多个并行的TCP连接同时请求多个对象。但是这会大量占用万维网资源。<br>HTTP/1.1采用持续链接方式。万维网在发送响应后仍然保持这条连接。<br>HTTP的报文格式：<br>HTTP是面向文本的，报文中每一个字段都是一个ASCII码串，且每个字段长度不确定。<br>HTTP请求报文格式：<br>方法 URL 版本（请求行）<br>首部字段名: 值（首部行）<br>…（可以有多个首部行）<br>首部字段名: 值（首部行）<br>空行<br>实体主体（通常不用）<br>HTTP响应报文格式：<br>版本 状态码 短语（状态行）<br>首部字段名: 值（首部行）<br>…（可以有多个首部行）<br>首部字段名: 值（首部行）<br>空行<br>实体主体（通常不用）<br>使用Cookie在服务器上记录用户信息：<br>Cookie提供机制让服务器“记住”用户，而无需用户主动提供信息，Cookie是一种对无状态的HTTP进行状态化的技术。<br>浏览器第一次发送HTTP请求，服务器为该客户生成一个唯一的Cookie识别码，并以此为索引在服务器后端数据库创建项目，记录用户访问网站的信息，之后给浏览器发回HTTP响应报文，包含Set-Cookie: &lt;Cookie识别码&gt;。<br>浏览器收到后，将Cookie信息存入文件。<br>之后每次访问，浏览器发HTTP请求，包含Cookie: &lt;Cookie识别码&gt;，服务器根据Cookie识别码可以识别出该用户。<br>万维网缓存与代理服务器：<br>在万维网中还可以使用缓存机制提高万维网效率。<br>非流水线：只有收到上一个请求的响应，才能发送下一个请求。</p>
+<h2 id="文件传送协议FTP"><a href="#文件传送协议FTP" class="headerlink" title="文件传送协议FTP"></a>文件传送协议FTP</h2><p>文件传送协议FTP是因特网上使用最广泛的文件传送协议<br>FTP提供交互式的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。<br>FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。<br>应用：</p>
+<ul>
+<li>常见用途是在计算机之间传输文件</li>
+<li>另一个常见用途是让网站设计者将网站内容的大量文件批量上传到他的Web服务器</li>
+</ul>
+<p>基本工作原理：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"><br>主动模式：</p>
+<ol>
+<li>建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接</li>
+<li>有数据要传输时，FTP客户通过命令通道告诉FTP服务器来与另一个临时端口号建立连接，建立数据通道，这是FTP服务器发起的TCP连接，用于传送数据</li>
+</ol>
+<p>被动模式：</p>
+<ol>
+<li>建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接</li>
+<li>有数据要传输时，FTP客户通过命令通道告诉FTP服务器开启某个临时端口等待TCP连接，建立数据通道，这是FTP客户发起的TCP连接，用于传送数据</li>
+</ol>
+<p>数据连接在传输结束之后就关闭。<br>默认情况下，FTP使用TCP 21端口进行控制连接，TCP 20端口进行数据连接。<br>但是否用TCP 20端口建立数据连接与传输模式有关，主动模式用TCP 20端口，被动模式由服务器和客户端自行协商决定。</p>
+<h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><ol>
+<li>发件人将邮件发送到自己使用的邮件服务器；</li>
+<li>发件人的服务器将收到的邮件按其目的地址转发到收件人邮件服务器的收件人邮箱；</li>
+<li>收件人在方便时访问收件人邮件服务器中自己的邮箱，获取电子邮件</li>
+</ol>
+<p>电子邮件采用客户/服务器方式。<br>电子邮件的3个主要组成构件：用户代理、邮件服务器、电子邮件所需的协议。</p>
+<ul>
+<li>用户代理是用户与电子邮件系统的接口，又称为电子邮件客户端软件。</li>
+<li>邮件服务器是电子邮件系统的基础设施，其功能是发送和接收邮件。</li>
+<li>协议包括邮件发送协议（如SMTP）和邮件读取协议（如POP3）</li>
+</ul>
+<p>简单邮件传送协议SMTP：<br>发送方邮件服务器周期性对邮件缓存扫描<br>如发现有邮件，就与接收方邮件服务器中的SMTP服务器进行TCP连接，端口号25<br>基于TCP，发送方连接发送SMTP命令，接收方发送SMTP应答</p>
+<p>过程（了解就行）：</p>
+<ul>
+<li>服务器主动推送服务就绪应答220，客户端向服务器说明身份，告知自己SMTP服务器的域名，服务器：250，客户端告诉服务器邮件来自何方，服务器：250，客户端告诉服务器邮件去往何处，服务器：250，客户端告诉服务器自己准备发送邮件内容（DATA），服务器：354（准备好接收），客户端向服务器发送邮件内容（&lt;邮件内容&gt;），客户端发完后，还要发结束符（.），服务器：250，客户端：QUIT，服务器：221<br>SMTP协议只能传送ASCII码文本数据</li>
+</ul>
+<p>常用邮件读取协议有以下两个：</p>
+<ul>
+<li>邮局协议POP、因特网邮件访问协议IMAP</li>
+</ul>
+<h2 id="万维网WWW"><a href="#万维网WWW" class="headerlink" title="万维网WWW"></a>万维网WWW</h2><p>万维网是运行在因特网上的一个分布式应用。<br>万维网利用网页间的超链接将不同网站的网页连接成一张逻辑上的信息网。<br>万维网使用统一资源定位符URL来指明因特网上任何种类“资源”的位置。</p>
+<p>URL组成：<br>&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</p>
+<p><strong>超文本传输协议HTTP：</strong><br>HTTP定义了浏览器怎样向万维网服务器请求万维网文档，以及万维网服务器怎样把万维网文档传送给浏览器。</p>
+<p>举例：</p>
+<ul>
+<li>客户进程与服务器进程建立TCP连接，使用端口号80</li>
+<li>浏览器进程向服务器发送HTTP请求报文</li>
+<li>服务器进程收到后，向浏览器进程发HTTP响应报文</li>
+</ul>
+<p>HTTP/1.0采用非持续连接方式，每次浏览器请求一个文件都要与服务器建立TCP连接，收到响应后就关闭连接：</p>
+<ul>
+<li>每请求一个文档就要有2倍的RTT的开销。</li>
+<li>为了减少时延，浏览器通常会建立多个并行的TCP连接同时请求多个对象。但是这会大量占用万维网资源。</li>
+</ul>
+<p>HTTP/1.1采用持续链接方式。万维网在发送响应后仍然保持这条连接。</p>
+<p><strong>HTTP的报文格式：</strong><br>HTTP是面向文本的，报文中每一个字段都是一个ASCII码串，且每个字段长度不确定。<br>HTTP请求报文格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方法 URL 版本（请求行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">...（可以有多个首部行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">空行</span><br><span class="line">实体主体（通常不用）</span><br></pre></td></tr></table></figure>
+<p>HTTP响应报文格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">版本 状态码 短语（状态行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">...（可以有多个首部行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">空行</span><br><span class="line">实体主体（通常不用）</span><br></pre></td></tr></table></figure>
+
+<p>使用Cookie在服务器上记录用户信息：<br>Cookie提供机制让服务器“记住”用户，而无需用户主动提供信息，Cookie是一种对无状态的HTTP进行状态化的技术。</p>
+<ul>
+<li>浏览器第一次发送HTTP请求，服务器为该客户生成一个唯一的Cookie识别码，并以此为索引在服务器后端数据库创建项目，记录用户访问网站的信息，之后给浏览器发回HTTP响应报文，包含Set-Cookie: &lt;Cookie识别码&gt;。</li>
+<li>浏览器收到后，将Cookie信息存入文件。</li>
+<li>之后每次访问，浏览器发HTTP请求，包含Cookie: &lt;Cookie识别码&gt;，服务器根据Cookie识别码可以识别出该用户。</li>
+</ul>
+<p>万维网缓存与代理服务器：</p>
+<ul>
+<li>在万维网中还可以使用缓存机制提高万维网效率。</li>
+</ul>
+<p>非流水线：只有收到上一个请求的响应，才能发送下一个请求。</p>
 
         </div>
 
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/01/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络复习笔记</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -484,6 +771,10 @@
 
 
 
+
+
+    
+<script src="/js/code-copy.js"></script>
 
 
 
