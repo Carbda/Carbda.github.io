@@ -488,19 +488,19 @@
 <h2 id="客户-服务器方式和对等方式"><a href="#客户-服务器方式和对等方式" class="headerlink" title="客户-服务器方式和对等方式"></a>客户-服务器方式和对等方式</h2><p>客户/服务器方式：C/S方式<br>对等方式：P2P方式<br><strong>客户/服务器（C/S）方式：</strong></p>
 <ul>
 <li>客户和服务器是指通信中涉及的两个应用进程</li>
-<li>客户是服务请求方，服务器是服务提供方。</li>
-<li>服务器总是处于运行状态，并等待客户的服务请求。服务器有固定端口号（例如HTTP服务器的默认端口号是80），而运行服务器的主机也具有固定的IP地址。</li>
-<li>基于C/S的应用服务通常是服务集中型的。</li>
-<li>常用计算机群集构建一个强大的虚拟服务器。</li>
+<li><strong>客户是服务请求方，服务器是服务提供方。</strong></li>
+<li><strong>服务器总是处于运行状态，并等待客户的服务请求。服务器有固定端口号（例如HTTP服务器的默认端口号是80），而运行服务器的主机也具有固定的IP地址。</strong></li>
+<li>基于C/S的应用服务通常是<strong>服务集中型</strong>的。</li>
+<li>常用<strong>计算机群集</strong>构建一个强大的<strong>虚拟服务器</strong>。</li>
 </ul>
 <p><strong>对等（P2P）方式：</strong></p>
 <ul>
-<li>没有固定的服务请求者和服务提供者，分布在网络边缘各端的应用进程是对等的，称为对等方。</li>
-<li>对等方相互之间直接通信。</li>
+<li><strong>没有固定的服务请求者和服务提供者</strong>，分布在网络边缘各端的应用进程是对等的，称为对等方。</li>
+<li><strong>对等方相互之间直接通信。</strong></li>
 <li>应用：P2P文件共享、即时通信…</li>
-<li>基于P2P的应用是服务分散型的。</li>
-<li>P2P方式最突出特性是其可拓展性。系统每增加一个对等方，不仅增加的是服务的请求者，同时也增加了服务的提供者，系统性能不会因规模的增大而降低。</li>
-<li>P2P方式有成本上的优势。</li>
+<li>基于P2P的应用是<strong>服务分散型</strong>的。</li>
+<li>P2P方式最突出特性是其<strong>可拓展性</strong>。系统每增加一个对等方，不仅增加的是服务的请求者，同时也增加了服务的提供者，<strong>系统性能不会因规模的增大而降低</strong>。</li>
+<li>P2P方式有<strong>成本上的优势</strong>。</li>
 </ul>
 <h2 id="动态主机配置协议DHCP"><a href="#动态主机配置协议DHCP" class="headerlink" title="动态主机配置协议DHCP"></a>动态主机配置协议DHCP</h2><p>DHCP的作用：</p>
 <ul>
@@ -514,10 +514,9 @@
 <li>若没有找到，会向网络中的某台DNS服务器查询。</li>
 <li>DNS服务器中有域名和IP地址映射关系的数据库，收到DNS查询报文后，在其中进行查询，之后将查询结果发送给用户主机。</li>
 <li>之后，用户主机中的浏览器可以通过web服务器的IP地址进行访问。</li>
-<li>因特网采用层次结构的域名树作为主机名字（即域名），使用分布式的域名系统DNS。</li>
-<li>DNS使大多数域名都在本地解析，效率高。</li>
 </ul>
-<p>因特网采用层次树状的域名结构：</p>
+<p>因特网采用<strong>层次结构的域名树</strong>作为主机名字（即域名），使用<strong>分布式的域名系统DNS</strong>。<br>DNS使大多数域名都在本地解析，效率高。</p>
+<p>因特网采用<strong>层次树状的域名结构</strong>：</p>
 <ul>
 <li>域名结构由若干分量组成，分量间用“点”隔开</li>
 <li>***.三级域名.二级域名.顶级域名</li>
@@ -542,16 +541,16 @@
 </ul>
 <p><strong>域名解析的过程：</strong></p>
 <ul>
-<li>递归查询：…</li>
-<li>迭代查询：本地向根域名服务器查，根域名服务器告诉本地应该查哪，然后本地服务器向顶级域名查，顶级域名服务器告诉本地下次应该查的权限域名服务器IP地址，然后本地服务器查权限域名服务器。（主机到本地域名服务器使递归查询，本地到根域名服务器、顶级域名服务器、权限域名服务器是迭代查询）<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"></li>
+<li><strong>递归查询</strong>：…</li>
+<li><strong>迭代查询</strong>：本地向根域名服务器查，根域名服务器告诉本地应该查哪，然后本地服务器向顶级域名查，顶级域名服务器告诉本地下次应该查的权限域名服务器IP地址，然后本地服务器查权限域名服务器。（主机到本地域名服务器使递归查询，本地到根域名服务器、顶级域名服务器、权限域名服务器是迭代查询）<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"></li>
 </ul>
-<p>域名服务器中广泛使用了高速缓存，提高效率，减轻负担。<br>高速缓存中，域名服务器应为每项内容设置计时器并删除超过合理时间的项。</p>
-<h2 id="文件传送协议FTP"><a href="#文件传送协议FTP" class="headerlink" title="文件传送协议FTP"></a>文件传送协议FTP</h2><p>文件传送协议FTP是因特网上使用最广泛的文件传送协议<br>FTP提供交互式的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。<br>FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。<br>应用：</p>
+<p>域名服务器中广泛使用了<strong>高速缓存</strong>，提高效率，减轻负担。<br>高速缓存中，域名服务器<strong>应为每项内容设置计时器并删除超过合理时间的项</strong>。</p>
+<h2 id="文件传送协议FTP"><a href="#文件传送协议FTP" class="headerlink" title="文件传送协议FTP"></a>文件传送协议FTP</h2><p><strong>文件传送协议FTP</strong>是因特网上使用最广泛的文件传送协议<br>FTP提供<strong>交互式的访问</strong>，允许客户<strong>指明文件的类型与格式</strong>，并允许<strong>文件具有存取权限</strong>。<br>FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。<br>应用：</p>
 <ul>
 <li>常见用途是在计算机之间传输文件</li>
 <li>另一个常见用途是让网站设计者将网站内容的大量文件批量上传到他的Web服务器</li>
 </ul>
-<p>基本工作原理：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"><br>主动模式：</p>
+<p><strong>基本工作原理：</strong><br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2vhegoupwuk0.webp" alt="image"><br>主动模式：</p>
 <ol>
 <li>建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接</li>
 <li>有数据要传输时，FTP客户通过命令通道告诉FTP服务器来与另一个临时端口号建立连接，建立数据通道，这是FTP服务器发起的TCP连接，用于传送数据</li>
@@ -561,28 +560,28 @@
 <li>建立FTP客户发起的TCP连接，这是用于传送控制命令的TCP连接</li>
 <li>有数据要传输时，FTP客户通过命令通道告诉FTP服务器开启某个临时端口等待TCP连接，建立数据通道，这是FTP客户发起的TCP连接，用于传送数据</li>
 </ol>
-<p>数据连接在传输结束之后就关闭。<br>默认情况下，FTP使用TCP 21端口进行控制连接，TCP 20端口进行数据连接。<br>但是否用TCP 20端口建立数据连接与传输模式有关，主动模式用TCP 20端口，被动模式由服务器和客户端自行协商决定。</p>
+<p>数据连接在<strong>传输结束之后就关闭</strong>。<br>默认情况下，FTP使用<strong>TCP 21端口进行控制连接</strong>，<strong>TCP 20端口进行数据连接</strong>。<br>但是否用TCP 20端口建立数据连接与传输模式有关，主动模式用TCP 20端口，被动模式由服务器和客户端自行协商决定。</p>
 <h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><ol>
-<li>发件人将邮件发送到自己使用的邮件服务器；</li>
+<li>发件人将邮件发送到自己使用的<strong>邮件服务器</strong>；</li>
 <li>发件人的服务器将收到的邮件按其目的地址转发到收件人邮件服务器的收件人邮箱；</li>
 <li>收件人在方便时访问收件人邮件服务器中自己的邮箱，获取电子邮件</li>
 </ol>
-<p>电子邮件采用客户/服务器方式。<br>电子邮件的3个主要组成构件：用户代理、邮件服务器、电子邮件所需的协议。</p>
+<p>电子邮件采用<strong>客户/服务器方式</strong>。<br>电子邮件的3个主要组成构件：<strong>用户代理、邮件服务器、电子邮件所需的协议</strong>。</p>
 <ul>
 <li>用户代理是用户与电子邮件系统的接口，又称为电子邮件客户端软件。</li>
 <li>邮件服务器是电子邮件系统的基础设施，其功能是发送和接收邮件。</li>
 <li>协议包括邮件发送协议（如SMTP）和邮件读取协议（如POP3）</li>
 </ul>
-<p>简单邮件传送协议SMTP：<br>发送方邮件服务器周期性对邮件缓存扫描<br>如发现有邮件，就与接收方邮件服务器中的SMTP服务器进行TCP连接，端口号25<br>基于TCP，发送方连接发送SMTP命令，接收方发送SMTP应答</p>
+<p><strong>简单邮件传送协议SMTP</strong>：<br>发送方邮件服务器周期性对邮件缓存扫描<br>如发现有邮件，就与接收方邮件服务器中的SMTP服务器进行TCP连接，端口号25<br>基于TCP，发送方连接发送SMTP命令，接收方发送SMTP应答</p>
 <p>过程（了解就行）：</p>
 <ul>
 <li>服务器主动推送服务就绪应答220，客户端向服务器说明身份，告知自己SMTP服务器的域名，服务器：250，客户端告诉服务器邮件来自何方，服务器：250，客户端告诉服务器邮件去往何处，服务器：250，客户端告诉服务器自己准备发送邮件内容（DATA），服务器：354（准备好接收），客户端向服务器发送邮件内容（&lt;邮件内容&gt;），客户端发完后，还要发结束符（.），服务器：250，客户端：QUIT，服务器：221<br>SMTP协议只能传送ASCII码文本数据</li>
 </ul>
 <p>常用邮件读取协议有以下两个：</p>
 <ul>
-<li>邮局协议POP、因特网邮件访问协议IMAP</li>
+<li><strong>邮局协议POP、因特网邮件访问协议IMAP</strong></li>
 </ul>
-<h2 id="万维网WWW"><a href="#万维网WWW" class="headerlink" title="万维网WWW"></a>万维网WWW</h2><p>万维网是运行在因特网上的一个分布式应用。<br>万维网利用网页间的超链接将不同网站的网页连接成一张逻辑上的信息网。<br>万维网使用统一资源定位符URL来指明因特网上任何种类“资源”的位置。</p>
+<h2 id="万维网WWW"><a href="#万维网WWW" class="headerlink" title="万维网WWW"></a>万维网WWW</h2><p>万维网是<strong>运行在因特网上的一个分布式应用</strong>。<br>万维网利用网页间的<strong>超链接</strong>将不同网站的网页连接成一张逻辑上的信息网。<br>万维网使用<strong>统一资源定位符URL</strong>来指明因特网上任何种类“资源”的位置。</p>
 <p>URL组成：<br>&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</p>
 <p><strong>超文本传输协议HTTP：</strong><br>HTTP定义了浏览器怎样向万维网服务器请求万维网文档，以及万维网服务器怎样把万维网文档传送给浏览器。</p>
 <p>举例：</p>
@@ -591,18 +590,18 @@
 <li>浏览器进程向服务器发送HTTP请求报文</li>
 <li>服务器进程收到后，向浏览器进程发HTTP响应报文</li>
 </ul>
-<p>HTTP/1.0采用非持续连接方式，每次浏览器请求一个文件都要与服务器建立TCP连接，收到响应后就关闭连接：</p>
+<p>HTTP/1.0采用<strong>非持续连接方式</strong>，每次浏览器请求一个文件都要与服务器建立TCP连接，收到响应后就关闭连接：</p>
 <ul>
 <li>每请求一个文档就要有2倍的RTT的开销。</li>
-<li>为了减少时延，浏览器通常会建立多个并行的TCP连接同时请求多个对象。但是这会大量占用万维网资源。</li>
+<li>为了减少时延，<strong>浏览器通常会建立多个并行的TCP连接同时请求多个对象</strong>。但是这会大量占用万维网资源。</li>
 </ul>
-<p>HTTP/1.1采用持续链接方式。万维网在发送响应后仍然保持这条连接。</p>
-<p><strong>HTTP的报文格式：</strong><br>HTTP是面向文本的，报文中每一个字段都是一个ASCII码串，且每个字段长度不确定。<br>HTTP请求报文格式：</p>
+<p>HTTP/1.1采用<strong>持续链接</strong>方式。万维网在发送响应后仍然保持这条连接。</p>
+<p><strong>HTTP的报文格式：</strong><br>HTTP是<strong>面向文本</strong>的，报文中每一个<strong>字段</strong>都是一个<strong>ASCII码串</strong>，且每个字段<strong>长度不确定</strong>。<br>HTTP请求报文格式：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方法 URL 版本（请求行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">...（可以有多个首部行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">空行</span><br><span class="line">实体主体（通常不用）</span><br></pre></td></tr></table></figure>
 <p>HTTP响应报文格式：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">版本 状态码 短语（状态行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">...（可以有多个首部行）</span><br><span class="line">首部字段名: 值（首部行）</span><br><span class="line">空行</span><br><span class="line">实体主体（通常不用）</span><br></pre></td></tr></table></figure>
 
-<p>使用Cookie在服务器上记录用户信息：<br>Cookie提供机制让服务器“记住”用户，而无需用户主动提供信息，Cookie是一种对无状态的HTTP进行状态化的技术。</p>
+<p><strong>使用Cookie在服务器上记录用户信息：</strong><br>Cookie提供机制让服务器“记住”用户，而无需用户主动提供信息，<strong>Cookie是一种对无状态的HTTP进行状态化的技术</strong>。</p>
 <ul>
 <li>浏览器第一次发送HTTP请求，服务器为该客户生成一个唯一的Cookie识别码，并以此为索引在服务器后端数据库创建项目，记录用户访问网站的信息，之后给浏览器发回HTTP响应报文，包含Set-Cookie: &lt;Cookie识别码&gt;。</li>
 <li>浏览器收到后，将Cookie信息存入文件。</li>
