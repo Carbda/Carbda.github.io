@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Carbda">
+    
+    <title>
+        
+            Java笔记 |
+        
+        Carbda
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"carbda.github.io","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar_1.jpg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Carbda
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Java笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar_1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Carbda</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-01-13 15:55:50</span>
+        <span class="mobile">2022-01-13 15:55</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="2021-12-7"><a href="#2021-12-7" class="headerlink" title="2021.12.7"></a>2021.12.7</h1><h2 id="堆内存和栈内存"><a href="#堆内存和栈内存" class="headerlink" title="堆内存和栈内存"></a><strong>堆内存和栈内存</strong></h2><p>Java把内存分成两种，一种叫做栈内存，一种叫做堆内存</p>
+<ul>
+<li><strong>栈内存：</strong>在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的<strong>栈内存</strong>中分配</li>
+<li><strong>堆内存：</strong>用于存放由new创建的对象和数组。在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量。</li>
+</ul>
+<p><strong>创建一个对象new运算符：</strong><br>new 运算符，new 创建对象实例（对象实例在堆内存中），对象引用指向对象实例（对象引用存放在栈内存中）。</p>
+<h2 id="String、StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的"><a href="#String、StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的" class="headerlink" title="String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?"></a><strong>String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</strong></h2><p><strong>可变性：</strong><br>简单的来说：String 类中使用 final 关键字修饰字符数组来保存字符串，所以String 对象是不可变的。<br><strong>总结：</strong></p>
+<ol>
+<li>操作少量的数据: 适用 String</li>
+<li>单线程操作字符串缓冲区下操作大量数据: 适用 StringBuilder</li>
+<li>多线程操作字符串缓冲区下操作大量数据: 适用 StringBuffer</li>
+</ol>
+<h2 id="深拷贝和浅拷贝区别了解吗？什么是引用拷贝？"><a href="#深拷贝和浅拷贝区别了解吗？什么是引用拷贝？" class="headerlink" title="深拷贝和浅拷贝区别了解吗？什么是引用拷贝？"></a><strong>深拷贝和浅拷贝区别了解吗？什么是引用拷贝？</strong></h2><ul>
+<li><strong>浅拷贝：</strong> 浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点），不过，<strong>如果原对象内部的属性是引用类型的话，浅拷贝会直接复制内部对象的引用地址</strong>，也就是说拷贝对象和原对象共用同一个内部对象。</li>
+<li><strong>深拷贝 ：</strong> 深拷贝会<strong>完全复制</strong>整个对象，包括这个对象所包含的内部对象。</li>
+<li><strong>引用拷贝：</strong> 引用拷贝就是两个不同的引用指向同一个对象。</li>
+</ul>
+<h2 id="反射机制："><a href="#反射机制：" class="headerlink" title="反射机制："></a><strong>反射机制：</strong></h2><p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点 ：</strong> 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利</li>
+<li><strong>缺点 ：</strong> 让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检查发生在编译时）。另外，反射的性能也要稍差点，不过，对于框架来说实际是影响不大的。</li>
+</ul>
+<h1 id="2021-12-8"><a href="#2021-12-8" class="headerlink" title="2021.12.8"></a>2021.12.8</h1><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a><strong>异常</strong></h2><p>在 Java 中，所有的异常都有一个共同的祖先 Throwable 类。Throwable 类有两个重要的子类 Exception（异常）和 Error（错误）。Exception 能被程序本身处理(try-catch)， Error 是无法处理的(只能尽量避免)。</p>
+<ul>
+<li><strong>Exception ：</strong> 程序本身可以处理的异常，可以通过 catch 来进行捕获。Exception 又可以分为 受检查异常(必须处理) 和 不受检查异常(可以不处理)。</li>
+<li><strong>Error ：</strong> Error 属于程序无法处理的错误 ，我们没办法通过 catch 来进行捕获 。例如，Java 虚拟机运行错误（Virtual MachineError）、虚拟机内存不够错误(OutOfMemoryError)、类定义错误（NoClassDefFoundError）等 。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止。<br>受检查异常：如果受检查异常没有被 catch/throw 处理的话，就没办法通过编译 。如IO操作。</li>
+<li><strong>不受检查异常：</strong> 即使不处理不受检查异常也可以正常通过编译。</li>
+<li><strong>try-catch-finally：</strong> finally 块无论是否捕获或处理异常，finally 块里的语句都会被执行。当在 try 块或 catch 块中遇到 return 语句时，finally 语句块将在方法返回之前被执行。</li>
+</ul>
+<h1 id="2021-12-28"><a href="#2021-12-28" class="headerlink" title="2021.12.28"></a>2021.12.28</h1><h2 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h2><p><strong>JVM：</strong> Java虚拟机<br><strong>JRE：</strong> JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机（JVM），Java 类库，java 命令和其他的一些基础构件。<br><strong>JDK：</strong> JDK 是 Java Development Kit 缩写，它是功能齐全的 Java SDK。它拥有 JRE 所拥有的一切，还有编译器（javac）和工具（如 javadoc 和 jdb）。它能够创建和编译程序。</p>
+<h2 id="包装类型的常量池技术"><a href="#包装类型的常量池技术" class="headerlink" title="包装类型的常量池技术"></a><strong>包装类型的常量池技术</strong></h2><p>Java 基本类型的包装类的大部分都实现了常量池技术<br><strong>Byte,Short,Integer,Long</strong> 这 4 种包装类默认创建了数值 [-128，127] 的相应类型的缓存数据。<br><strong>Character</strong> 创建了数值在 [0,127] 范围的缓存数据。<br><strong>Boolean</strong> 直接返回 True or False。<br>两种浮点数类型的包装类 <strong>Float,Double</strong> 并没有实现常量池技术。<br>所有整型包装类对象之间值的比较，全部使用 equals 方法比较（例：对于Integer在-128到127的值可以用==来比较，因为会用到常量池）</p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a><strong>自动装箱与拆箱</strong></h2><ul>
+<li><strong>装箱：</strong> 将基本类型用它们对应的引用类型包装起来；</li>
+<li><strong>拆箱：</strong> 将包装类型转换为基本数据类型；<br>例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 10;  //装箱</span><br><span class="line">int n = i;   //拆箱</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="I-O-流"><a href="#I-O-流" class="headerlink" title="I/O 流"></a><strong>I/O 流</strong></h2><p><strong>什么是序列化?什么是反序列化?</strong><br>如果我们需要持久化 Java 对象比如将 Java 对象保存在文件中，或者在网络传输 Java 对象，这些场景都需要用到序列化。</p>
+<ul>
+<li><strong>序列化：</strong> 将数据结构或对象转换成二进制字节流的过程</li>
+<li><strong>反序列化：</strong> 将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程</li>
+</ul>
+<h1 id="2021-1-4"><a href="#2021-1-4" class="headerlink" title="2021.1.4"></a>2021.1.4</h1><h2 id="堆-PriorityQueue"><a href="#堆-PriorityQueue" class="headerlink" title="堆 PriorityQueue"></a><strong>堆</strong> PriorityQueue</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = new PriorityQueue&lt;&gt;(); // 小顶堆</span><br><span class="line">B = new PriorityQueue&lt;&gt;((x, y) -&gt; (y - x)); // 大顶堆</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器："><a href="#容器：" class="headerlink" title="容器："></a><strong>容器：</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.28rybvdagq3o.webp" alt="image"></p>
+<p>一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方法</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a><strong>List</strong></h3><p>ArrayList和Vector：</p>
+<ul>
+<li>Vector线程安全（古老实现类）、ArrayList线程不安全（主要实现类）</li>
+</ul>
+<p>ArrayList和LinkedList：</p>
+<ul>
+<li>ArrayList底层是数组，LinkedList底层是双向链表</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a><strong>Set</strong></h3><p>HashSet、LinkedHashSet 和 TreeSet：</p>
+<ul>
+<li>都是Set的实现类</li>
+<li>HashSet 底层是哈希表（基于HashMap实现）、LinkedHashSet 底层是链表和哈希表、TreeSet 底层是红黑树</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a><strong>Queue</strong></h3><p>Queue 与 Deque 的区别：</p>
+<ul>
+<li>Queue是单端队列，Deque是双端队列</li>
+</ul>
+<h3 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a><strong>Deque</strong></h3><p>ArrayDeque 与 LinkedList 的区别：</p>
+<ul>
+<li>ArrayDeque 是基于可变长的数组和双指针来实现，而 LinkedList 则通过链表来实现。</li>
+<li>ArrayDeque 不支持存储 NULL 数据，但 LinkedList 支持。</li>
+</ul>
+<h3 id="PriorityQueue（默认是小顶堆）"><a href="#PriorityQueue（默认是小顶堆）" class="headerlink" title="PriorityQueue（默认是小顶堆）"></a><strong>PriorityQueue</strong>（默认是小顶堆）</h3><ul>
+<li>与 Queue 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。</li>
+<li>PriorityQueue 默认是小顶堆，但可以接收一个 Comparator 作为构造参数，从而来自定义元素优先级的先后。</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a><strong>Map</strong></h3><p>HashMap 和 Hashtable 的区别：</p>
+<ul>
+<li>HashMap 是非线程安全的，Hashtable 是线程安全的</li>
+<li>因为线程安全的问题，HashMap 要比 Hashtable 效率高一点。（HashSet基本被淘汰）</li>
+<li>HashMap 可以存储 null 的 key 和 value，但 null 作为键只能有一个</li>
+</ul>
+<p>HashMap 和 HashSet 区别：</p>
+<ul>
+<li>HashSet 底层就是基于 HashMap 实现的。</li>
+</ul>
+<p><strong>HashSet</strong> 如何检查重复：</p>
+<ul>
+<li>当你把对象加入HashSet时，HashSet 会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的 hashcode 值作比较，如果没有相符的 hashcode，HashSet 会假设对象没有重复出现。但是如果发现有相同 hashcode 值的对象，这时会调用equals()方法来检查 hashcode 相等的对象是否真的相同。如果两者相同，HashSet 就不会让加入操作成功。</li>
+</ul>
+<p>总结：先判断hashcode是否有重复，再用equal()判断是否重复</p>
+<h3 id="与-equals-的区别："><a href="#与-equals-的区别：" class="headerlink" title="== 与 equals 的区别："></a><strong>== 与 equals 的区别：</strong></h3><ul>
+<li>对于基本类型来说，== 比较的是值是否相等；</li>
+<li>对于引用类型来说，== 比较的是两个引用是否指向同一个对象地址（两者在内存中存放的地址（堆内存地址）是否指向同一个地方）；</li>
+</ul>
+<h3 id="HashMap-的底层实现："><a href="#HashMap-的底层实现：" class="headerlink" title="HashMap 的底层实现："></a>HashMap 的底层实现：</h3><p>JDK1.8 之前：</p>
+<ul>
+<li>HashMap 底层是 数组和链表 结合在一起使用也就是 <strong>链表散列</strong>。HashMap 通过 key 的 hashCode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) &amp; hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。</li>
+</ul>
+<p>JDK1.8 之后：</p>
+<ul>
+<li>在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。</li>
+</ul>
+<h1 id="2021-1-5"><a href="#2021-1-5" class="headerlink" title="2021.1.5"></a>2021.1.5</h1><h2 id="为什么重写-equals-时必须重写-hashCode-方法？"><a href="#为什么重写-equals-时必须重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 时必须重写 hashCode() 方法？"></a>为什么重写 equals() 时必须重写 hashCode() 方法？</h2><p>因为两个相等的对象的 hashCode 值必须是相等。也就是说如果 equals 方法判断两个对象是相等的，那这两个对象的 hashCode 值也要相等。 如果重写 equals() 时没有重写 hashCode() 方法的话就可能会导致 equals 方法判断是相等的两个对象，hashCode 值却不相等。</p>
+<h2 id="线程的创建方式有几种？"><a href="#线程的创建方式有几种？" class="headerlink" title="线程的创建方式有几种？"></a>线程的创建方式有几种？</h2><ol>
+<li>继承Thread类创建线程</li>
+<li>实现Runnable接口创建线程</li>
+<li>使用Callable和Future创建线程</li>
+<li>使用线程池例如用Executor框架</li>
+</ol>
+<p><strong>Runnable 接口和 Callable 接口的区别</strong></p>
+<ul>
+<li>Runnable 接口 不会返回结果或抛出检查异常，但是 Callable 接口 可以。</li>
+</ul>
+<p><strong>线程池：</strong><br><strong>ThreadPoolExecutor构造函数重要参数分析：</strong><br>3 个最重要的<strong>参数</strong>：</p>
+<ul>
+<li><strong>corePoolSize</strong>：核心线程数定义了最小可以同时运行的线程数量。</li>
+<li><strong>maximumPoolSize</strong>：当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。</li>
+<li><strong>workQueue</strong>：当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</li>
+</ul>
+<p>其他常见参数：</p>
+<ul>
+<li>keepAliveTime：当线程池中的线程数量大于 corePoolSize 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了</li>
+<li>keepAliveTime才会被回收销毁； </li>
+<li>unit：keepAliveTime 参数的时间单位。 </li>
+<li>threadFactory：executor 创建新线程的时候会用到。 </li>
+<li>handler：拒绝策略（如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时的策略）</li>
+</ul>
+<p><strong>顺序：</strong></p>
+<ol>
+<li>corePoolSize</li>
+<li>maximumPoolSize </li>
+<li>keepAliveTime</li>
+<li>unit</li>
+<li>workQueue</li>
+<li>threadFactory</li>
+<li>handler</li>
+</ol>
+<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" alt="image"></p>
+<p>.java先经过编译成.class文件，之后经过解释器的解释执行，成为机器可理解的机器码，之后机器码被OS执行。</p>
+<h2 id="堆和方法区"><a href="#堆和方法区" class="headerlink" title="堆和方法区"></a>堆和方法区</h2><p>堆和方法区是所有线程共享的资源。</p>
+<ul>
+<li><strong>堆：</strong> 是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)</li>
+<li><strong>方法区：</strong> 主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</li>
+</ul>
+<h2 id="并发与并行的区别"><a href="#并发与并行的区别" class="headerlink" title="并发与并行的区别"></a>并发与并行的区别</h2><ul>
+<li><strong>并发：</strong> 同一时间段，多个任务都在执行 (单位时间内不一定同时执行)；</li>
+<li><strong>并行：</strong> 单位时间内，多个任务同时执行。</li>
+</ul>
+<h2 id="线程间通信的几种实现方式"><a href="#线程间通信的几种实现方式" class="headerlink" title="线程间通信的几种实现方式"></a>线程间通信的几种实现方式</h2><p><strong>方式一：</strong> 使用 <strong>volatile</strong> 关键字：</p>
+<ul>
+<li>基于 volatile 关键字来实现线程间相互通信是使用共享内存的思想，大致意思就是多个线程同时监听一个变量，当这个变量发生变化的时候 ，线程能够感知并执行相应的业务。</li>
+</ul>
+<p><strong>方式二：</strong> 使用Object类的<strong>wait()</strong> 和 <strong>notify()</strong> 方法：</p>
+<ul>
+<li>配合 <strong>synchronized</strong> 使用</li>
+</ul>
+<h1 id="2022-1-6"><a href="#2022-1-6" class="headerlink" title="2022.1.6"></a>2022.1.6</h1><h2 id="new-String-“aa”-创建几个对象？"><a href="#new-String-“aa”-创建几个对象？" class="headerlink" title="new String(“aa”)创建几个对象？"></a>new String(“aa”)创建几个对象？</h2><p>应该2个？（new方法在堆里创建了一个string对象，并且在常量池创建了一个string对象）</p>
+<ol>
+<li>直接赋值形式的新建string对象是从常量池中拿数据；最多创建一个string对象，虽少创建0个string对象；</li>
+<li>new形式新建string对象无论怎样会首先在堆内存中创建一个string对象，然后确保常量池中也有一个相同内容的string对象；最多创建2个，最少创建1个。</li>
+</ol>
+<h2 id="如何减少上下文切换？"><a href="#如何减少上下文切换？" class="headerlink" title="如何减少上下文切换？"></a>如何减少上下文切换？</h2><p>减少上下文切换的方法有无锁并发编程、CAS算法、使用最少线程和使用协程。<br><strong>无锁并发编程：</strong> 多线程竞争锁时，会引起上下文切换，所以多线程处理数据时，可以用一<br>些办法来避免使用锁，如将数据的ID按照Hash算法取模分段，不同的线程处理不同段的数据。<br><strong>CAS算法：</strong> Java的Atomic包使用CAS算法来更新数据，而不需要加锁。<br><strong>使用最少线程：</strong> 避免创建不需要的线程，比如任务很少，但是创建了很多线程来处理，这<br>样会造成大量线程都处于等待状态。<br><strong>协程：</strong> 在单线程里实现多任务的调度，并在单线程里维持多个任务间的切换。</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Java/">#Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/01/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络复习笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Carbda</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-7"><span class="nav-number">1.</span> <span class="nav-text">2021.12.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E5%86%85%E5%AD%98%E5%92%8C%E6%A0%88%E5%86%85%E5%AD%98"><span class="nav-number">1.1.</span> <span class="nav-text">堆内存和栈内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E3%80%81StringBuffer-%E5%92%8C-StringBuilder-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88-String-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84"><span class="nav-number">1.2.</span> <span class="nav-text">String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%8C%BA%E5%88%AB%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%95%E7%94%A8%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">深拷贝和浅拷贝区别了解吗？什么是引用拷贝？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">反射机制：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-8"><span class="nav-number">2.</span> <span class="nav-text">2021.12.8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-number">2.1.</span> <span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-28"><span class="nav-number">3.</span> <span class="nav-text">2021.12.28</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E7%9B%B8%E5%85%B3"><span class="nav-number">3.1.</span> <span class="nav-text">JVM相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%8A%80%E6%9C%AF"><span class="nav-number">3.2.</span> <span class="nav-text">包装类型的常量池技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1"><span class="nav-number">3.3.</span> <span class="nav-text">自动装箱与拆箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-%E6%B5%81"><span class="nav-number">3.4.</span> <span class="nav-text">I&#x2F;O 流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-1-4"><span class="nav-number">4.</span> <span class="nav-text">2021.1.4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86-PriorityQueue"><span class="nav-number">4.1.</span> <span class="nav-text">堆 PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">容器：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">4.2.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">4.2.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">4.2.3.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deque"><span class="nav-number">4.2.4.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PriorityQueue%EF%BC%88%E9%BB%98%E8%AE%A4%E6%98%AF%E5%B0%8F%E9%A1%B6%E5%A0%86%EF%BC%89"><span class="nav-number">4.2.5.</span> <span class="nav-text">PriorityQueue（默认是小顶堆）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">4.2.6.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E-equals-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-number">4.2.7.</span> <span class="nav-text">&#x3D;&#x3D; 与 equals 的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">4.2.8.</span> <span class="nav-text">HashMap 的底层实现：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-1-5"><span class="nav-number">5.</span> <span class="nav-text">2021.1.5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99-equals-%E6%97%B6%E5%BF%85%E9%A1%BB%E9%87%8D%E5%86%99-hashCode-%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">5.1.</span> <span class="nav-text">为什么重写 equals() 时必须重写 hashCode() 方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E6%9C%89%E5%87%A0%E7%A7%8D%EF%BC%9F"><span class="nav-number">5.2.</span> <span class="nav-text">线程的创建方式有几种？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">5.3.</span> <span class="nav-text">Java文件加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">5.4.</span> <span class="nav-text">堆和方法区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.5.</span> <span class="nav-text">并发与并行的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">5.6.</span> <span class="nav-text">线程间通信的几种实现方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-1-6"><span class="nav-number">6.</span> <span class="nav-text">2022.1.6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#new-String-%E2%80%9Caa%E2%80%9D-%E5%88%9B%E5%BB%BA%E5%87%A0%E4%B8%AA%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="nav-number">6.1.</span> <span class="nav-text">new String(“aa”)创建几个对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%EF%BC%9F"><span class="nav-number">6.2.</span> <span class="nav-text">如何减少上下文切换？</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
