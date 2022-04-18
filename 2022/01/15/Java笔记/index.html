@@ -327,7 +327,7 @@
 <li>threadFactory</li>
 <li>handler</li>
 </ol>
-<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" alt="image"></p>
+<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" width="80%"></p>
 <p>.java先经过编译成.class文件，之后经过解释器的解释执行，成为机器可理解的机器码，之后机器码被OS执行。</p>
 <h2 id="堆和方法区"><a href="#堆和方法区" class="headerlink" title="堆和方法区"></a>堆和方法区</h2><p>堆和方法区是所有线程共享的资源。</p>
 <ul>
@@ -412,7 +412,7 @@
 <li>invokeVirtual指令：用这个指令来调用方法</li>
 <li>方法表（存放方法入口地址）：子类的方法如果重写了，方法表就指向子类实例，否则向上寻找指向父类实例</li>
 </ul>
-<h1 id="2022-4-14"><a href="#2022-4-14" class="headerlink" title="2022.4.14"></a>2022.4.14</h1><h2 id="垃圾回收机制（GC）"><a href="#垃圾回收机制（GC）" class="headerlink" title="垃圾回收机制（GC）"></a>垃圾回收机制（GC）</h2><p>Java 堆是垃圾收集器管理的主要区域，也被称作 <strong>GC堆</strong><br>Java 堆还可以细分为：<strong>新生代</strong>和<strong>老年代</strong>：再细致一点有：<strong>Eden</strong> 空间、<strong>From Survivor</strong>、<strong>To Survivor</strong> 空间等<br><strong>堆</strong>的基本结构：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5cnbtl0ija80.webp" alt="clipboard"></p>
+<h1 id="2022-4-14"><a href="#2022-4-14" class="headerlink" title="2022.4.14"></a>2022.4.14</h1><h2 id="垃圾回收机制（GC）"><a href="#垃圾回收机制（GC）" class="headerlink" title="垃圾回收机制（GC）"></a>垃圾回收机制（GC）</h2><p>Java 堆是垃圾收集器管理的主要区域，也被称作 <strong>GC堆</strong><br>Java 堆还可以细分为：<strong>新生代</strong>和<strong>老年代</strong>：再细致一点有：<strong>Eden</strong> 空间、<strong>From Survivor</strong>、<strong>To Survivor</strong> 空间等<br><strong>堆</strong>的基本结构：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5cnbtl0ija80.webp" width="90%"></p>
 <h3 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h3><p>此时如果新生的对象无法在 Eden 区创建（Eden 区<strong>无法容纳</strong>) 就会触发一次 <strong>Minor GC</strong> 此时会将 S0 区与Eden 区的对象一起进行<strong>可达性分析</strong>，找出活跃的对象，将它复制到 S1 区并且将S0区域和 Eden 区的对象给清空，这样那些不可达的对象进行清除，并且将S0 区 和 S1区交换。并且对象的年龄还会加 1，当它的年龄增加到一定程度（默认为大于 15 岁），就会被晋升到老年代中。<br><strong>大对象</strong>直接进入<strong>老年代</strong>，大对象就是需要大量连续内存空间的对象（比如：字符串、数组），这是为了避免为大对象分配内存时由于<strong>分配担保机制</strong>带来的复制而降低效率。</p>
 <p><strong>分配担保机制：</strong><br>在发生Minor GC之前，虚拟机会先检查<strong>老年代最大可用的连续空间是否大于新生代所有对象总空间</strong>，如果这个条件成立，那么Minor GC可以确保是安全的。如果不成立，则虚拟机会查看HandlerPromotionFailure这个参数设置的值(true或flase)<strong>是否允许担保失败</strong>(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行Minor GC，出了事我负责)。如果允许，那么会继续检查<strong>老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小</strong>，如果大于，将尝试进行一次Minor GC，尽管这次Minor GC是有风险的；如果小于，或者HandlerPromotionFailure为false，那么这次Minor GC将升级为<strong>Full GC</strong></p>
 <h3 id="Major-GC"><a href="#Major-GC" class="headerlink" title="Major GC"></a>Major GC</h3><p>发生在老年代的GC ，基本上发生了一次Major GC 就会发生一次 Minor GC。并且Major GC 的速度往往会比 Minor GC 慢 10 倍。</p>
