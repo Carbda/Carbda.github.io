@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Carbda">
+    
+    <title>
+        
+            Spring总结 |
+        
+        Carbda
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar_icon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"carbda.github.io","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar_1.jpg","favicon":"/images/avatar_icon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar_2.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Carbda
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Spring总结</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar_1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Carbda</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-01-14 16:05:16</span>
+        <span class="mobile">2022-01-14 16:05</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="BeanDifinition"><a href="#BeanDifinition" class="headerlink" title="BeanDifinition"></a>BeanDifinition</h1><h2 id="什么是BeanDifinition？"><a href="#什么是BeanDifinition？" class="headerlink" title="什么是BeanDifinition？"></a>什么是BeanDifinition？</h2><ul>
+<li>BeanDifinition表示Bean定义，Spring根据BeanDifinition来创建Bean对象</li>
+<li>BeanDifinition有很多属性来描述Bean</li>
+<li>BeanDifinition是Spring中非常核心的概念</li>
+</ul>
+<h2 id="BeanDifinition中的重要属性"><a href="#BeanDifinition中的重要属性" class="headerlink" title="BeanDifinition中的重要属性"></a>BeanDifinition中的重要属性</h2><ul>
+<li><p><strong>beanClass：</strong><br>表示一个bean的类型，比如：UserService.class、OrderService.class，Spring在创建Bean的过程中会根据此属性来实例化得到对象</p>
+</li>
+<li><p><strong>scope：</strong><br>表示一个bean的作用域，比如：<br>scope等于singleton，该bean就是一个<strong>单例bean</strong><br>scope等于prototype，该bean就是一个<strong>原型bean</strong></p>
+</li>
+<li><p><strong>isLazy：</strong><br>表示一个bean是不是需要<strong>懒加载</strong>，原型bean的isLazy属性不起作用，懒加载的单例bean，会在第一次getBean的时候生成该bean，非懒加载的单例bean，则会在Spring启动过程中直接生成好。</p>
+</li>
+<li><p><strong>dependsOn：</strong><br>表示一个bean在创建之前所依赖的其他bean，在一个bean创建之前，它所依赖的这些bean得先全部创建好。</p>
+</li>
+<li><p><strong>primary：</strong><br>表示一个bean是<strong>主bean</strong>，在Spring中一个类型可以有多个bean对象，在进行依赖注入时，如果根据类型找到了多个bean，此时会判断这些bean中是否存在一个主bean，如果存在，则直接将这个bean给注入属性。</p>
+</li>
+<li><p><strong>initMethodName：</strong><br>表示一个bean的初始化方法，一个bean的生命周期过程中有一个步骤叫初始化，Spring会在这个步骤中取调用bean的初始化方法，初始化逻辑由程序员自己控制，表示程序员可以自定义逻辑对bean进行加工。<br>平时使用到的@Component、@Bean、<code>&lt;bean/&gt;</code>这些都会解析为BeanDifinition</p>
+</li>
+</ul>
+<h1 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h1><h2 id="什么是BeanFactory？"><a href="#什么是BeanFactory？" class="headerlink" title="什么是BeanFactory？"></a>什么是BeanFactory？</h2><ul>
+<li>BeanFactory是一种“Spring容器”</li>
+<li>BeanFactory翻译过来就是Bean工厂，顾名思义，它可以用来创建Bean，获取Bean</li>
+<li>BeanFactory是Spring中非常核心的组件</li>
+</ul>
+<h2 id="BeanFactory和BeanDifinition、Bean对象的关系"><a href="#BeanFactory和BeanDifinition、Bean对象的关系" class="headerlink" title="BeanFactory和BeanDifinition、Bean对象的关系"></a>BeanFactory和BeanDifinition、Bean对象的关系</h2><ul>
+<li>BeanFactory将利用Beandifinition来生成Bean对象，Beandifinition相当于BeanFactory的原材料</li>
+<li>Bean对象就相当于BeanFactory所生产出来的产品</li>
+</ul>
+<h2 id="BeanFactory的核心子接口和实现类"><a href="#BeanFactory的核心子接口和实现类" class="headerlink" title="BeanFactory的核心子接口和实现类"></a>BeanFactory的核心子接口和实现类</h2><ul>
+<li>ListableBeanFactory</li>
+<li>ConfigurableBeanFactory</li>
+<li>AutowireCapableBeanFactory</li>
+<li>AbstractBeanFactory</li>
+<li>DefaultListableBeanFActory（最重要）</li>
+</ul>
+<p><strong>DefaultListableBeanFActory</strong>的功能：<br>支持单例Bean、支持Bean别名、支持父子BeanFactory、支持Bean类型转化、支持Bean后置处理、支持FactoryBean、支持自动装配…</p>
+<h1 id="Bean生命周期"><a href="#Bean生命周期" class="headerlink" title="Bean生命周期"></a>Bean生命周期</h1><p>Bean生命周期描述的是Spring中一个Bean创建过程和销毁过程中所经历的步骤，其中Bean创建过程是重点。<br>可以利用Bean生命周期机制对于Bean进行自定义加工。</p>
+<h2 id="Bean创建的核心步骤"><a href="#Bean创建的核心步骤" class="headerlink" title="Bean创建的核心步骤"></a>Bean创建的核心步骤</h2><ol>
+<li><strong>BeanDifinition</strong>：Bean定义</li>
+<li><strong>构造方法推断</strong>：选出一个构造方法<br>一个Bean中可以有多个构造方法、此时就需要Spring来判断到底用哪个构造方法</li>
+<li><strong>实例化</strong>：构造方法反射得到对象<br>在Spring中，可以通过BeanPostProcessor机制对实例化进行干预</li>
+<li><strong>属性填充</strong>：给属性进行自动装配<br>实例化得到的对象是不完整的对象，需要进行属性填充，属性填充就是通常说的自动注入、依赖注入</li>
+<li><strong>初始化</strong>：对其他属性赋值、校验<br>Spring提供了初始化机制，可以利用初始化机制对Bean进行自定义加工，比如利用InitializingBean接口来对Bean中的其他属性进行复制，或对Bean中的某些属性进行校验</li>
+<li><strong>初始化后</strong>：AOP、生成代理对象<br>初始化后是Bean创建生命周期中最后一个步骤，我们常说的AOP就是在这个步骤中通过BeanPostProcessor机制实现的，初始化之后得到的对象才是真正的Bean对象。</li>
+</ol>
+<h1 id="Autowired是如何工作的？"><a href="#Autowired是如何工作的？" class="headerlink" title="@Autowired是如何工作的？"></a>@Autowired是如何工作的？</h1><h2 id="Autowired是什么？"><a href="#Autowired是什么？" class="headerlink" title="@Autowired是什么？"></a>@Autowired是什么？</h2><p>@Autowired表示某个属性是否需要进行依赖注入，可以写在属性和方法上。注解中的required属性默认为true，表示如果没有对象可以注入给属性则抛异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@Autowired的<strong>注解加载某个属性上</strong>，Spring在进行Bean的生命周期过程中，在属性填充这一步，会基于实例化出来的对象，对该对象中加了@Autowired的属性自动给属性赋值。<br>Spring会先<strong>根据属性的类型</strong>去Spring容器中找出该类型所有的Bean对象，如果找出来多个，则<strong>再根据属性的名字</strong>从多个中再确定一个，如果required属性为true，并且根据属性信息找不到对象，则直接抛异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserService</span> <span class="params">(UserService userService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当@Autowired<strong>注解写在某个方法上</strong>时，Spring在Bean生命周期的属性填充阶段，会根据方法的参数类型、参数名字从Spring容器找到对象当作方法入参，自动反射调用该方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OrderService</span> <span class="params">(UserService userService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OrderService</span> <span class="params">(UserService userService, UserService userService1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@Autowired<strong>加在构造方法上</strong>时，Spring会在推断构造方法阶段，选择该构造方法来进行实例化，在反射调用构造方法之前，会先根据构造方法参数类型、参数名从Spring容器中找到Bean对象，当做构造方法入参。</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Java/">#Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/01/15/Java%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Java笔记</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/01/14/Spring%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Carbda</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BeanDifinition"><span class="nav-text">BeanDifinition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFBeanDifinition%EF%BC%9F"><span class="nav-text">什么是BeanDifinition？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanDifinition%E4%B8%AD%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7"><span class="nav-text">BeanDifinition中的重要属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BeanFactory"><span class="nav-text">BeanFactory</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFBeanFactory%EF%BC%9F"><span class="nav-text">什么是BeanFactory？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory%E5%92%8CBeanDifinition%E3%80%81Bean%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">BeanFactory和BeanDifinition、Bean对象的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory%E7%9A%84%E6%A0%B8%E5%BF%83%E5%AD%90%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-text">BeanFactory的核心子接口和实现类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">Bean生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean%E5%88%9B%E5%BB%BA%E7%9A%84%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4"><span class="nav-text">Bean创建的核心步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Autowired%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F"><span class="nav-text">@Autowired是如何工作的？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Autowired%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">@Autowired是什么？</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
