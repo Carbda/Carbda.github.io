@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Carbda">
+    
+    <title>
+        
+            Java笔记 |
+        
+        Carbda
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar_icon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"carbda.github.io","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar_1.jpg","favicon":"/images/avatar_icon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar_2.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Carbda
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Java笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar_1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Carbda</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-01-15 15:55:50</span>
+        <span class="mobile">2022-01-15 15:55</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="2021-12-7"><a href="#2021-12-7" class="headerlink" title="2021.12.7"></a>2021.12.7</h1><h2 id="堆内存和栈内存"><a href="#堆内存和栈内存" class="headerlink" title="堆内存和栈内存"></a><strong>堆内存和栈内存</strong></h2><p>Java把内存分成两种，一种叫做栈内存，一种叫做堆内存</p>
+<ul>
+<li><strong>栈内存：</strong>在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的<strong>栈内存</strong>中分配</li>
+<li><strong>堆内存：</strong>用于存放由new创建的对象和数组。在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量。<br><strong>创建一个对象new运算符：</strong><br>new 运算符，new 创建对象实例（对象实例在堆内存中），对象引用指向对象实例（对象引用存放在栈内存中）。</li>
+</ul>
+<h2 id="String、StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的"><a href="#String、StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的" class="headerlink" title="String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?"></a><strong>String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</strong></h2><p><strong>可变性：</strong><br>简单的来说：String 类中使用 final 关键字修饰字符数组来保存字符串，所以String 对象是不可变的。<br><strong>总结：</strong></p>
+<ol>
+<li>操作少量的数据: 适用 String</li>
+<li>单线程操作字符串缓冲区下操作大量数据: 适用 StringBuilder</li>
+<li>多线程操作字符串缓冲区下操作大量数据: 适用 StringBuffer</li>
+</ol>
+<h2 id="深拷贝和浅拷贝区别了解吗？什么是引用拷贝？"><a href="#深拷贝和浅拷贝区别了解吗？什么是引用拷贝？" class="headerlink" title="深拷贝和浅拷贝区别了解吗？什么是引用拷贝？"></a><strong>深拷贝和浅拷贝区别了解吗？什么是引用拷贝？</strong></h2><ul>
+<li><strong>浅拷贝：</strong> 浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点），不过，<strong>如果原对象内部的属性是引用类型的话，浅拷贝会直接复制内部对象的引用地址</strong>，也就是说拷贝对象和原对象共用同一个内部对象。</li>
+<li><strong>深拷贝 ：</strong> 深拷贝会<strong>完全复制</strong>整个对象，包括这个对象所包含的内部对象。</li>
+<li><strong>引用拷贝：</strong> 引用拷贝就是两个不同的引用指向同一个对象。</li>
+</ul>
+<h2 id="反射机制："><a href="#反射机制：" class="headerlink" title="反射机制："></a><strong>反射机制：</strong></h2><p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点 ：</strong> 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利</li>
+<li><strong>缺点 ：</strong> 让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检查发生在编译时）。另外，反射的性能也要稍差点，不过，对于框架来说实际是影响不大的。</li>
+</ul>
+<h1 id="2021-12-8"><a href="#2021-12-8" class="headerlink" title="2021.12.8"></a>2021.12.8</h1><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a><strong>异常</strong></h2><p>在 Java 中，所有的异常都有一个共同的祖先 Throwable 类。Throwable 类有两个重要的子类 Exception（异常）和 Error（错误）。Exception 能被程序本身处理(try-catch)， Error 是无法处理的(只能尽量避免)。</p>
+<ul>
+<li><strong>Exception ：</strong> 程序本身可以处理的异常，可以通过 catch 来进行捕获。Exception 又可以分为 受检查异常(必须处理) 和 不受检查异常(可以不处理)。</li>
+<li><strong>Error ：</strong> Error 属于程序无法处理的错误 ，我们没办法通过 catch 来进行捕获 。例如，Java 虚拟机运行错误（Virtual MachineError）、虚拟机内存不够错误(OutOfMemoryError)、类定义错误（NoClassDefFoundError）等 。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止。<br>受检查异常：如果受检查异常没有被 catch&#x2F;throw 处理的话，就没办法通过编译 。如IO操作。</li>
+<li><strong>不受检查异常：</strong> 即使不处理不受检查异常也可以正常通过编译。</li>
+<li><strong>try-catch-finally：</strong> finally 块无论是否捕获或处理异常，finally 块里的语句都会被执行。当在 try 块或 catch 块中遇到 return 语句时，finally 语句块将在方法返回之前被执行。</li>
+</ul>
+<h1 id="2021-12-28"><a href="#2021-12-28" class="headerlink" title="2021.12.28"></a>2021.12.28</h1><h2 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h2><p><strong>JVM：</strong> Java虚拟机<br><strong>JRE：</strong> JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机（JVM），Java 类库，java 命令和其他的一些基础构件。<br><strong>JDK：</strong> JDK 是 Java Development Kit 缩写，它是功能齐全的 Java SDK。它拥有 JRE 所拥有的一切，还有编译器（javac）和工具（如 javadoc 和 jdb）。它能够创建和编译程序。</p>
+<h2 id="包装类型的常量池技术"><a href="#包装类型的常量池技术" class="headerlink" title="包装类型的常量池技术"></a><strong>包装类型的常量池技术</strong></h2><p>Java 基本类型的包装类的大部分都实现了常量池技术<br><strong>Byte,Short,Integer,Long</strong> 这 4 种包装类默认创建了数值 [-128，127] 的相应类型的缓存数据。<br><strong>Character</strong> 创建了数值在 [0,127] 范围的缓存数据。<br><strong>Boolean</strong> 直接返回 True or False。<br>两种浮点数类型的包装类 <strong>Float,Double</strong> 并没有实现常量池技术。<br>所有整型包装类对象之间值的比较，全部使用 equals 方法比较（例：对于Integer在-128到127的值可以用&#x3D;&#x3D;来比较，因为会用到常量池）</p>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a><strong>自动装箱与拆箱</strong></h2><ul>
+<li><strong>装箱：</strong> 将基本类型用它们对应的引用类型包装起来；</li>
+<li><strong>拆箱：</strong> 将包装类型转换为基本数据类型；<br>例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 10;  //装箱</span><br><span class="line">int n = i;   //拆箱</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="I-x2F-O-流"><a href="#I-x2F-O-流" class="headerlink" title="I&#x2F;O 流"></a><strong>I&#x2F;O 流</strong></h2><p><strong>什么是序列化?什么是反序列化?</strong><br>如果我们需要持久化 Java 对象比如将 Java 对象保存在文件中，或者在网络传输 Java 对象，这些场景都需要用到序列化。</p>
+<ul>
+<li><strong>序列化：</strong> 将数据结构或对象转换成二进制字节流的过程</li>
+<li><strong>反序列化：</strong> 将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程</li>
+</ul>
+<h1 id="2021-1-4"><a href="#2021-1-4" class="headerlink" title="2021.1.4"></a>2021.1.4</h1><h2 id="堆-PriorityQueue"><a href="#堆-PriorityQueue" class="headerlink" title="堆 PriorityQueue"></a><strong>堆</strong> PriorityQueue</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(); <span class="comment">// 小顶堆</span></span><br><span class="line">B = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((x, y) -&gt; (y - x)); <span class="comment">// 大顶堆</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a><strong>容器</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.28rybvdagq3o.webp" alt="image"></p>
+<p>一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方法</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a><strong>List</strong></h3><p>ArrayList和Vector：</p>
+<ul>
+<li>Vector线程安全（古老实现类）、ArrayList线程不安全（主要实现类）</li>
+</ul>
+<p>ArrayList和LinkedList：</p>
+<ul>
+<li>ArrayList底层是数组，LinkedList底层是双向链表</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a><strong>Set</strong></h3><p>HashSet、LinkedHashSet 和 TreeSet：</p>
+<ul>
+<li>都是Set的实现类</li>
+<li>HashSet 底层是哈希表（基于HashMap实现）、LinkedHashSet 底层是链表和哈希表、TreeSet 底层是红黑树</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a><strong>Queue</strong></h3><p>Queue 与 Deque 的区别：</p>
+<ul>
+<li>Queue是单端队列，Deque是双端队列</li>
+</ul>
+<h3 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a><strong>Deque</strong></h3><p>ArrayDeque 与 LinkedList 的区别：</p>
+<ul>
+<li>ArrayDeque 是基于可变长的数组和双指针来实现，而 LinkedList 则通过链表来实现。</li>
+<li>ArrayDeque 不支持存储 NULL 数据，但 LinkedList 支持。</li>
+</ul>
+<h3 id="PriorityQueue（默认是小顶堆）"><a href="#PriorityQueue（默认是小顶堆）" class="headerlink" title="PriorityQueue（默认是小顶堆）"></a><strong>PriorityQueue</strong>（默认是小顶堆）</h3><ul>
+<li>与 Queue 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。</li>
+<li>PriorityQueue 默认是小顶堆，但可以接收一个 Comparator 作为构造参数，从而来自定义元素优先级的先后。</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a><strong>Map</strong></h3><p>HashMap 和 Hashtable 的区别：</p>
+<ul>
+<li>HashMap 是非线程安全的，Hashtable 是线程安全的</li>
+<li>因为线程安全的问题，HashMap 要比 Hashtable 效率高一点。（HashSet基本被淘汰）</li>
+<li>HashMap 可以存储 null 的 key 和 value，但 null 作为键只能有一个</li>
+</ul>
+<p>HashMap 和 HashSet 区别：</p>
+<ul>
+<li>HashSet 底层就是基于 HashMap 实现的。</li>
+</ul>
+<p><strong>HashSet</strong> 如何检查重复：</p>
+<ul>
+<li>当你把对象加入HashSet时，HashSet 会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的 hashcode 值作比较，如果没有相符的 hashcode，HashSet 会假设对象没有重复出现。但是如果发现有相同 hashcode 值的对象，这时会调用equals()方法来检查 hashcode 相等的对象是否真的相同。如果两者相同，HashSet 就不会让加入操作成功。</li>
+</ul>
+<p>总结：先判断hashcode是否有重复，再用equal()判断是否重复</p>
+<h3 id="x3D-x3D-与-equals-的区别："><a href="#x3D-x3D-与-equals-的区别：" class="headerlink" title="&#x3D;&#x3D; 与 equals 的区别："></a><strong>&#x3D;&#x3D; 与 equals 的区别：</strong></h3><ul>
+<li>对于基本类型来说，&#x3D;&#x3D; 比较的是值是否相等；</li>
+<li>对于引用类型来说，&#x3D;&#x3D; 比较的是两个引用是否指向同一个对象地址（两者在内存中存放的地址（堆内存地址）是否指向同一个地方）；</li>
+</ul>
+<h3 id="HashMap-的底层实现："><a href="#HashMap-的底层实现：" class="headerlink" title="HashMap 的底层实现："></a>HashMap 的底层实现：</h3><p>JDK1.8 之前：</p>
+<ul>
+<li>HashMap 底层是 数组和链表 结合在一起使用也就是 <strong>链表散列</strong>。HashMap 通过 key 的 hashCode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) &amp; hash 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。</li>
+</ul>
+<p>JDK1.8 之后：</p>
+<ul>
+<li>在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。</li>
+</ul>
+<h1 id="2021-1-5"><a href="#2021-1-5" class="headerlink" title="2021.1.5"></a>2021.1.5</h1><h2 id="为什么重写-equals-时必须重写-hashCode-方法？"><a href="#为什么重写-equals-时必须重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 时必须重写 hashCode() 方法？"></a>为什么重写 equals() 时必须重写 hashCode() 方法？</h2><p>因为两个相等的对象的 hashCode 值必须是相等。也就是说如果 equals 方法判断两个对象是相等的，那这两个对象的 hashCode 值也要相等。 如果重写 equals() 时没有重写 hashCode() 方法的话就可能会导致 equals 方法判断是相等的两个对象，hashCode 值却不相等。</p>
+<h2 id="线程的创建方式有几种？"><a href="#线程的创建方式有几种？" class="headerlink" title="线程的创建方式有几种？"></a>线程的创建方式有几种？</h2><ol>
+<li>继承Thread类创建线程</li>
+<li>实现Runnable接口创建线程</li>
+<li>使用Callable和Future创建线程</li>
+<li>使用线程池例如用Executor框架</li>
+</ol>
+<p><strong>Runnable 接口和 Callable 接口的区别</strong></p>
+<ul>
+<li>Runnable 接口 不会返回结果或抛出检查异常，但是 Callable 接口 可以。</li>
+</ul>
+<p><strong>线程池：</strong><br><strong>ThreadPoolExecutor构造函数重要参数分析：</strong><br>3 个最重要的<strong>参数</strong>：</p>
+<ul>
+<li><strong>corePoolSize</strong>：核心线程数定义了最小可以同时运行的线程数量。</li>
+<li><strong>maximumPoolSize</strong>：当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。</li>
+<li><strong>workQueue</strong>：当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</li>
+</ul>
+<p>其他常见参数：</p>
+<ul>
+<li>keepAliveTime：当线程池中的线程数量大于 corePoolSize 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了</li>
+<li>keepAliveTime才会被回收销毁； </li>
+<li>unit：keepAliveTime 参数的时间单位。 </li>
+<li>threadFactory：executor 创建新线程的时候会用到。 </li>
+<li>handler：拒绝策略（如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时的策略）</li>
+</ul>
+<p><strong>顺序：</strong></p>
+<ol>
+<li>corePoolSize</li>
+<li>maximumPoolSize </li>
+<li>keepAliveTime</li>
+<li>unit</li>
+<li>workQueue</li>
+<li>threadFactory</li>
+<li>handler</li>
+</ol>
+<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" width="80%"></p>
+<p>.java先经过编译成.class文件，之后经过解释器的解释执行，成为机器可理解的机器码，之后机器码被OS执行。</p>
+<h2 id="堆和方法区"><a href="#堆和方法区" class="headerlink" title="堆和方法区"></a>堆和方法区</h2><p>堆和方法区是所有线程共享的资源。</p>
+<ul>
+<li><strong>堆：</strong> 是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)</li>
+<li><strong>方法区：</strong> 主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</li>
+</ul>
+<h2 id="并发与并行的区别"><a href="#并发与并行的区别" class="headerlink" title="并发与并行的区别"></a>并发与并行的区别</h2><ul>
+<li><strong>并发：</strong> 同一时间段，多个任务都在执行 (单位时间内不一定同时执行)；</li>
+<li><strong>并行：</strong> 单位时间内，多个任务同时执行。</li>
+</ul>
+<h2 id="线程间通信的几种实现方式"><a href="#线程间通信的几种实现方式" class="headerlink" title="线程间通信的几种实现方式"></a>线程间通信的几种实现方式</h2><p><strong>方式一：</strong> 使用 <strong>volatile</strong> 关键字：</p>
+<ul>
+<li>基于 volatile 关键字来实现线程间相互通信是使用共享内存的思想，大致意思就是多个线程同时监听一个变量，当这个变量发生变化的时候 ，线程能够感知并执行相应的业务。</li>
+</ul>
+<p><strong>方式二：</strong> 使用Object类的<strong>wait()</strong> 和 <strong>notify()</strong> 方法：</p>
+<ul>
+<li>配合 <strong>synchronized</strong> 使用</li>
+</ul>
+<h1 id="2022-1-6"><a href="#2022-1-6" class="headerlink" title="2022.1.6"></a>2022.1.6</h1><h2 id="new-String-“aa”-创建几个对象？"><a href="#new-String-“aa”-创建几个对象？" class="headerlink" title="new String(“aa”)创建几个对象？"></a>new String(“aa”)创建几个对象？</h2><p>应该2个？（new方法在堆里创建了一个string对象，并且在常量池创建了一个string对象）</p>
+<ol>
+<li>直接赋值形式的新建string对象是从常量池中拿数据；最多创建一个string对象，虽少创建0个string对象；</li>
+<li>new形式新建string对象无论怎样会首先在堆内存中创建一个string对象，然后确保常量池中也有一个相同内容的string对象；最多创建2个，最少创建1个。</li>
+</ol>
+<h2 id="如何减少上下文切换？"><a href="#如何减少上下文切换？" class="headerlink" title="如何减少上下文切换？"></a>如何减少上下文切换？</h2><p>减少上下文切换的方法有无锁并发编程、CAS算法、使用最少线程和使用协程。<br><strong>无锁并发编程：</strong> 多线程竞争锁时，会引起上下文切换，所以多线程处理数据时，可以用一<br>些办法来避免使用锁，如将数据的ID按照Hash算法取模分段，不同的线程处理不同段的数据。<br><strong>CAS算法：</strong> Java的Atomic包使用CAS算法来更新数据，而不需要加锁。<br><strong>使用最少线程：</strong> 避免创建不需要的线程，比如任务很少，但是创建了很多线程来处理，这<br>样会造成大量线程都处于等待状态。<br><strong>协程：</strong> 在单线程里实现多任务的调度，并在单线程里维持多个任务间的切换。</p>
+<h1 id="2022-2-22"><a href="#2022-2-22" class="headerlink" title="2022.2.22"></a>2022.2.22</h1><h2 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h2><ol>
+<li><strong>封装</strong><br>封装是指把一个对象的状态信息（也就是属性）隐藏在对象内部，不允许外部对象直接访问对象的内部信息。但是可以提供一些可以被外界访问的方法来操作属性。</li>
+<li><strong>继承</strong><br>继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</li>
+<li><strong>多态</strong><br>顾名思义，表示一个对象具有多种的状态，具体表现为父类的引用指向子类的实例。</li>
+</ol>
+<p><strong>多态的特点：</strong></p>
+<ul>
+<li>对象类型和引用类型之间具有继承（类）&#x2F;实现（接口）的关系；</li>
+<li>引用类型变量发出的方法调用的到底是哪个类中的方法，必须在程序运行期间才能确定；</li>
+<li>多态不能调用“只在子类存在但在父类不存在”的方法；</li>
+<li>如果子类重写了父类的方法，真正执行的是子类覆盖的方法，如果子类没有覆盖父类的方法，执行的是父类的方法</li>
+</ul>
+<h2 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h2><p><strong>字符串常量池</strong> 是 JVM 为了提升性能和减少内存消耗针对字符串（String 类）专门开辟的一块区域，主要目的是为了避免字符串的重复创建。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">aa</span> <span class="operator">=</span> <span class="string">&quot;ab&quot;</span>; <span class="comment">// 放在常量池中</span></span><br><span class="line"><span class="type">String</span> <span class="variable">bb</span> <span class="operator">=</span> <span class="string">&quot;ab&quot;</span>; <span class="comment">// 从常量池中查找</span></span><br><span class="line">System.out.println(aa==bb);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>JDK1.7 之前运行时常量池逻辑包含字符串常量池存放在方法区。JDK1.7 的时候，字符串常量池被从方法区拿到了堆中。</p>
+<h1 id="2022-3-7"><a href="#2022-3-7" class="headerlink" title="2022.3.7"></a>2022.3.7</h1><h2 id="Java-并发"><a href="#Java-并发" class="headerlink" title="Java 并发"></a>Java 并发</h2><p><strong>线程与进程：</strong><br>与进程不同的是同类的多个线程共享进程的<strong>堆</strong>和<strong>方法区资源</strong>，但每个线程有自己的<strong>程序计数器</strong>、<strong>虚拟机栈</strong>和<strong>本地方法栈</strong></p>
+<h1 id="2022-3-18"><a href="#2022-3-18" class="headerlink" title="2022.3.18"></a>2022.3.18</h1><h2 id="接口和抽象类有什么共同点和区别？"><a href="#接口和抽象类有什么共同点和区别？" class="headerlink" title="接口和抽象类有什么共同点和区别？"></a>接口和抽象类有什么共同点和区别？</h2><p><strong>共同点：</strong></p>
+<ul>
+<li>都不能被实例化。</li>
+<li>都可以包含抽象方法。</li>
+<li>都可以有默认实现的方法（Java 8 可以用 default 关键在接口中定义默认方法）。<br><strong>区别：</strong></li>
+<li>接口主要用于对类的行为进行约束，你实现了某个接口就具有了对应的行为。抽象类主要用于代码复用，强调的是所属关系（比如说我们抽象了一个发送短信的抽象类，）。</li>
+<li>一个类只能继承一个类，但是可以实现多个接口。</li>
+<li>接口中的成员变量只能是 public static final 类型的，不能被修改且必须有初始值，而抽象类的成员变量默认 default，可在子类中被重新定义，也可被重新赋值。</li>
+</ul>
+<h2 id="RSA加密算法（非对称加密算法之一）："><a href="#RSA加密算法（非对称加密算法之一）：" class="headerlink" title="RSA加密算法（非对称加密算法之一）："></a>RSA加密算法（非对称加密算法之一）：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">公钥：（E，N）</span><br><span class="line">密文 = 明文^E mod N</span><br><span class="line">私钥：（D，N）</span><br><span class="line">明文 = 密文^D mod N</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-3-27"><a href="#2022-3-27" class="headerlink" title="2022.3.27"></a>2022.3.27</h1><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p><strong>堆：</strong> 此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。<br><strong>方法区：</strong> 用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。<br>以上二者都是是各个线程共享的内存区域。<br><strong>运行时常量池：</strong> 运行时常量池是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有常量池表（用于存放编译期生成的各种字面量和符号引用）</p>
+<h2 id="Java对象创建过程"><a href="#Java对象创建过程" class="headerlink" title="Java对象创建过程"></a>Java对象创建过程</h2><p><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.3mviofcs6060.webp" alt="clipboard"></p>
+<p><strong>类加载检查：</strong><br>虚拟机遇到一条 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到这个类的符号引用，并且检查这个符号引用代表的类是否已被加载过。如果没有，那必须先执行相应的类加载过程。<br><strong>分配内存：</strong><br>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。<br><strong>初始化零值：</strong><br>内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（不包括对象头），这一步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用，程序能访问到这些字段的数据类型所对应的零值。<br><strong>设置对象头：</strong><br>初始化零值完成之后，虚拟机要对对象进行必要的设置，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 这些信息存放在对象头中。<br><strong>执行 init 方法：</strong><br>执行 new 指令之后会接着执行 <code>&lt;init&gt;</code> 方法，把对象按照程序员的意愿进行初始化</p>
+<h2 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h2><p>在 Hotspot 虚拟机中，对象在内存中的布局可以分为 3 块区域：<strong>对象头</strong>、<strong>实例数据</strong>和<strong>对齐填充</strong>。<br><strong>对象头：</strong> 包括两部分信息，第一部分用于存储<strong>对象自身的运行时数据</strong>（哈希码、GC 分代年龄、锁状态标志等等），另一部分是<strong>类型指针</strong>，即对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。<br><strong>实例数据：</strong> 是对象真正存储的有效信息，也是在程序中所定义的各种类型的字段内容。<br><strong>对齐填充：</strong> 不是必然存在的，也没有什么特别的含义，仅仅起占位作用。</p>
+<h2 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h2><p>目前主流的访问方式有 <strong>使用句柄</strong> 和 <strong>直接指针</strong> 两种<br><strong>使用句柄：</strong> 如果使用句柄，那么 Java <strong>堆</strong>中将会划分出一块内存来作为<strong>句柄池</strong>，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息<br><strong>直接指针：</strong> 如果使用直接指针访问，那么 Java 堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而 reference 中存储的直接就是对象的地址。</p>
+<h1 id="2022-4-12"><a href="#2022-4-12" class="headerlink" title="2022.4.12"></a>2022.4.12</h1><h2 id="ConcurrentHashMap底层"><a href="#ConcurrentHashMap底层" class="headerlink" title="ConcurrentHashMap底层"></a>ConcurrentHashMap底层</h2><p>结构：<strong>数组+链表</strong>，数组<strong>初始大小为16</strong><br>数组大小到64，链表长度到8会转红黑树，红黑树大小到6会退化回链表<br>如何保证并发安全：<strong>对于Node节点加锁</strong><br><strong>性能优化：</strong><br>1、jdk1.8的粒度是Node节点，而jdk1.7的粒度是segment<br>2、用红黑树的复杂度是O(logn)，而用单向链表复杂度是O(n)<br>3、扩容时是多线程并发扩容，多个线程对于原始线程分片，每个线程负责一个分片的数据迁移<br>size()方法获取<strong>总的元素个数</strong>：<br>1、当线程竞争不激烈，直接用CAS的方式，实现元素个数的原子递增<br>2、当线程竞争激烈，使用一个数组来维护元素个数，要增加总原子个数时，直接从数组中随机选择一个，再通过CAS算法实现原子递增。</p>
+<h2 id="String-的-hashCode-是怎么计算的？"><a href="#String-的-hashCode-是怎么计算的？" class="headerlink" title="String 的 hashCode 是怎么计算的？"></a>String 的 hashCode 是怎么计算的？</h2><p>对于String里的char[] value数组，进行遍历，遍历的循环体为 h &#x3D; h*31 + value[i]</p>
+<h2 id="CAS算法"><a href="#CAS算法" class="headerlink" title="CAS算法"></a>CAS算法</h2><p>假设多个线程要对一个共享资源的值进行修改，会对于获取时的值保存为<strong>old value</strong>，在真正进行操作时要比对操作时共享资源的值是否为old value，如果是old value说明自己抢占到了这个资源，可以进行操作，如果不等于old value说明别的线程抢先一步进行操作了，那么需要<strong>自旋</strong>等待，重新获取old value再走一遍流程。如果一直失败，那么会放弃操作（Java里默认自旋10次）<br>但是CAS要是<strong>原子性</strong>的，同时只有一个线程在操作<br>CPU会原生的支持CAS<br>比如AtomicInteger类，在Java里用到了 Unsafe 类里的 getAndAddInt 方法，默认是自旋10次后放弃。</p>
+<h2 id="volatile-关键字"><a href="#volatile-关键字" class="headerlink" title="volatile 关键字"></a>volatile 关键字</h2><p>在当前的 Java 内存模型下，线程可以把变量保存<strong>本地内存</strong>（比如机器的寄存器）中，而不是直接在<strong>主存</strong>中进行读写。这就可能造成一个线程在主存中修改了一个变量的值，而另外一个线程还继续使用它在寄存器中的变量值的拷贝，造成<strong>数据的不一致</strong>。<br>把变量声明为 volatile ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。</p>
+<h2 id="并发编程的三个重要特性"><a href="#并发编程的三个重要特性" class="headerlink" title="并发编程的三个重要特性"></a>并发编程的三个重要特性</h2><p><strong>原子性：</strong> 一次操作或者多次操作，要么所有的操作全部都得到执行并且不会受到任何因素的干扰而中断，要么都不执行。synchronized 可以保证代码片段的原子性。<br><strong>可见性：</strong> 当一个线程对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。volatile 关键字可以保证共享变量的可见性。<br><strong>有序性：</strong> 代码在执行的过程中的先后顺序，Java 在编译器以及运行期间的优化，代码的执行顺序未必就是编写代码时候的顺序。volatile 关键字可以禁止指令进行重排序优化。</p>
+<h2 id="Synchronized的原理"><a href="#Synchronized的原理" class="headerlink" title="Synchronized的原理"></a>Synchronized的原理</h2><p>用到了 <strong>Monitor</strong> ，锁的获取和释放有 <strong>monitorenter</strong> 和 <strong>monitorexit</strong> </p>
+<p>可以看作加了锁后，线程获取锁就进入Monitor，其他线程要获取锁需要等待这个线程完成操作推出Monitor才可以进入。<br>也可能进入Monitor的线程要完成一些判断操作，进入wait set，这样其他线程会进入Monitor，其他线程执行好了之后会去notify原本的线程，让原本的线程再进入Monitor执行，执行完毕后退出。<br>Monitor 是依赖于操作系统的 mutex lock 来实现的。</p>
+<p>Monitor中有两个队列， <strong>WaitSet</strong> 和 <strong>EntryList</strong>，当多个线程同时访问一段同步代码时：</p>
+<ul>
+<li>首先会进入 <strong>EntryList</strong> 集合，当线程获取到对象的monitor后，进入 <strong>Owner</strong> 区域并把monitor中的owner变量设置为当前线程，同时monitor中的计数器count加1；</li>
+<li>若线程调用 wait() 方法，将释放当前持有的monitor，owner变量恢复为null，count自减1，同时该线程进入 <strong>WaitSet</strong> 集合中等待被唤醒；</li>
+<li>若当前线程执行完毕，也将释放monitor（锁）并复位count的值，以便其他线程进入获取monitor(锁)；</li>
+</ul>
+<h1 id="2022-4-13"><a href="#2022-4-13" class="headerlink" title="2022.4.13"></a>2022.4.13</h1><h2 id="AQS的原理"><a href="#AQS的原理" class="headerlink" title="AQS的原理"></a>AQS的原理</h2><p>有一个变量 state，state 初始值为0，有线程加锁时会用CAS的方式将 state 值加1，如果成功则加锁成功，失败了线程则会进入等待队列。<br>释放锁时会将 state 减1，减到0时锁释放。</p>
+<p>AQS资源共享方式：</p>
+<ul>
+<li><strong>独占</strong>：只有一个线程能执行，如ReentrantLock</li>
+<li><strong>共享</strong>：不止一个线程能执行，如ReentrantWriteLock、Semaphore（信号量？）</li>
+</ul>
+<p>独占方式分为：</p>
+<ul>
+<li><strong>公平锁</strong>：按照线程在队列中的排队顺序，先到者先拿到锁</li>
+<li><strong>非公平锁</strong>：当线程要获取锁时，先通过两次 CAS 操作去抢锁，如果没抢到，当前线程再加入到队列中等待唤醒。</li>
+</ul>
+<h2 id="锁升级"><a href="#锁升级" class="headerlink" title="锁升级"></a>锁升级</h2><p>锁在只有一个线程时会上一个<strong>偏向锁</strong>。<br>当不止一个线程在被锁管理时会升级为<strong>轻量级锁</strong>，这时没有获取锁的线程会自旋等待（通过CAS获取锁）。<br>当线程自旋次数超过了自旋默认次数（10次），那么会升级为<strong>重量级锁</strong>，这时候就用到了Monitor对于线程进行控制，管控最为严格。<br>网上：偏向锁是在无锁争用的情况下使用的，也就是同步开在当前线程没有执行完之前，没有其它线程会执行该同步块，一旦有了第二个线程的争用，偏向锁就会升级为轻量级锁，如果轻量级锁自旋到达阈值后，没有获取到锁，就会升级为重量级锁。</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p><strong>编译时多态：</strong> 编译期间决定目标方法，同名不同参，通过重载实现<br><strong>运行时多态：</strong> 运行时决定目标方法，同名同参，通过重写和继承实现，JVM决定目标方法</p>
+<p>多态的实现机制：</p>
+<ul>
+<li>JVM方法区：里面存储有实例的方法</li>
+<li>invokeVirtual指令：用这个指令来调用方法</li>
+<li>方法表（存放方法入口地址）：子类的方法如果重写了，方法表就指向子类实例，否则向上寻找指向父类实例</li>
+</ul>
+<h1 id="2022-4-14"><a href="#2022-4-14" class="headerlink" title="2022.4.14"></a>2022.4.14</h1><h2 id="垃圾回收机制（GC）"><a href="#垃圾回收机制（GC）" class="headerlink" title="垃圾回收机制（GC）"></a>垃圾回收机制（GC）</h2><p>Java 堆是垃圾收集器管理的主要区域，也被称作 <strong>GC堆</strong><br>Java 堆还可以细分为：<strong>新生代</strong>和<strong>老年代</strong>：再细致一点有：<strong>Eden</strong> 空间、<strong>From Survivor</strong>、<strong>To Survivor</strong> 空间等<br><strong>堆</strong>的基本结构：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5cnbtl0ija80.webp" width="90%"></p>
+<h3 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h3><p>此时如果新生的对象无法在 Eden 区创建（Eden 区<strong>无法容纳</strong>) 就会触发一次 <strong>Minor GC</strong> 此时会将 S0 区与Eden 区的对象一起进行<strong>可达性分析</strong>，找出活跃的对象，将它复制到 S1 区并且将S0区域和 Eden 区的对象给清空，这样那些不可达的对象进行清除，并且将S0 区 和 S1区交换。并且对象的年龄还会加 1，当它的年龄增加到一定程度（默认为大于 15 岁），就会被晋升到老年代中。<br><strong>大对象</strong>直接进入<strong>老年代</strong>，大对象就是需要大量连续内存空间的对象（比如：字符串、数组），这是为了避免为大对象分配内存时由于<strong>分配担保机制</strong>带来的复制而降低效率。</p>
+<p><strong>分配担保机制：</strong><br>在发生Minor GC之前，虚拟机会先检查<strong>老年代最大可用的连续空间是否大于新生代所有对象总空间</strong>，如果这个条件成立，那么Minor GC可以确保是安全的。如果不成立，则虚拟机会查看HandlerPromotionFailure这个参数设置的值(true或flase)<strong>是否允许担保失败</strong>(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行Minor GC，出了事我负责)。如果允许，那么会继续检查<strong>老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小</strong>，如果大于，将尝试进行一次Minor GC，尽管这次Minor GC是有风险的；如果小于，或者HandlerPromotionFailure为false，那么这次Minor GC将升级为<strong>Full GC</strong></p>
+<h3 id="Major-GC"><a href="#Major-GC" class="headerlink" title="Major GC"></a>Major GC</h3><p>发生在老年代的GC ，基本上发生了一次Major GC 就会发生一次 Minor GC。并且Major GC 的速度往往会比 Minor GC 慢 10 倍。</p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><ul>
+<li><strong>标记-清除算法：</strong> 该算法分为“标记”和“清除”阶段：首先标记出所有不需要回收的对象，在标记完成后统一回收掉所有没有被标记的对象。</li>
+<li><strong>标记-复制算法：</strong> 将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。</li>
+<li><strong>标记-整理算法：</strong> 标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。</li>
+<li><strong>分代收集算法：</strong> 当前虚拟机的垃圾收集都采用分代收集算法，这种算法没有什么新的思想，只是根据对象存活周期的不同将内存分为几块。一般将 java 堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。</li>
+</ul>
+<p>比如在<strong>新生代</strong>中，每次收集都会有大量对象死去，所以可以选择 <strong>“标记-复制”算法</strong> ，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而<strong>老年代</strong>的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或 <strong>“标记-整理”算法</strong> 进行垃圾收集。</p>
+<h3 id="如何判断对象已经死亡？"><a href="#如何判断对象已经死亡？" class="headerlink" title="如何判断对象已经死亡？"></a>如何判断对象已经死亡？</h3><p><strong>可达性分析：</strong> 这个算法的基本思想就是通过一系列的称为 <strong>“GC Roots”</strong> 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。</p>
+<p><strong>哪些对象可以作为 GC Roots 呢？</strong></p>
+<ul>
+<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
+<li>本地方法栈(Native 方法)中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>所有被同步锁持有的对象</li>
+</ul>
+<h1 id="2022-4-16"><a href="#2022-4-16" class="headerlink" title="2022.4.16"></a>2022.4.16</h1><h2 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><p>在此种方式下，<strong>用户进程在发起一个IO操作以后，必须等待IO操作的完成，只有当真正完成了IO操作以后，用户进程才能运行。</strong> JAVA传统的IO模型属于此种方式！<br>服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。</p>
+<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><p>NIO 可以看作是 <strong>I&#x2F;O 多路复用模型</strong>。<br>IO 多路复用模型中，线程首先发起 select 调用，询问内核数据是否准备就绪，等内核把数据准备好了，用户线程再发起 read 调用。read 调用的过程（数据从内核空间 -&gt; 用户空间）还是阻塞的。<br><strong>IO 多路复用模型，通过减少无效的系统调用，减少了对 CPU 资源的消耗。</strong><br>Java 中的 NIO ，有一个非常重要的<strong>选择器 ( Selector )</strong> 的概念，也可以被称为 <strong>多路复用器</strong>。通过它，只需要一个线程便可以管理多个客户端连接。当客户端数据到了之后，才会为其服务。<br>在NIO此种方式下，用户进程发起一个IO操作以后边可返回做其它事情，但是用户进程需要时不时的询问IO操作是否就绪，这就要求用户进程不停的去询问，从而引入不必要的CPU资源浪费。其中目前JAVA的NIO就属于同步非阻塞IO。<br>服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I&#x2F;O请求时才启动一个线程进行处理。</p>
+<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><p>在此种模式下，<strong>用户进程只需要发起一个IO操作然后立即返回，等IO操作真正的完成以后，应用程序会得到IO操作完成的通知</strong>，此时用户进程只需要对数据进行处理就好了，不需要进行实际的IO读写操作，因为真正的IO读取或者写入操作已经由内核完成了。目前Java中还没有支持此种IO模型。<br>服务器实现模式为一个有效请求一个线程，客户端的I&#x2F;O请求都是有OS先完成了再通知服务器应用去启动线程进行处理。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.6lh5itlj3o00.webp" width="70%">
+
+<h1 id="2022-4-17"><a href="#2022-4-17" class="headerlink" title="2022.4.17"></a>2022.4.17</h1><h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚拟机是如何加载这些 Class 文件呢？<br><strong>过程：</strong><br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2ixg9vov0mw0.webp" alt="clipboard"></p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><ol>
+<li>通过全类名获取定义此类的<strong>二进制字节流</strong></li>
+<li>将字节流所代表的静态存储结构转换为<strong>方法区的运行时数据结构</strong></li>
+<li>在内存中生成一个代表该类的 <strong>Class 对象</strong>，作为方法区这些数据的访问入口</li>
+</ol>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.68so9vnsqxc0.webp" width="50%">
+
+<p>确保加载的类符合 JVM 规范和安全，保证被校验类的方法在运行时不会做出危害虚拟机的事件，其实就是一个安全检查。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些内存都将在方法区中分配。</p>
+<ol>
+<li>这时候进行内存分配的仅包括类变量（ Class Variables ，即静态变量，被 static 关键字修饰的变量，只与类相关，因此被称为类变量），而不包括实例变量。</li>
+<li>这里所设置的初始值”通常情况”下是数据类型默认的零值（如 0、0L、null、false 等）</li>
+</ol>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程。解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用限定符 7 类符号引用进行。<br>符号引用就是一组符号来描述目标，可以是任何字面量。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。<br>Java 虚拟机为每个类都准备了一张方法表来存放类中所有的方法。当需要调用一个类的方法的时候，只要知道这个方法在方法表中的偏移量就可以直接调用该方法了。通过解析操作符号引用就可以直接转变为目标方法在类中方法表的位置，从而使得方法可以被调用。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化阶段是执行初始化方法 <code>&lt;clinit&gt;()</code> 方法的过程，是类加载的最后一步，这一步 JVM 才开始真正执行类中定义的 Java 程序代码(字节码)。</p>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><p>JVM中提供了三层的<strong>ClassLoader</strong>：</p>
+<ol>
+<li><strong>BootstrapClassLoader(启动类加载器) ：</strong> 最顶层的加载类，由 C++实现，负责加载 %JAVA_HOME%&#x2F;lib目录下的 jar 包和类或者被 -Xbootclasspath参数指定的路径中的所有类。</li>
+<li><strong>ExtensionClassLoader(扩展类加载器) ：</strong> 主要负责加载 %JRE_HOME%&#x2F;lib&#x2F;ext 目录下的 jar 包和类，或被 java.ext.dirs 系统变量所指定的路径下的 jar 包。</li>
+<li><strong>AppClassLoader(应用程序类加载器) ：</strong> 面向我们用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。</li>
+</ol>
+<p>过程如下图：</p>
+<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5j6gkpogsxg0.webp" width=60%>
+
+<p>当一个Hello.class这样的文件要被加载时。不考虑我们自定义类加载器，首先会在AppClassLoader中<strong>检查是否加载过</strong>，如果有那就无需再加载了。如果没有，那么会拿到<strong>父加载器</strong>，然后调用父加载器的<strong>loadClass</strong>方法。父类中同理也会先检查自己是否已经加载过，如果没有再往上。注意这个类似递归的过程，直到到达<strong>BootstrapClassLoader</strong>之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，这时候开始考虑自己是否能加载了，如果自己无法加载，会<strong>下沉</strong>到<strong>子加载器</strong>去加载，一直到最底层，如果没有任何加载器能加载，就会抛出<strong>ClassNotFoundException</strong>。</p>
+<p><strong>为什么要设计这种机制?</strong></p>
+<p>这种设计有个好处是，如果有人想替换系统级别的类：String.java。篡改它的实现，在这种机制下这些系统的类已经被BootstrapClassLoader加载过了（为什么？因为当一个类需要加载的时候，<strong>最先去尝试加载的就是BootstrapClassLoader</strong>），所以其他类加载器并没有机会再去加载，从一定程度上防止了危险代码的植入。</p>
+<h1 id="2022-4-18"><a href="#2022-4-18" class="headerlink" title="2022.4.18"></a>2022.4.18</h1><h2 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h2><p>假如我们需要将字符串ABBBCCCCCCCCDDDDDDEE通过二进制编码进行传输<br>如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">8</td>
+<td align="center">6</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<h3 id="构建哈夫曼树"><a href="#构建哈夫曼树" class="headerlink" title="构建哈夫曼树"></a>构建哈夫曼树</h3><p>首先构建森林：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2jbq98j8uti0.webp" width="40%"><br>两棵根节点值最小的树进行合并，合并方式为生成一棵新树，且让两棵树作为新树的左右子树。将两棵树从森林删除，新树加入森林。<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.14q1onv9it34.webp" width="40%"><br>重复操作，直到森林只剩一棵树为止，该树即为哈夫曼树（顶上应该是20不是12）：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2oj7dfs6o4y0.webp" width="40%"></p>
+<h3 id="构建哈夫曼编码"><a href="#构建哈夫曼编码" class="headerlink" title="构建哈夫曼编码"></a>构建哈夫曼编码</h3><p>此时哈夫曼树构建完成了，下面我们要对各个字母进行编码，编码原则是，从哈夫曼树的根节点开始，进入左子树则编码号加0，进入右子树则编码号加1，就可以得到对应字母的二进制编码。<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2vdk813tk340.webp" width="40%"><br>各个字母的编码如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1110</td>
+<td align="center">110</td>
+<td align="center">0</td>
+<td align="center">10</td>
+<td align="center">1111</td>
+</tr>
+</tbody></table>
+<p>此时字符串：ABBBCCCCCCCCDDDDDDEE的哈夫曼编码是1110110110110000000001010101010101111，显然编码比之前短了。</p>
+<h3 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h3><ol>
+<li><strong>为什么通过哈夫曼编码后得到的二进制码不会有前缀的问题呢？</strong><br>这是因为在哈夫曼树中，每个字母对应的节点都是叶子节点，而他们对应的二进制码是由根节点到各自节点的路径所决定的，正因为是叶子节点，每个节点的路径不可能和其他节点有前缀的关系。<br>（我的理解：由树的结构可以看出来只有一个右叶子节点和 n-1 个左叶子节点，因此可以很容易分析出当前位是否是字母编码的最后一位）</li>
+<li><strong>为什么通过哈夫曼编码获得的二进制码短呢？</strong><br>因为哈夫曼树是带权路径长度最短的树，权值较大的节点离根节点较近。而带权路径长度是指：树中所有的叶子节点的权值乘上其到根节点的路径长度，这与最终的哈夫曼编码总长度成正比关系的。</li>
+</ol>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Java/">#Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/01/24/%E5%9F%BA%E4%BA%8EOneNet%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%99%BA%E8%83%BDIoT%E5%87%BA%E8%A1%8C%E8%AE%BE%E5%A4%87/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基于OneNet云平台的智能IoT出行设备</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/01/14/Spring%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Carbda</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-7"><span class="nav-text">2021.12.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E5%86%85%E5%AD%98%E5%92%8C%E6%A0%88%E5%86%85%E5%AD%98"><span class="nav-text">堆内存和栈内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E3%80%81StringBuffer-%E5%92%8C-StringBuilder-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88-String-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84"><span class="nav-text">String、StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%8C%BA%E5%88%AB%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%95%E7%94%A8%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="nav-text">深拷贝和浅拷贝区别了解吗？什么是引用拷贝？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%9A"><span class="nav-text">反射机制：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-8"><span class="nav-text">2021.12.8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-12-28"><span class="nav-text">2021.12.28</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E7%9B%B8%E5%85%B3"><span class="nav-text">JVM相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%8A%80%E6%9C%AF"><span class="nav-text">包装类型的常量池技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1"><span class="nav-text">自动装箱与拆箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-x2F-O-%E6%B5%81"><span class="nav-text">I&#x2F;O 流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-1-4"><span class="nav-text">2021.1.4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86-PriorityQueue"><span class="nav-text">堆 PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deque"><span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PriorityQueue%EF%BC%88%E9%BB%98%E8%AE%A4%E6%98%AF%E5%B0%8F%E9%A1%B6%E5%A0%86%EF%BC%89"><span class="nav-text">PriorityQueue（默认是小顶堆）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-%E4%B8%8E-equals-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">&#x3D;&#x3D; 与 equals 的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-text">HashMap 的底层实现：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-1-5"><span class="nav-text">2021.1.5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99-equals-%E6%97%B6%E5%BF%85%E9%A1%BB%E9%87%8D%E5%86%99-hashCode-%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-text">为什么重写 equals() 时必须重写 hashCode() 方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E6%9C%89%E5%87%A0%E7%A7%8D%EF%BC%9F"><span class="nav-text">线程的创建方式有几种？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-text">Java文件加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E5%92%8C%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-text">堆和方法区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">并发与并行的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">线程间通信的几种实现方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-1-6"><span class="nav-text">2022.1.6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#new-String-%E2%80%9Caa%E2%80%9D-%E5%88%9B%E5%BB%BA%E5%87%A0%E4%B8%AA%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="nav-text">new String(“aa”)创建几个对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%EF%BC%9F"><span class="nav-text">如何减少上下文切换？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-2-22"><span class="nav-text">2022.2.22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="nav-text">面向对象的三大特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F"><span class="nav-text">字符串常量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-3-7"><span class="nav-text">2022.3.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%E5%B9%B6%E5%8F%91"><span class="nav-text">Java 并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-3-18"><span class="nav-text">2022.3.18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B1%E5%90%8C%E7%82%B9%E5%92%8C%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">接口和抽象类有什么共同点和区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%89%EF%BC%9A"><span class="nav-text">RSA加密算法（非对称加密算法之一）：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-3-27"><span class="nav-text">2022.3.27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-text">Java对象创建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-text">对象的访问定位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-12"><span class="nav-text">2022.4.12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap%E5%BA%95%E5%B1%82"><span class="nav-text">ConcurrentHashMap底层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-%E7%9A%84-hashCode-%E6%98%AF%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97%E7%9A%84%EF%BC%9F"><span class="nav-text">String 的 hashCode 是怎么计算的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS%E7%AE%97%E6%B3%95"><span class="nav-text">CAS算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">volatile 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%89%E4%B8%AA%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7"><span class="nav-text">并发编程的三个重要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-text">Synchronized的原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-13"><span class="nav-text">2022.4.13</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AQS%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-text">AQS的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%8D%87%E7%BA%A7"><span class="nav-text">锁升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-14"><span class="nav-text">2022.4.14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%EF%BC%88GC%EF%BC%89"><span class="nav-text">垃圾回收机制（GC）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC"><span class="nav-text">Minor GC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Major-GC"><span class="nav-text">Major GC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E5%B7%B2%E7%BB%8F%E6%AD%BB%E4%BA%A1%EF%BC%9F"><span class="nav-text">如何判断对象已经死亡？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-16"><span class="nav-text">2022.4.16</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%A8%A1%E5%9E%8B"><span class="nav-text">IO模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BIO"><span class="nav-text">BIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NIO"><span class="nav-text">NIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AIO"><span class="nav-text">AIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-17"><span class="nav-text">2022.4.17</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD"><span class="nav-text">加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-text">解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text">类加载器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-4-18"><span class="nav-text">2022.4.18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81"><span class="nav-text">哈夫曼编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-text">构建哈夫曼树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81"><span class="nav-text">构建哈夫曼编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-text">问题总结</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
