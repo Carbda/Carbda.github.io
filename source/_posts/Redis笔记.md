@@ -44,3 +44,524 @@ categories: 数据库
 - **限流** ：一般是通过 Redis + Lua 脚本的方式来实现限流。
 - **消息队列** ：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。
 - **复杂业务场景** ：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。
+
+# Redis 常见数据结构
+
+## string
+
+1. **介绍** ：string 数据结构是简单的 key-value 类型。虽然 Redis 是用 C 语言写的，但是 Redis 并没有使用 C 的字符串表示，而是自己构建了一种 **简单动态字符串**（simple dynamic string，**SDS**）。相比于 C 的原生字符串，Redis 的 SDS 不光可以保存文本数据还可以保存二进制数据，并且获取字符串长度复杂度为 O(1)（C 字符串为 O(N)）,除此之外，Redis 的 SDS API 是安全的，不会造成缓冲区溢出。
+2. **常用命令：** `set,get,strlen,exists,decr,incr,setex` 等等。
+3. **应用场景：** 一般常用在需要计数的场景，比如用户的访问次数、热点文章的点赞转发数量等等。
+
+下面我们简单看看它的使用！
+
+**普通字符串的基本操作：**
+
+```bash
+127.0.0.1:6379> set key value #设置 key-value 类型的值
+OK
+127.0.0.1:6379> get key # 根据 key 获得对应的 value
+"value"
+127.0.0.1:6379> exists key  # 判断某个 key 是否存在
+(integer) 1
+127.0.0.1:6379> strlen key # 返回 key 所储存的字符串值的长度。
+(integer) 5
+127.0.0.1:6379> del key # 删除某个 key 对应的值
+(integer) 1
+127.0.0.1:6379> get key
+(nil)
+```
+
+**批量设置** :
+
+```bash
+127.0.0.1:6379> mset key1 value1 key2 value2 # 批量设置 key-value 类型的值
+OK
+127.0.0.1:6379> mget key1 key2 # 批量获取多个 key 对应的 value
+1) "value1"
+2) "value2"
+```
+
+**计数器（字符串的内容为整数的时候可以使用）：**
+
+```bash
+127.0.0.1:6379> set number 1
+OK
+127.0.0.1:6379> incr number # 将 key 中储存的数字值增一
+(integer) 2
+127.0.0.1:6379> get number
+"2"
+127.0.0.1:6379> decr number # 将 key 中储存的数字值减一
+(integer) 1
+127.0.0.1:6379> get number
+"1"
+```
+
+**过期（默认为永不过期）**：
+
+```bash
+127.0.0.1:6379> expire key  60 # 数据在 60s 后过期
+(integer) 1
+127.0.0.1:6379> setex key 60 value # 数据在 60s 后过期 (setex:[set] + [ex]pire)
+OK
+127.0.0.1:6379> ttl key # 查看数据还有多久过期
+(integer) 56
+```
+
+## list
+
+1. **介绍** ：**list** 即是 **链表**。链表是一种非常常见的数据结构，特点是易于数据元素的插入和删除并且可以灵活调整链表长度，但是链表的随机访问困难。许多高级编程语言都内置了链表的实现比如 Java 中的 **LinkedList**，但是 C 语言并没有实现链表，所以 Redis 实现了自己的链表数据结构。Redis 的 list 的实现为一个 **双向链表**，即可以支持反向查找和遍历，更方便操作，不过带来了部分额外的内存开销。
+2. **常用命令:** `rpush,lpop,lpush,rpop,lrange,llen` 等。
+3. **应用场景:** 发布与订阅或者说消息队列、慢查询。
+
+下面我们简单看看它的使用！
+
+**通过 `rpush/lpop` 实现队列：**
+
+```bash
+127.0.0.1:6379> rpush myList value1 # 向 list 的头部（右边）添加元素
+(integer) 1
+127.0.0.1:6379> rpush myList value2 value3 # 向list的头部（最右边）添加多个元素
+(integer) 3
+127.0.0.1:6379> lpop myList # 将 list的尾部(最左边)元素取出
+"value1"
+127.0.0.1:6379> lrange myList 0 1 # 查看对应下标的list列表， 0 为 start,1为 end
+1) "value2"
+2) "value3"
+127.0.0.1:6379> lrange myList 0 -1 # 查看列表中的所有元素，-1表示倒数第一
+1) "value2"
+2) "value3"
+```
+
+**通过 `rpush/rpop` 实现栈：**
+
+```bash
+127.0.0.1:6379> rpush myList2 value1 value2 value3
+(integer) 3
+127.0.0.1:6379> rpop myList2 # 将 list的头部(最右边)元素取出
+"value3"
+```
+
+有一个图方便理解：
+
+![redis list](https://javaguide.cn/assets/redis-list.e79ad4dd.png)
+
+**通过 `lrange` 查看对应下标范围的列表元素：**
+
+```bash
+127.0.0.1:6379> rpush myList value1 value2 value3
+(integer) 3
+127.0.0.1:6379> lrange myList 0 1 # 查看对应下标的list列表， 0 为 start,1为 end
+1) "value1"
+2) "value2"
+127.0.0.1:6379> lrange myList 0 -1 # 查看列表中的所有元素，-1表示倒数第一
+1) "value1"
+2) "value2"
+3) "value3"
+```
+
+通过 `lrange` 命令，你可以基于 list 实现分页查询，性能非常高！
+
+**通过 `llen` 查看链表长度：**
+
+```bash
+127.0.0.1:6379> llen myList
+(integer) 3
+```
+
+## hash
+
+1. **介绍** ：hash 类似于 JDK1.8 前的 HashMap，内部实现也差不多(数组 + 链表)。不过，Redis 的 hash 做了更多优化。另外，hash 是一个 string 类型的 field 和 value 的映射表，**特别适合用于存储对象**，后续操作的时候，你可以直接仅仅修改这个对象中的某个字段的值。 比如我们可以 hash 数据结构来存储用户信息，商品信息等等。
+2. **常用命令：** `hset,hmset,hexists,hget,hgetall,hkeys,hvals` 等。
+3. **应用场景:** 系统中对象数据的存储。
+
+下面我们简单看看它的使用！
+
+```bash
+127.0.0.1:6379> hmset userInfoKey name "guide" description "dev" age "24"
+OK
+127.0.0.1:6379> hexists userInfoKey name # 查看 key 对应的 value中指定的字段是否存在。
+(integer) 1
+127.0.0.1:6379> hget userInfoKey name # 获取存储在哈希表中指定字段的值。
+"guide"
+127.0.0.1:6379> hget userInfoKey age
+"24"
+127.0.0.1:6379> hgetall userInfoKey # 获取在哈希表中指定 key 的所有字段和值
+1) "name"
+2) "guide"
+3) "description"
+4) "dev"
+5) "age"
+6) "24"
+127.0.0.1:6379> hkeys userInfoKey # 获取 key 列表
+1) "name"
+2) "description"
+3) "age"
+127.0.0.1:6379> hvals userInfoKey # 获取 value 列表
+1) "guide"
+2) "dev"
+3) "24"
+127.0.0.1:6379> hset userInfoKey name "GuideGeGe" # 修改某个字段对应的值
+127.0.0.1:6379> hget userInfoKey name
+"GuideGeGe"
+```
+
+## set
+
+1. **介绍 ：** set 类似于 Java 中的 `HashSet` 。Redis 中的 set 类型是一种无序集合，集合中的元素没有先后顺序。当你需要存储一个列表数据，又不希望出现重复数据时，set 是一个很好的选择，并且 set 提供了判断某个成员是否在一个 set 集合内的重要接口，这个也是 list 所不能提供的。可以基于 set 轻易实现交集、并集、差集的操作。比如：你可以将一个用户所有的关注人存在一个集合中，将其所有粉丝存在一个集合。Redis 可以非常方便的实现如共同关注、共同粉丝、共同喜好等功能。这个过程也就是求交集的过程。
+2. **常用命令：** `sadd,spop,smembers,sismember,scard,sinterstore,sunion` 等。
+3. **应用场景:** 需要存放的数据不能重复以及需要获取多个数据源交集和并集等场景
+
+下面我们简单看看它的使用！
+
+```bash
+127.0.0.1:6379> sadd mySet value1 value2 # 添加元素进去
+(integer) 2
+127.0.0.1:6379> sadd mySet value1 # 不允许有重复元素
+(integer) 0
+127.0.0.1:6379> smembers mySet # 查看 set 中所有的元素
+1) "value1"
+2) "value2"
+127.0.0.1:6379> scard mySet # 查看 set 的长度
+(integer) 2
+127.0.0.1:6379> sismember mySet value1 # 检查某个元素是否存在set 中，只能接收单个元素
+(integer) 1
+127.0.0.1:6379> sadd mySet2 value2 value3
+(integer) 2
+127.0.0.1:6379> sinterstore mySet3 mySet mySet2 # 获取 mySet 和 mySet2 的交集并存放在 mySet3 中
+(integer) 1
+127.0.0.1:6379> smembers mySet3
+1) "value2"
+```
+
+## sorted set
+
+1. **介绍：** 和 set 相比，sorted set 增加了一个权重参数 score，使得集合中的元素能够按 score 进行有序排列，还可以通过 score 的范围来获取元素的列表。有点像是 Java 中 HashMap 和 TreeSet 的结合体。
+2. **常用命令：** `zadd,zcard,zscore,zrange,zrevrange,zrem` 等。
+3. **应用场景：** 需要对数据根据某个权重进行排序的场景。比如在直播系统中，实时排行信息包含直播间在线用户列表，各种礼物排行榜，弹幕消息（可以理解为按消息维度的消息排行榜）等信息。
+
+```bash
+127.0.0.1:6379> zadd myZset 3.0 value1 # 添加元素到 sorted set 中 3.0 为权重
+(integer) 1
+127.0.0.1:6379> zadd myZset 2.0 value2 1.0 value3 # 一次添加多个元素
+(integer) 2
+127.0.0.1:6379> zcard myZset # 查看 sorted set 中的元素数量
+(integer) 3
+127.0.0.1:6379> zscore myZset value1 # 查看某个 value 的权重
+"3"
+127.0.0.1:6379> zrange  myZset 0 -1 # 顺序输出某个范围区间的元素，0 -1 表示输出所有元素
+1) "value3"
+2) "value2"
+3) "value1"
+127.0.0.1:6379> zrange  myZset 0 1 # 顺序输出某个范围区间的元素，0 为 start  1 为 stop
+1) "value3"
+2) "value2"
+127.0.0.1:6379> zrevrange  myZset 0 1 # 逆序输出某个范围区间的元素，0 为 start  1 为 stop
+1) "value1"
+2) "value2"
+```
+
+## bitmap
+
+1. **介绍：** bitmap 存储的是连续的二进制数字（0 和 1），通过 bitmap, 只需要一个 bit 位来表示某个元素对应的值或者状态，key 就是对应元素本身 。我们知道 8 个 bit 可以组成一个 byte，所以 bitmap 本身会极大的节省储存空间。
+2. **常用命令：** `setbit` 、`getbit` 、`bitcount`、`bitop`
+3. **应用场景：** 适合需要保存状态信息（比如是否签到、是否登录...）并需要进一步对这些信息进行分析的场景。比如用户签到情况、活跃用户情况、用户行为统计（比如是否点赞过某个视频）。
+
+```bash
+# SETBIT 会返回之前位的值（默认是 0）这里会生成 7 个位
+127.0.0.1:6379> setbit mykey 7 1
+(integer) 0
+127.0.0.1:6379> setbit mykey 7 0
+(integer) 1
+127.0.0.1:6379> getbit mykey 7
+(integer) 0
+127.0.0.1:6379> setbit mykey 6 1
+(integer) 0
+127.0.0.1:6379> setbit mykey 8 1
+(integer) 0
+# 通过 bitcount 统计被被设置为 1 的位的数量。
+127.0.0.1:6379> bitcount mykey
+(integer) 2
+```
+
+# Redis 单线程模型详解
+
+**Redis 基于 Reactor 模式来设计开发了自己的一套高效的事件处理模型**，这套事件处理模型对应的是 Redis 中的文件事件处理器（file event handler）。由于文件事件处理器（file event handler）是单线程方式运行的，所以我们一般都说 Redis 是单线程模型。
+
+**既然是单线程，那怎么监听大量的客户端连接呢？**
+
+Redis 通过**IO 多路复用程序** 来监听来自客户端的大量连接（或者说是监听多个 socket），它会将感兴趣的事件及类型（读、写）注册到内核中并监听每个事件是否发生。
+
+这样的好处非常明显： **I/O 多路复用技术的使用让 Redis 不需要额外创建多余的线程来监听客户端的大量连接，降低了资源的消耗**（和 NIO 中的 `Selector` 组件很像）。
+
+另外， Redis 服务器是一个事件驱动程序，服务器需要处理两类事件：1. 文件事件; 2. 时间事件。
+
+时间事件不需要多花时间了解，我们接触最多的还是 **文件事件**（客户端进行读取写入等操作，涉及一系列网络通信）。
+
+《Redis 设计与实现》有一段话是如是介绍文件事件的，我觉得写得挺不错。
+
+> Redis 基于 Reactor 模式开发了自己的网络事件处理器：这个处理器被称为文件事件处理器（file event handler）。文件事件处理器使用 I/O 多路复用（multiplexing）程序来同时监听多个套接字，并根据套接字目前执行的任务来为套接字关联不同的事件处理器。
+>
+> 当被监听的套接字准备好执行连接应答（accept）、读取（read）、写入（write）、关 闭（close）等操作时，与操作相对应的文件事件就会产生，这时文件事件处理器就会调用套接字之前关联好的事件处理器来处理这些事件。
+>
+> **虽然文件事件处理器以单线程方式运行，但通过使用 I/O 多路复用程序来监听多个套接字**，文件事件处理器既实现了高性能的网络通信模型，又可以很好地与 Redis 服务器中其他同样以单线程方式运行的模块进行对接，这保持了 Redis 内部单线程设计的简单性。
+
+可以看出，文件事件处理器（file event handler）主要是包含 4 个部分：
+
+- 多个 socket（客户端连接）
+- IO 多路复用程序（支持多个客户端连接的关键）
+- 文件事件分派器（将 socket 关联到相应的事件处理器）
+- 事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）
+
+<img src="https://javaguide.cn/assets/redis%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8.66ac2f3d.png" style="zoom:80%;" />
+
+# Redis 没有使用多线程？为什么不使用多线程？
+
+虽然说 Redis 是单线程模型，但是，实际上，**Redis 在 4.0 之后的版本中就已经加入了对多线程的支持。**
+
+不过，Redis 4.0 增加的多线程主要是针对一些大键值对的删除操作的命令，使用这些命令就会使用主处理之外的其他线程来“异步处理”。
+
+大体上来说，**Redis 6.0 之前主要还是单线程处理。**
+
+**那，Redis6.0 之前 为什么不使用多线程？**
+
+我觉得主要原因有下面 3 个：
+
+1. 单线程编程容易并且**更容易维护**；
+2. Redis 的性能瓶颈不在 CPU ，主要在内存和网络；
+3. 多线程就会存在**死锁、线程上下文切换**等问题，甚至会影响性能。
+
+# Redis6.0 之后为何引入了多线程？
+
+**Redis6.0 引入多线程主要是为了提高网络 IO 读写性能**，因为这个算是 Redis 中的一个性能瓶颈（Redis 的瓶颈主要受限于内存和网络）。
+
+虽然，Redis6.0 引入了多线程，但是 Redis 的多线程只是在网络数据的读写这类耗时操作上使用了，执行命令仍然是单线程顺序执行。因此，你也不需要担心线程安全问题。
+
+Redis6.0 的多线程默认是禁用的，只使用主线程。如需开启需要修改 redis 配置文件 `redis.conf` ：
+
+```bash
+io-threads-do-reads yes
+```
+
+开启多线程后，还需要设置线程数，否则是不生效的。同样需要修改 redis 配置文件 `redis.conf` :
+
+```bash
+io-threads 4 #官网建议4核的机器建议设置为2或3个线程，8核的建议设置为6个线程
+```
+
+# Redis 给缓存数据设置过期时间有什么用？
+
+一般情况下，我们设置保存的缓存数据的时候都会设置一个过期时间。为什么呢？
+
+因为内存是有限的，如果缓存中的所有数据都是一直保存的话，分分钟直接 Out of memory。
+
+Redis 自带了给缓存数据设置过期时间的功能，比如：
+
+```bash
+127.0.0.1:6379> exp key 60 # 数据在 60s 后过期
+(integer) 1
+127.0.0.1:6379> setex key 60 value # 数据在 60s 后过期 (setex:[set] + [ex]pire)
+OK
+127.0.0.1:6379> ttl key # 查看数据还有多久过期
+(integer) 56
+```
+
+注意：**Redis 中除了字符串类型有自己独有设置过期时间的命令 `setex` 外，其他方法都需要依靠 `expire` 命令来设置过期时间 。另外， `persist` 命令可以移除一个键的过期时间。**
+
+**过期时间除了有助于缓解内存的消耗，还有什么其他用么？**
+
+很多时候，我们的业务场景就是需要某个数据只在某一时间段内存在，比如我们的短信验证码可能只在 1 分钟内有效，用户登录的 token 可能只在 1 天内有效。
+
+如果使用传统的数据库来处理的话，一般都是自己判断过期，这样更麻烦并且性能要差很多。
+
+# Redis 是如何判断数据是否过期的？
+
+Redis 通过一个叫做过期字典（可以看作是 hash 表）来保存数据过期的时间。过期字典的键指向 Redis 数据库中的某个 key(键)，过期字典的值是一个 long long 类型的整数，这个整数保存了 key 所指向的数据库键的过期时间（毫秒精度的 UNIX 时间戳）。
+
+<img src="https://javaguide.cn/assets/redis%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4.96c57f41.png" style="zoom: 50%;" />
+
+过期字典是存储在 redisDb 这个结构里的：
+
+```c
+typedef struct redisDb {
+    ...
+
+    dict *dict;     //数据库键空间,保存着数据库中所有键值对
+    dict *expires   // 过期字典,保存着键的过期时间
+    ...
+} redisDb;
+```
+
+# 过期的数据的删除策略
+
+如果假设你设置了一批 key 只能存活 1 分钟，那么 1 分钟后，Redis 是怎么对这批 key 进行删除的呢？
+
+常用的过期数据的删除策略就两个（重要！自己造缓存轮子的时候需要格外考虑的东西）：
+
+1. **惰性删除** ：只会在取出 key 的时候才对数据进行过期检查。这样对 CPU 最友好，但是可能会造成太多过期 key 没有被删除。
+2. **定期删除** ： 每隔一段时间抽取一批 key 执行删除过期 key 操作。并且，Redis 底层会通过限制删除操作执行的时长和频率来减少删除操作对 CPU 时间的影响。
+
+定期删除对内存更加友好，惰性删除对 CPU 更加友好。两者各有千秋，所以 Redis 采用的是 **定期删除+惰性/懒汉式删除** 。
+
+但是，仅仅通过给 key 设置过期时间还是有问题的。因为还是可能存在定期删除和惰性删除漏掉了很多过期 key 的情况。这样就导致大量过期 key 堆积在内存里，然后就 Out of memory 了。
+
+怎么解决这个问题呢？答案就是：**Redis 内存淘汰机制。**
+
+# Redis 内存淘汰机制
+
+> 相关问题：MySQL 里有 2000w 数据，Redis 中只存 20w 的数据，如何保证 Redis 中的数据都是热点数据?
+
+Redis 提供 6 种数据淘汰策略：
+
+1. **volatile-lru（least recently used）**：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰
+2. **volatile-ttl**：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰
+3. **volatile-random**：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰
+4. **allkeys-lru（least recently used）**：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的 key（这个是最常用的）
+5. **allkeys-random**：从数据集（server.db[i].dict）中任意选择数据淘汰
+6. **no-eviction**：禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错。这个应该没人使用吧！
+
+4.0 版本后增加以下两种：
+
+1. **volatile-lfu（least frequently used）**：从已设置过期时间的数据集（server.db[i].expires）中挑选最不经常使用的数据淘汰
+2. **allkeys-lfu（least frequently used）**：当内存不足以容纳新写入数据时，在键空间中，移除最不经常使用的 key
+
+#  Redis 持久化机制(怎么保证 Redis 挂掉之后再重启数据可以进行恢复)
+
+很多时候我们需要持久化数据也就是将内存中的数据写入到硬盘里面，大部分原因是为了之后重用数据（比如重启机器、机器故障之后恢复数据），或者是为了防止系统故障而将数据备份到一个远程位置。
+
+Redis 支持两种不同的持久化操作。**Redis 的一种持久化方式叫快照（RDB），另一种方式是只追加文件（AOF）**。
+
+## **快照持久化（RDB）**
+
+Redis 可以通过**创建快照**来获得存储在内存里面的数据在某个时间点上的副本。Redis 创建快照之后，可以对快照进行备份，可以将快照复制到其他服务器从而创建具有相同数据的服务器副本（Redis 主从结构，主要用来提高 Redis 性能），还可以将快照留在原地以便重启服务器的时候使用。
+
+快照持久化是 Redis 默认采用的持久化方式，在 Redis.conf 配置文件中默认有此下配置：
+
+```conf
+save 900 1           #在900秒(15分钟)之后，如果至少有1个key发生变化，Redis就会自动触发BGSAVE命令创建快照。
+
+save 300 10          #在300秒(5分钟)之后，如果至少有10个key发生变化，Redis就会自动触发BGSAVE命令创建快照。
+
+save 60 10000        #在60秒(1分钟)之后，如果至少有10000个key发生变化，Redis就会自动触发BGSAVE命令创建快照。
+```
+
+## **AOF持久化**
+
+与快照持久化相比，AOF 持久化的实时性更好，因此已成为主流的持久化方案。默认情况下 Redis 没有开启 AOF（append only file）方式的持久化，可以通过 appendonly 参数开启：
+
+```conf
+appendonly yes
+```
+
+开启 AOF 持久化后每执行一条会更改 Redis 中的数据的命令，Redis 就会将该命令写入到内存缓存 `server.aof_buf` 中，然后再根据 `appendfsync` 配置来决定何时将其同步到硬盘中的 AOF 文件。
+
+AOF 文件的保存位置和 RDB 文件的位置相同，都是通过 dir 参数设置的，默认的文件名是 `appendonly.aof`。
+
+在 Redis 的配置文件中存在三种不同的 AOF 持久化方式，它们分别是：
+
+```conf
+appendfsync always    #每次有数据修改发生时都会写入AOF文件,这样会严重降低Redis的速度
+appendfsync everysec  #每秒钟同步一次，显式地将多个写命令同步到硬盘
+appendfsync no        #让操作系统决定何时进行同步
+```
+
+个人理解：有点像数据库的日志
+
+# Redis bigkey
+
+## 什么是 bigkey？
+
+简单来说，如果一个 key 对应的 value 所占用的内存比较大，那这个 key 就可以看作是 bigkey。具体多大才算大呢？有一个不是特别精确的参考标准：string 类型的 value 超过 10 kb，复合类型的 value 包含的元素超过 5000 个。
+
+## bigkey 有什么危害？
+
+除了会消耗更多的内存空间，bigkey 对性能也会有比较大的影响。
+
+## 如何发现 bigkey？
+
+**1、使用 Redis 自带的 `--bigkeys` 参数来查找。**
+
+这个命令会扫描(Scan) Redis 中的所有 key ，会对 Redis 的性能有一点影响。并且，这种方式只能找出每种数据结构 top 1 bigkey（占用内存最大的 string 数据类型，包含元素最多的复合数据类型）。
+
+**2、分析 RDB 文件**
+
+通过分析 RDB 文件来找出 big key。这种方案的前提是你的 Redis 采用的是 RDB 持久化。
+
+# Redis 事务
+
+Redis 可以通过 **`MULTI`，`EXEC`，`DISCARD` 和 `WATCH`** 等命令来实现事务(transaction)功能。
+
+```bash
+> MULTI
+OK
+> SET USER "Guide哥"
+QUEUED
+> GET USER
+QUEUED
+> EXEC
+1) OK
+2) "Guide哥"
+```
+
+使用 `MULTI` 命令后可以输入多个命令。Redis 不会立即执行这些命令，而是将它们放到队列，当调用了`EXEC`命令将执行所有命令。
+
+这个过程是这样的：
+
+1. 开始事务（`MULTI`）。
+2. 命令入队(批量操作 Redis 的命令，先进先出（FIFO）的顺序执行)。
+3. 执行事务(`EXEC`)。
+
+你也可以通过 `DISCARD` 命令取消一个事务，它会清空事务队列中保存的所有命令。
+
+```bash
+> MULTI
+OK
+> SET USER "Guide哥"
+QUEUED
+> GET USER
+QUEUED
+> DISCARD
+OK
+```
+
+`WATCH` 命令用于监听指定的键，当调用 `EXEC` 命令执行事务时，如果一个被 `WATCH` 命令监视的键被修改的话，整个事务都不会执行，直接返回失败。
+
+```bash
+> WATCH USER
+OK
+> MULTI
+> SET USER "Guide哥"
+OK
+> GET USER
+Guide哥
+> EXEC
+ERR EXEC without MULTI
+```
+
+但是，Redis 的事务和我们平时理解的关系型数据库的事务不同。我们知道事务具有四大特性： **1. 原子性**，**2. 隔离性**，**3. 持久性**，**4. 一致性**。
+
+1. **原子性（Atomicity）：** 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；
+2. **隔离性（Isolation）：** 并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；
+3. **持久性（Durability）：** 一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。
+4. **一致性（Consistency）：** 执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；
+
+**Redis 是不支持 roll back 的，因而不满足原子性的（而且不满足持久性）。**
+
+Redis 官网也解释了自己为啥不支持回滚。简单来说就是 Redis 开发者们觉得没必要支持回滚，这样更简单便捷并且性能更好。Redis 开发者觉得即使命令执行错误也应该在开发过程中就被发现而不是生产过程中。
+
+（这部分我自己上网查资料发现Redis事务或者lua脚本执行到一半若指令执行失败则不会回滚，做不到全部不执行）
+
+你可以将 Redis 中的事务就理解为 ：**Redis 事务提供了一种将多个命令请求打包的功能。然后，再按顺序执行打包的所有命令，并且不会被中途打断。**
+
+# Redis 可以做消息队列么？
+
+Redis 5.0 新增加的一个数据结构 `Stream` 可以用来做消息队列，`Stream` 支持：
+
+- 发布 / 订阅模式
+- 按照消费者组进行消费
+- 消息持久化（ RDB 和 AOF）
+
+不过，和专业的消息队列相比，还是有很多欠缺的地方比如消息丢失和堆积问题不好解决。
+
+我们通常建议是不需要使用 Redis 来做消息队列的，你完全可以选择市面上比较成熟的一些消息队列比如 RocketMQ、Kafka。
+
