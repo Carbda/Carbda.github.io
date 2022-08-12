@@ -5,7 +5,7 @@ tags: 工具
 categories: 工具
 ---
 
-| 命令                                                         | 功能                                                         | 说明                                                         |
+| <div style="width:200px">命令</div>                          | 功能                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | git init                                                     | 初始化当前文件夹为仓库                                       |                                                              |
 | git add &lt;file&gt;<br />git add &lt;file&gt; --edit        | 将文件添加到staged区<br />第二条是编辑后将部分内容添加到staged区 | 总共分成了工作目录(untracked)、暂存区(staged)和提交区(committed) |
@@ -13,7 +13,7 @@ categories: 工具
 | git clone &lt;URL&gt;<br />git clone &lt;URL&gt; &lt;folder&gt; | 克隆远程仓库到本地第二条命令是克隆到文件夹                   |                                                              |
 | git status                                                   | 查询文件状态                                                 |                                                              |
 | git rm &lt;file&gt;<br />git rm --cached your-file           | 第一条：删除文件<br />第二条：从暂存区删除                   | 注意如果不用git rm直接rm的话git无法追踪到这个文件的变化      |
-| git stash<br />git stash list<br />git stash pop             | 第一条：隐藏当前环境（将本地没提交的内容(git commit的内容不会被缓存 但git add的内容会被缓存)进行缓存并从当前分支移除）<br />第二条：列出被隐藏的环境<br />第三条：恢复被隐藏的环境 |                                                              |
+| git stash<br />git stash list<br />git stash pop             | 第一条：隐藏当前环境（将本地没提交的内容进行缓存并从当前分支移除）<br />第二条：列出被隐藏的环境<br />第三条：恢复被隐藏的环境 | git stash的时候git commit（已提交）的内容不会被缓存          |
 | git mv &lt;name&gt; &lt;newname&gt;                          | 文件改名                                                     |                                                              |
 | git log                                                      | 查看历史日志                                                 |                                                              |
 | git tag &lt;your-tag&gt;                                     | 给最近一次提交打标签                                         |                                                              |
