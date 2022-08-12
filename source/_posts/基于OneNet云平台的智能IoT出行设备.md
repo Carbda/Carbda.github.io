@@ -5,6 +5,7 @@ tags: Java
 categories: 
     - Java
     - Android
+sticky: 100
 ---
 # 功能设计
 ## 开箱检测与智能监测
