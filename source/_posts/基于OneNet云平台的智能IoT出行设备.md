@@ -68,7 +68,7 @@ sticky: 100
 ## OnetNET平台交互
 ### 向OneNet查询设备信息
 以查询设备信息为例，代码：
-```
+```java
 /**
     * 向OneNet查询设备信息
     *
@@ -115,7 +115,7 @@ public String getDevice(String deviceId,String apiKey) {
 
 ### 查找设备数据点
 这部分是APP端做开发板端数据展示的基础，例如要更新APP首页的温度等信息时要调用到refresh_tempreture()，而该方法中对于数据点的查询用到的就是下面的这个方法：
-```
+```java
 /**
     * 查询设备数据点
     * @param deviceId:设备ID
@@ -165,7 +165,7 @@ public String getDataPoints(String deviceId,String apiKey,String datastreamId,St
 
 ### 命令下达
 命令下达的部分主要是对于开发板的灯、蜂鸣器、显示屏上文字的展示等部分通过命令下达以进行控制。
-```
+```java
 /**
     * 下发命令
     * @param deviceId:设备ID
@@ -286,7 +286,7 @@ public String postCommand(String deviceId,String apiKey,int timeout,String body,
 ```
 ### 文件获取
 在APP端中文件获取方法唯一的作用就是获取开箱时候的图片。
-```
+```java
 /**
     * 获取文件(无需deviceid)
     * @param apiKey
@@ -343,7 +343,7 @@ public byte[] getFile(String apiKey,int box_id,int zhen) {
 
 ### 线程中的run()方法
 该部分的逻辑是不断地发送Message给Handler进行处理，case为0时是对于开发板的六轴的数据进行获取，在case为1~3时是对于温度、湿度和光强进行更新，在case为4时则是对于箱子的开关状态进行监控。
-```
+```java
 @Override
 public void run() {
     while (true){
@@ -399,7 +399,7 @@ public void run() {
 这里主要注意到的是case为4时对于开闭状态的更改并不是直接进行更改，因为在实际测试中发现从开发板到OneNET平台的红外检测数据会有波动，这可能是红外接收和发射的装置没有完全对准好导致的结果，这会让APP端的状态更改也发生波动，所以在APP端进行了处理，在数据稳定不变几秒之后才进行箱子开闭状态的更新，防止手机端的频繁弹窗提醒。
 其他的部分就和上述差不多，case为0时是对于开发板的六轴的数据进行获取，在case为1~3时是对于温度、湿度和光强进行更新。
 **handleMessage方法：**
-```
+```java
 @Override
 public void handleMessage(@NonNull Message msg) {
     super.handleMessage(msg);
@@ -521,7 +521,7 @@ public void handleMessage(@NonNull Message msg) {
 开箱时树莓派的摄像头会对开箱者拍下一定数量的照片，而这些照片会上传到OneNET云平台之后，由手机端的文件读取方法读取到APP端进行展示，展示的方法就是每隔几毫秒用drawImage方法来展示图片以达到开箱“视频”的效果。
 ### 线程中的run()方法
 这里就比较简单了，因为只涉及到一个操作也就是从OneNET平台读数据，所以只要每隔25秒就发送一次Message就可以了。
-```
+```java
 @Override
 public void run() {
     while(true){
@@ -541,7 +541,7 @@ public void run() {
 
 ### MyHandler_camera中的处理方法
 这里同样简单，因为对于照片的处理是在MyView_camera中进行
-```
+```java
 @Override
 public void handleMessage(@NonNull Message msg) {
     super.handleMessage(msg);
@@ -558,7 +558,7 @@ public void handleMessage(@NonNull Message msg) {
 ### MyView_camera中的处理
 **首先是onDraw()方法：**
 可以看到里面用到了getFile方法来从OneNET云平台获取图片，而获取到的文件事实上是以byte数组形式来让手机端APP接收的，所以需要用一个方法byte2image方法来转换成Bitmap类型（这个类型和电脑java里的BufferedImage很像）
-```
+```java
 protected void onDraw(Canvas canvas) {
     //照片的字节数组
     Bitmap image = null;
@@ -581,7 +581,7 @@ protected void onDraw(Canvas canvas) {
 }
 ```
 **byte数组转bitmap：**
-```
+```java
 //byte数组转bitmap
 public Bitmap byte2image(byte[] dataImage) {
     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -597,7 +597,7 @@ public Bitmap byte2image(byte[] dataImage) {
 ## 命令下达
 命令下达在APP端有对于开发板的显示屏信息的更新、蜂鸣器控制、灯光控制等功能，下面进行部分代码的展示。
 ### 与前端的部件相连
-```
+```java
 //与前端部件相连
 eText=findViewById(R.id.edittext);
 b1 = findViewById(R.id.btn1);
@@ -615,7 +615,7 @@ s9 =findViewById(R.id.sw9);     s9.setChecked(Data.lanya);
 ### postCommand方法的调用
 **这里以更新显示屏上的文字为例：**
 首先前面eText已经和前端部件edittext进行了绑定，因此在设置界面输入了相关文字（由于开发板只能显示英文所以输入的是英文），而b1和部件btn1进行了绑定，在点击btn1时监听器调用onClick方法，调用了postCommand方法，将eText.getText.toString()传入该方法，从而完成显示屏端的信息更新。
-```
+```java
 //显示信息
 b1.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -629,7 +629,7 @@ b1.setOnClickListener(new View.OnClickListener() {
 位置更新部分使用了高德地图的API来完成相关功能：
 ### 线程中的run()方法
 **线程部分代码依然简单：**
-```
+```java
 @Override
     public void run() {
         while(true){
@@ -648,7 +648,7 @@ b1.setOnClickListener(new View.OnClickListener() {
 
 ### MyHandler_location
 这里要注意的是，标记点的更新首先需要将之前的标记点marker进行remove操作来移除，否则会出现标记点的重复，首先调用到refresh_location方法将接收到的开发板坐标进行更新，之后将数据转换成double类型，**LatLng类是记录坐标点的类**，将该类用到高德地图API中AMap的**addMarker方法**，将刚刚的数据作为参数传入，即可更新开发板在地图上的位置。
-```
+```java
 @Override
     public void handleMessage(@NonNull Message msg) {
         super.handleMessage(msg);
@@ -669,7 +669,7 @@ b1.setOnClickListener(new View.OnClickListener() {
 ```
 ### MainActivity
 这部分直接放代码，主要是这个页面的一些初始化操作：
-```
+```java
 @Override
 public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -699,7 +699,8 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
         Toast.makeText(this,"已开启定位权限",Toast.LENGTH_LONG).show();
     }
     //开启定位蓝点
-    myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
+    myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类
+  	myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
     myLocationStyle.interval(2000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
     //myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.drawable.gps_point));
     myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_MAP_ROTATE);
