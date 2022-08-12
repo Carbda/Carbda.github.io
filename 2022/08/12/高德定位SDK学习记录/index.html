@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Carbda">
+    
+    <title>
+        
+            高德定位SDK学习记录 |
+        
+        Carbda
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar_icon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"carbda.github.io","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar_1.jpg","favicon":"/images/avatar_icon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Carbda's Blog."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar_2.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Carbda
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">高德定位SDK学习记录</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar_1.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Carbda</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-08-12 10:24:24</span>
+        <span class="mobile">2022-08-12 10:24</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Java/">Java</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Java/Android/">Android</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>看了高德定位SDK的部分demo代码，进行一下代码的学习记录</p>
+<p>主要的流程：</p>
+<p>首先创建一个 <strong>AMapLocationClient</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化client</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	locationClient = <span class="keyword">new</span> <span class="title class_">AMapLocationClient</span>(<span class="built_in">this</span>.getApplicationContext());</span><br><span class="line">	locationOption = getDefaultOption();</span><br><span class="line">	<span class="comment">//设置定位参数</span></span><br><span class="line">	locationClient.setLocationOption(locationOption);</span><br><span class="line">	<span class="comment">// 设置定位监听</span></span><br><span class="line">	locationClient.setLocationListener(locationListener);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里需要对于创建出来的locationClient对象进行定位参数的设置，用到的是 <strong>AMapLocationClientOption</strong> 这个类，然后设置定位监听器</p>
+<p>定位监听的设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定位监听</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">AMapLocationListener</span> <span class="variable">locationListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AMapLocationListener</span>() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onLocationChanged</span><span class="params">(AMapLocation location)</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">null</span> != location) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">			<span class="comment">//errCode等于0代表定位成功，其他的为定位失败，具体的可以参照官网定位错误码说明</span></span><br><span class="line">			<span class="keyword">if</span>(location.getErrorCode() == <span class="number">0</span>)&#123;</span><br><span class="line">				sb.append(<span class="string">&quot;定位成功&quot;</span> + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">				sb.append(<span class="string">&quot;定位类型: &quot;</span> + location.getLocationType() + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">				sb.append(<span class="string">&quot;经    度    : &quot;</span> + location.getLongitude() + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    ......</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 <strong>AMapLocationListener</strong> 是用于定位监听的监听器，在 onLocationChanged 方法的参数为 <strong>AMapLocation</strong> 类对象，是返回的定位结果，这里对于定位结果进行处理</p>
+<p>而需要获得定位结果我们必须先启动定位：</p>
+<p>这里调用 locationClient.startLocation() 进行定位的开启，之后我们才会在监听器监听到定位结果的变化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 开始定位</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2.8.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hongming.wang</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">startLocation</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">//根据控件的选择，重新设置定位参数</span></span><br><span class="line">		resetOption();</span><br><span class="line">		<span class="comment">// 设置定位参数</span></span><br><span class="line">		locationClient.setLocationOption(locationOption);</span><br><span class="line">		<span class="comment">// 启动定位</span></span><br><span class="line">		locationClient.startLocation();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于前面提到的定位参数，这里直接列出一些默认值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 默认的定位参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2.8.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hongming.wang</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> AMapLocationClientOption <span class="title function_">getDefaultOption</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">AMapLocationClientOption</span> <span class="variable">mOption</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AMapLocationClientOption</span>();</span><br><span class="line">    mOption.setLocationMode(AMapLocationMode.Hight_Accuracy);<span class="comment">//可选，设置定位模式，可选的模式有高精度、仅设备、仅网络。默认为高精度模式</span></span><br><span class="line">    mOption.setGpsFirst(<span class="literal">false</span>);<span class="comment">//可选，设置是否gps优先，只在高精度模式下有效。默认关闭</span></span><br><span class="line">    mOption.setHttpTimeOut(<span class="number">30000</span>);<span class="comment">//可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效</span></span><br><span class="line">    mOption.setInterval(<span class="number">2000</span>);<span class="comment">//可选，设置定位间隔。默认为2秒</span></span><br><span class="line">    mOption.setNeedAddress(<span class="literal">true</span>);<span class="comment">//可选，设置是否返回逆地理地址信息。默认是true</span></span><br><span class="line">    mOption.setOnceLocation(<span class="literal">false</span>);<span class="comment">//可选，设置是否单次定位。默认是false</span></span><br><span class="line">    mOption.setOnceLocationLatest(<span class="literal">false</span>);<span class="comment">//可选，设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用</span></span><br><span class="line">    AMapLocationClientOption.setLocationProtocol(AMapLocationProtocol.HTTP);<span class="comment">//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP</span></span><br><span class="line">    mOption.setSensorEnable(<span class="literal">false</span>);<span class="comment">//可选，设置是否使用传感器。默认是false</span></span><br><span class="line">    mOption.setWifiScan(<span class="literal">true</span>); <span class="comment">//可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差</span></span><br><span class="line">    mOption.setLocationCacheEnable(<span class="literal">true</span>); <span class="comment">//可选，设置是否使用缓存定位，默认为true</span></span><br><span class="line">    mOption.setGeoLanguage(AMapLocationClientOption.GeoLanguage.DEFAULT);<span class="comment">//可选，设置逆地理信息的语言，默认值为默认语言（根据所在地区选择语言）</span></span><br><span class="line">    <span class="keyword">return</span> mOption;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上面分析的是正常开始定位的流程</p>
+<p>在场景定位的情况下可以不设置定位参数直接设置定位场景来快速设置好定位参数</p>
+<p>如下是签到场景的设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AMapLocationClientOption</span> <span class="variable">option</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AMapLocationClientOption</span>();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置签到场景，相当于设置为：</span></span><br><span class="line"><span class="comment"> * option.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);</span></span><br><span class="line"><span class="comment"> * option.setOnceLocation(true);</span></span><br><span class="line"><span class="comment"> * option.setOnceLocationLatest(true);</span></span><br><span class="line"><span class="comment"> * option.setMockEnable(false);</span></span><br><span class="line"><span class="comment"> * option.setWifiScan(true);</span></span><br><span class="line"><span class="comment"> * option.setGpsFirst(false);</span></span><br><span class="line"><span class="comment"> * 其他属性均为模式属性。</span></span><br><span class="line"><span class="comment"> * 如果要改变其中的属性，请在在设置定位场景之后进行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">option.setLocationPurpose(AMapLocationClientOption.AMapLocationPurpose.SignIn);</span><br></pre></td></tr></table></figure>
+
+<p>若是需要启动或关闭后台定位，相关方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//启动后台定位</span></span><br><span class="line">locationClient.enableBackgroundLocation(<span class="number">2001</span>, buildNotification());</span><br><span class="line"><span class="comment">//关闭后台定位</span></span><br><span class="line">locationClient.disableBackgroundLocation(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>坐标转换：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化坐标转换类</span></span><br><span class="line"><span class="type">CoordinateConverter</span> <span class="variable">converter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CoordinateConverter</span>(</span><br><span class="line">		getApplicationContext());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置坐标来源,这里使用百度坐标作为示例</span></span><br><span class="line"><span class="comment"> * 可选的来源包括：</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.BAIDU ： 百度坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.MAPBAR ： 图吧坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.MAPABC ： 图盟坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.SOSOMAP ： 搜搜坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.ALIYUN ： 阿里云坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.GOOGLE ： 谷歌坐标</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;CoordType.GPS ： GPS坐标</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">converter.from(CoordType.BAIDU);</span><br><span class="line"><span class="comment">//设置需要转换的坐标</span></span><br><span class="line">converter.coord(examplePoint);</span><br><span class="line"><span class="comment">//转换成高德坐标</span></span><br><span class="line"><span class="type">DPoint</span> <span class="variable">destPoint</span> <span class="operator">=</span> converter.convert();</span><br></pre></td></tr></table></figure>
+
+<p>要进行坐标转换需要创建 <strong>CoordinateConverter</strong> 类对象，设置原坐标的来源，设置需要转换的坐标，调用 convert() 来进行坐标转换得到 destPoint</p>
+<p>获取最后一次位置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AMapLocation</span> <span class="variable">location</span> <span class="operator">=</span> locationClient.getLastKnownLocation();</span><br></pre></td></tr></table></figure>
+
+<p>这里比较简单，直接调用 locationClient 的 <strong>getLastKnownLocation()</strong> 方法，会返回历史定位里的上一次定位结果</p>
+<p>地理围栏功能：</p>
+<p>这里看的不是特别的思路清晰，拿圆形地理围栏的demo为例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mMapView = (MapView) findViewById(R.id.map);</span><br><span class="line">mMapView.onCreate(savedInstanceState);</span><br><span class="line">...</span><br><span class="line">mAMap = mMapView.getMap();</span><br><span class="line">mAMap.getUiSettings().setRotateGesturesEnabled(<span class="literal">false</span>);</span><br><span class="line">mAMap.moveCamera(CameraUpdateFactory.zoomBy(<span class="number">6</span>));</span><br><span class="line">setUpMap();</span><br></pre></td></tr></table></figure>
+
+<p>地图组件 <strong>mAMap</strong> 是由 <strong>mMapView</strong> 得到的，这里设置了禁用旋转手势</p>
+<p>调用了 setUpMap() 对于地图进行了一下设置，具体如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置一些amap的属性</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">setUpMap</span><span class="params">()</span> &#123;</span><br><span class="line">    mAMap.setOnMapClickListener(<span class="built_in">this</span>);</span><br><span class="line">    mAMap.setLocationSource(<span class="built_in">this</span>);<span class="comment">// 设置定位监听</span></span><br><span class="line">    mAMap.getUiSettings().setMyLocationButtonEnabled(<span class="literal">true</span>);<span class="comment">// 设置默认定位按钮是否显示</span></span><br><span class="line">    <span class="comment">// 自定义系统定位蓝点</span></span><br><span class="line">    <span class="type">MyLocationStyle</span> <span class="variable">myLocationStyle</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyLocationStyle</span>();</span><br><span class="line">    <span class="comment">// 自定义定位蓝点图标</span></span><br><span class="line">    myLocationStyle.myLocationIcon(</span><br><span class="line">        BitmapDescriptorFactory.fromResource(R.drawable.gps_point));</span><br><span class="line">    <span class="comment">// 自定义精度范围的圆形边框颜色</span></span><br><span class="line">    myLocationStyle.strokeColor(Color.argb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="comment">// 自定义精度范围的圆形边框宽度</span></span><br><span class="line">    myLocationStyle.strokeWidth(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 设置圆形的填充颜色</span></span><br><span class="line">    myLocationStyle.radiusFillColor(Color.argb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="comment">// 将自定义的 myLocationStyle 对象添加到地图上</span></span><br><span class="line">    mAMap.setMyLocationStyle(myLocationStyle);</span><br><span class="line">    mAMap.setMyLocationEnabled(<span class="literal">true</span>);<span class="comment">// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false</span></span><br><span class="line">    <span class="comment">// 设置定位的类型为定位模式 ，可以由定位、跟随或地图根据面向方向旋转几种</span></span><br><span class="line">    mAMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面这部分有点没完全搞懂，记录下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">IntentFilter</span> <span class="variable">filter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntentFilter</span>();</span><br><span class="line">filter.addAction(GEOFENCE_BROADCAST_ACTION);</span><br><span class="line">registerReceiver(mGeoFenceReceiver, filter);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建pendingIntent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">fenceClient.createPendingIntent(GEOFENCE_BROADCAST_ACTION);</span><br><span class="line">fenceClient.setGeoFenceListener(<span class="built_in">this</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置地理围栏的触发行为,默认为进入</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">fenceClient.setActivateAction(GeoFenceClient.GEOFENCE_IN);</span><br></pre></td></tr></table></figure>
+
+<p>当点击地图时，会触发：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMapClick</span><span class="params">(LatLng latLng)</span> &#123;</span><br><span class="line">    markerOption.icon(ICON_YELLOW);</span><br><span class="line">    centerLatLng = latLng;</span><br><span class="line">    addCenterMarker(centerLatLng);</span><br><span class="line">    tvGuide.setBackgroundColor(getResources().getColor(R.color.gary));</span><br><span class="line">    tvGuide.setText(<span class="string">&quot;选中的坐标：&quot;</span> + centerLatLng.longitude + <span class="string">&quot;,&quot;</span></span><br><span class="line">        + centerLatLng.latitude);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里会读取到经纬度，并调用 addCenterMarker(centerLatLng) 添加标记点</p>
+<p>添加标记点只是在地图里选点而已</p>
+<p>添加围栏需要按按钮，这里直接看到相应方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加圆形围栏</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 3.2.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hongming.wang</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addRoundFence</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">customId</span> <span class="operator">=</span> etCustomId.getText().toString();</span><br><span class="line">	<span class="type">String</span> <span class="variable">radiusStr</span> <span class="operator">=</span> etRadius.getText().toString();</span><br><span class="line">	<span class="keyword">if</span> (<span class="literal">null</span> == centerLatLng</span><br><span class="line">			|| TextUtils.isEmpty(radiusStr)) &#123;</span><br><span class="line">		Toast.makeText(getApplicationContext(), <span class="string">&quot;参数不全&quot;</span>, Toast.LENGTH_SHORT)</span><br><span class="line">				.show();</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">DPoint</span> <span class="variable">centerPoint</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DPoint</span>(centerLatLng.latitude,</span><br><span class="line">			centerLatLng.longitude);</span><br><span class="line">	fenceRadius = Float.parseFloat(radiusStr);</span><br><span class="line">	fenceClient.addGeoFence(centerPoint, fenceRadius, customId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一旦添加围栏会触发方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGeoFenceCreateFinished</span><span class="params">(<span class="keyword">final</span> List&lt;GeoFence&gt; geoFenceList,</span></span><br><span class="line"><span class="params">		<span class="type">int</span> errorCode, String customId)</span> &#123;</span><br><span class="line">	<span class="type">Message</span> <span class="variable">msg</span> <span class="operator">=</span> Message.obtain();</span><br><span class="line">	<span class="keyword">if</span> (errorCode == GeoFence.ADDGEOFENCE_SUCCESS) &#123;</span><br><span class="line">		fenceList.addAll(geoFenceList);</span><br><span class="line">		msg.obj = customId;</span><br><span class="line">		msg.what = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		msg.arg1 = errorCode;</span><br><span class="line">		msg.what = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	handler.sendMessage(msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当添加了围栏触发上面这个方法，并发送message</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">0</span> :</span><br><span class="line">	<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">	sb.append(<span class="string">&quot;添加围栏成功&quot;</span>);</span><br><span class="line">	<span class="type">String</span> <span class="variable">customId</span> <span class="operator">=</span> (String)msg.obj;</span><br><span class="line">	<span class="keyword">if</span>(!TextUtils.isEmpty(customId))&#123;</span><br><span class="line">		sb.append(<span class="string">&quot;customId: &quot;</span>).append(customId);</span><br><span class="line">	&#125;</span><br><span class="line">	Toast.makeText(getApplicationContext(), sb.toString(),</span><br><span class="line">			Toast.LENGTH_SHORT).show();</span><br><span class="line">	drawFence2Map();</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在 handler 里面会进行处理，调用到 drawFence2Map() 方法</p>
+<p>方法主要执行的是画围栏以及将围栏加入列表的逻辑，这里就不往里看了</p>
+<p>根据自身的位置和围栏范围触发广播，可以知道自身位置和围栏范围的状态，如是否进入了围栏或走出了围栏，这个广播有两个情况会触发，一个是添加围栏时可能触发，一个是位置和围栏范围的关系发生变化时可能触发</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接收触发围栏后的广播,当添加围栏成功之后，会立即对所有围栏状态进行一次侦测，如果当前状态与用户设置的触发行为相符将会立即触发一次围栏广播；</span></span><br><span class="line"><span class="comment"> * 只有当触发围栏之后才会收到广播,对于同一触发行为只会发送一次广播不会重复发送，除非位置和围栏的关系再次发生了改变。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">BroadcastReceiver</span> <span class="variable">mGeoFenceReceiver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BroadcastReceiver</span>() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceive</span><span class="params">(Context context, Intent intent)</span> &#123;</span><br><span class="line">		<span class="comment">// 接收广播</span></span><br><span class="line">		<span class="keyword">if</span> (intent.getAction().equals(GEOFENCE_BROADCAST_ACTION)) &#123;</span><br><span class="line">			<span class="type">Bundle</span> <span class="variable">bundle</span> <span class="operator">=</span> intent.getExtras();</span><br><span class="line">			<span class="type">String</span> <span class="variable">customId</span> <span class="operator">=</span> bundle</span><br><span class="line">					.getString(GeoFence.BUNDLE_KEY_CUSTOMID);</span><br><span class="line">			<span class="type">String</span> <span class="variable">fenceId</span> <span class="operator">=</span> bundle.getString(GeoFence.BUNDLE_KEY_FENCEID);</span><br><span class="line">			<span class="comment">//status标识的是当前的围栏状态，不是围栏行为</span></span><br><span class="line">			<span class="type">int</span> <span class="variable">status</span> <span class="operator">=</span> bundle.getInt(GeoFence.BUNDLE_KEY_FENCESTATUS);</span><br><span class="line">			<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">			<span class="keyword">switch</span> (status) &#123;</span><br><span class="line">				<span class="keyword">case</span> GeoFence.STATUS_LOCFAIL :</span><br><span class="line">					sb.append(<span class="string">&quot;定位失败&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> GeoFence.STATUS_IN :</span><br><span class="line">					sb.append(<span class="string">&quot;进入围栏 &quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> GeoFence.STATUS_OUT :</span><br><span class="line">					sb.append(<span class="string">&quot;离开围栏 &quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> GeoFence.STATUS_STAYED :</span><br><span class="line">					sb.append(<span class="string">&quot;停留在围栏内 &quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">default</span> :</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(status != GeoFence.STATUS_LOCFAIL)&#123;</span><br><span class="line">				<span class="keyword">if</span>(!TextUtils.isEmpty(customId))&#123;</span><br><span class="line">					sb.append(<span class="string">&quot; customId: &quot;</span> + customId);</span><br><span class="line">				&#125;</span><br><span class="line">				sb.append(<span class="string">&quot; fenceId: &quot;</span> + fenceId);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> sb.toString();</span><br><span class="line">			<span class="type">Message</span> <span class="variable">msg</span> <span class="operator">=</span> Message.obtain();</span><br><span class="line">			msg.obj = str;</span><br><span class="line">			msg.what = <span class="number">2</span>;</span><br><span class="line">			handler.sendMessage(msg);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Java/">#Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/08/12/git%E6%8C%87%E4%BB%A4/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">git指令</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/20/Spring%E6%80%BB%E7%BB%93/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring总结</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Carbda</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
