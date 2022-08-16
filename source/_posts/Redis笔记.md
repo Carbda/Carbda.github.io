@@ -13,7 +13,7 @@ categories: 数据库
 
 # 缓存数据的处理流程
 
-<img src="https://javaguide.cn/assets/cache-process.c27b9c06.png" style="zoom:80%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/cache-process.c27b9c06.png" style="zoom:80%;" />
 
 简单来说就是:
 
@@ -144,7 +144,7 @@ OK
 
 有一个图方便理解：
 
-![redis list](https://javaguide.cn/assets/redis-list.e79ad4dd.png)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816230746.png)
 
 **通过 `lrange` 查看对应下标范围的列表元素：**
 
@@ -313,7 +313,7 @@ Redis 通过**IO 多路复用程序** 来监听来自客户端的大量连接（
 - 文件事件分派器（将 socket 关联到相应的事件处理器）
 - 事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）
 
-<img src="https://javaguide.cn/assets/redis%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8.66ac2f3d.png" style="zoom:80%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816230846.png" style="zoom:80%;" />
 
 # Redis 没有使用多线程？为什么不使用多线程？
 
@@ -587,7 +587,7 @@ Redis 5.0 新增加的一个数据结构 `Stream` 可以用来做消息队列，
 
 总结一下：个人觉得有点像 Java里 HashSet 的初步计算 hashcode 判断元素是否在表里
 
-![](https://javaguide.cn/assets/%E5%8A%A0%E5%85%A5%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E5%90%8E%E7%9A%84%E7%BC%93%E5%AD%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.79596186.png)
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816231036.png" style="zoom:80%;" />
 
 # 缓存雪崩
 

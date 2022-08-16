@@ -80,7 +80,7 @@ B = new PriorityQueue<>((x, y) -> (y - x)); // 大顶堆
 ```
 
 ## **容器**
-![image](https://cdn.jsdelivr.net/gh/Carbda/image@master/image.28rybvdagq3o.webp)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java1.png)
 
 一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方法
 
@@ -172,7 +172,7 @@ JDK1.8 之后：
 
 ## Java文件加载过程
 如图
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" width="80%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java2.png" style="zoom:80%;" />
 
 .java先经过编译成.class文件，之后经过解释器的解释执行，成为机器可理解的机器码，之后机器码被OS执行。
 
@@ -264,7 +264,7 @@ JDK1.7 之前运行时常量池逻辑包含字符串常量池存放在方法区�
 
 ## Java对象创建过程
 
-![clipboard](https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.3mviofcs6060.webp)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java3.png)
 
 **类加载检查：**
 虚拟机遇到一条 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到这个类的符号引用，并且检查这个符号引用代表的类是否已被加载过。如果没有，那必须先执行相应的类加载过程。
@@ -369,7 +369,7 @@ AQS资源共享方式：
 Java 堆是垃圾收集器管理的主要区域，也被称作 **GC堆**
 Java 堆还可以细分为：**新生代**和**老年代**：再细致一点有：**Eden** 空间、**From Survivor**、**To Survivor** 空间等
 **堆**的基本结构：
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5cnbtl0ija80.webp" width="90%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java4.png"  />
 
 ### Minor GC
 此时如果新生的对象无法在 Eden 区创建（Eden 区**无法容纳**) 就会触发一次 **Minor GC** 此时会将 S0 区与Eden 区的对象一起进行**可达性分析**，找出活跃的对象，将它复制到 S1 区并且将S0区域和 Eden 区的对象给清空，这样那些不可达的对象进行清除，并且将S0 区 和 S1区交换。并且对象的年龄还会加 1，当它的年龄增加到一定程度（默认为大于 15 岁），就会被晋升到老年代中。
@@ -414,14 +414,15 @@ Java 中的 NIO ，有一个非常重要的**选择器 ( Selector )** 的概念�
 ### AIO
 在此种模式下，**用户进程只需要发起一个IO操作然后立即返回，等IO操作真正的完成以后，应用程序会得到IO操作完成的通知**，此时用户进程只需要对数据进行处理就好了，不需要进行实际的IO读写操作，因为真正的IO读取或者写入操作已经由内核完成了。目前Java中还没有支持此种IO模型。 
 服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是有OS先完成了再通知服务器应用去启动线程进行处理。
+
 ### 总结
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.6lh5itlj3o00.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java5.png" style="zoom:70%;" />
 
 # 2022.4.17
 ## 类加载过程
 Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚拟机是如何加载这些 Class 文件呢？
 **过程：**
-![clipboard](https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2ixg9vov0mw0.webp)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java6.png)
 
 ### 加载
 1. 通过全类名获取定义此类的**二进制字节流**
@@ -429,7 +430,7 @@ Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚�
 3. 在内存中生成一个代表该类的 **Class 对象**，作为方法区这些数据的访问入口
 
 ### 验证
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.68so9vnsqxc0.webp" width="50%">
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java7.png)
 
 确保加载的类符合 JVM 规范和安全，保证被校验类的方法在运行时不会做出危害虚拟机的事件，其实就是一个安全检查。
 
@@ -454,7 +455,7 @@ JVM中提供了三层的**ClassLoader**：
 
 过程如下图：
 
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5j6gkpogsxg0.webp" width=60%>
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java8.png" style="zoom:60%;" />
 
 当一个Hello.class这样的文件要被加载时。不考虑我们自定义类加载器，首先会在AppClassLoader中**检查是否加载过**，如果有那就无需再加载了。如果没有，那么会拿到**父加载器**，然后调用父加载器的**loadClass**方法。父类中同理也会先检查自己是否已经加载过，如果没有再往上。注意这个类似递归的过程，直到到达**BootstrapClassLoader**之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，这时候开始考虑自己是否能加载了，如果自己无法加载，会**下沉**到**子加载器**去加载，一直到最底层，如果没有任何加载器能加载，就会抛出**ClassNotFoundException**。
 
@@ -474,15 +475,15 @@ JVM中提供了三层的**ClassLoader**：
 
 ### 构建哈夫曼树
 首先构建森林：
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2jbq98j8uti0.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java9.png" style="zoom:90%;" />
 两棵根节点值最小的树进行合并，合并方式为生成一棵新树，且让两棵树作为新树的左右子树。将两棵树从森林删除，新树加入森林。
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.14q1onv9it34.webp" width="40%">
-重复操作，直到森林只剩一棵树为止，该树即为哈夫曼树（顶上应该是20不是12）：
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2oj7dfs6o4y0.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java10.png" style="zoom:90%;" />
+重复操作，直到森林只剩一棵树为止，该树即为哈夫曼树（顶上应该是20不是12)：
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java11.png" style="zoom:80%;" />
 
 ### 构建哈夫曼编码
 此时哈夫曼树构建完成了，下面我们要对各个字母进行编码，编码原则是，从哈夫曼树的根节点开始，进入左子树则编码号加0，进入右子树则编码号加1，就可以得到对应字母的二进制编码。
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2vdk813tk340.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java12.png" style="zoom:80%;" />
 各个字母的编码如下：
 
 |   A   |   B   |   C   |   D   |   E   |
