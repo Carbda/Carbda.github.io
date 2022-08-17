@@ -228,7 +228,7 @@
 <h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><ul>
 <li>Socket又称“套接字”，是对TCP&#x2F;IP的封装，提供可供程序员做网络开发的接口——Sokcet接口</li>
 </ul>
-<h3 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h3><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3j50lyc28vk0.webp" width="35%">
+<h3 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h3><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/network1.png" style="zoom:70%;" />
 
 <h2 id="2012-12-4"><a href="#2012-12-4" class="headerlink" title="2012.12.4"></a><strong>2012.12.4</strong></h2><h3 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h3><p>HTTP是单工（吗？）：浏览器发请求，服务器回响应<br>TCP 的可靠体现在 ：TCP 在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源</p>
 <p><strong>HTTP过程：</strong></p>
@@ -275,7 +275,7 @@
 <p><strong>拥塞避免：</strong> 拥塞避免算法的思路是让拥塞窗口 cwnd 缓慢增大，即每经过一个往返时间 RTT 就把发送放的 cwnd 加 1。（每次加1）</p>
 <p><strong>慢开始门限：ssthresh</strong><br>cwnd&lt;ssthresh时，用慢开始算法<br>cwnd&gt;&#x3D;ssthresh时，用拥塞避免算法</p>
 <p><strong>快重传与快恢复：</strong><br>接收方不要等待自己发送数据时才进行捎带确认，而是要<strong>立即发送确认</strong>。<br>即使收到了失序的，也要立即发出对已收到的报文段的<strong>重复确认</strong><br>发送方一旦<strong>收到3个连续的重复确认</strong>，就将相应的报文段<strong>立即重传</strong>。</p>
-<h3 id="在浏览器中输入-url-地址-gt-gt-显示主页的过程-面试常客"><a href="#在浏览器中输入-url-地址-gt-gt-显示主页的过程-面试常客" class="headerlink" title="在浏览器中输入 url 地址 -&gt;&gt; 显示主页的过程(面试常客)"></a><strong>在浏览器中输入 url 地址 -&gt;&gt; 显示主页的过程(面试常客)</strong></h3><p>过程：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3r5bi4n3e5g0.webp" width="70%"></p>
+<h3 id="在浏览器中输入-url-地址-gt-gt-显示主页的过程-面试常客"><a href="#在浏览器中输入-url-地址-gt-gt-显示主页的过程-面试常客" class="headerlink" title="在浏览器中输入 url 地址 -&gt;&gt; 显示主页的过程(面试常客)"></a><strong>在浏览器中输入 url 地址 -&gt;&gt; 显示主页的过程(面试常客)</strong></h3><p>过程：<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/network2.png" style="zoom: 50%;" /></p>
 <p>总体来说分为以下几个过程：</p>
 <ol>
 <li>DNS 解析</li>

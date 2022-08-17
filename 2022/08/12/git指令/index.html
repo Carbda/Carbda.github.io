@@ -214,7 +214,7 @@
             <table>
 <thead>
 <tr>
-<th>命令</th>
+<th><div style="width:200px">命令</div></th>
 <th>功能</th>
 <th>说明</th>
 </tr>
@@ -225,8 +225,8 @@
 <td></td>
 </tr>
 <tr>
-<td>git add <file>git add <file> –edit</td>
-<td>将文件添加到staged区第二条是编辑后将部分内容添加到staged区</td>
+<td>git add &lt;file&gt;<br />git add &lt;file&gt; –edit</td>
+<td>将文件添加到staged区<br />第二条是编辑后将部分内容添加到staged区</td>
 <td>总共分成了工作目录(untracked)、暂存区(staged)和提交区(committed)</td>
 </tr>
 <tr>
@@ -235,7 +235,7 @@
 <td>-m 后跟的是本次提交的信息</td>
 </tr>
 <tr>
-<td>git clone <URL>git clone <URL> <folder></td>
+<td>git clone &lt;URL&gt;<br />git clone &lt;URL&gt; &lt;folder&gt;</td>
 <td>克隆远程仓库到本地第二条命令是克隆到文件夹</td>
 <td></td>
 </tr>
@@ -245,17 +245,17 @@
 <td></td>
 </tr>
 <tr>
-<td>git rm <file>git rm –cached your-file</td>
-<td>第一条：删除文件第二条：从暂存区删除</td>
+<td>git rm &lt;file&gt;<br />git rm –cached your-file</td>
+<td>第一条：删除文件<br />第二条：从暂存区删除</td>
 <td>注意如果不用git rm直接rm的话git无法追踪到这个文件的变化</td>
 </tr>
 <tr>
-<td>git stashgit stash listgit stash pop</td>
-<td>第一条：隐藏当前环境（将本地没提交的内容(git commit的内容不会被缓存 但git add的内容会被缓存)进行缓存并从当前分支移除）第二条：列出被隐藏的环境第三条：恢复被隐藏的环境</td>
-<td></td>
+<td>git stash<br />git stash list<br />git stash pop</td>
+<td>第一条：隐藏当前环境（将本地没提交的内容进行缓存并从当前分支移除）<br />第二条：列出被隐藏的环境<br />第三条：恢复被隐藏的环境</td>
+<td>git stash的时候git commit（已提交）的内容不会被缓存</td>
 </tr>
 <tr>
-<td>git mv <name> <newname></td>
+<td>git mv &lt;name&gt; &lt;newname&gt;</td>
 <td>文件改名</td>
 <td></td>
 </tr>
@@ -265,12 +265,12 @@
 <td></td>
 </tr>
 <tr>
-<td>git tag <your-tag></td>
+<td>git tag &lt;your-tag&gt;</td>
 <td>给最近一次提交打标签</td>
 <td></td>
 </tr>
 <tr>
-<td>git checkout <file></td>
+<td>git checkout &lt;file&gt;</td>
 <td>撤销操作，用最后一次提交的文件覆盖工作目录的同名文件</td>
 <td>注意这种操作无法被撤销</td>
 </tr>
@@ -280,52 +280,52 @@
 <td>后面加-v可以查看远程仓库URL</td>
 </tr>
 <tr>
-<td>git pull <repo> <branch></td>
+<td>git pull &lt;repo&gt; &lt;branch&gt;</td>
 <td>抓取远程仓库的分支内容</td>
 <td></td>
 </tr>
 <tr>
-<td>git remote add <remote-name> <remote-url></td>
+<td>git remote add &lt;remote-name&gt; &lt;remote-url&gt;</td>
 <td>手动添加远程仓库</td>
 <td></td>
 </tr>
 <tr>
-<td>git pushgit push <remote-name> <branch-name></td>
+<td>git pushgit push &lt;remote-name&gt; &lt;remote-url&gt;</td>
 <td>本地文件推送到远程仓库</td>
 <td>-</td>
 </tr>
 <tr>
-<td>git diffgit diff <file></td>
+<td>git diffgit diff &lt;file&gt;</td>
 <td>查看仓库里文件的改动</td>
 <td></td>
 </tr>
 <tr>
-<td>git blame <file></td>
+<td>git blame &lt;file&gt;</td>
 <td>查看文件的开发者更新记录</td>
 <td></td>
 </tr>
 <tr>
-<td>git branchgit branch <branch-name>git branch -d branch-name</td>
-<td>第一个命令用于查看所有分支第二个命令用于创建分支第三个命令用于删除分支</td>
+<td>git branchgit branch &lt;branch-name&gt;<br />git branch -d &lt;branch-name&gt;</td>
+<td>第一个命令用于查看所有分支<br />第二个命令用于创建分支第三个命令用于删除分支</td>
 <td></td>
 </tr>
 <tr>
-<td>git checkout <branch-name>git checkout -b <branch-name>git checkout -</td>
-<td>第一条：切换到指定分支第二条：创建一个分支并且切换过去第三条：切换到上一个分支</td>
+<td>git checkout &lt;branch-name&gt;<br />git checkout -b &lt;branch-name&gt;<br />git checkout -</td>
+<td>第一条：切换到指定分支<br />第二条：创建一个分支并且切换过去<br />第三条：切换到上一个分支</td>
 <td></td>
 </tr>
 <tr>
-<td>git checkout <tag-name>git checkout tags&#x2F;<tag-name></td>
+<td>git checkout &lt;tag-name&gt;<br />git checkout tags&#x2F;&lt;tag-name&gt;</td>
 <td>给分支打上标签</td>
 <td>当分支和tag的名字冲突，优先切换到分支，若想切换到tag则用第二条命令</td>
 </tr>
 <tr>
-<td>git branch <branch-name> <hash-code></td>
+<td>git branch &lt;branch-name&gt; &lt;hashcode&gt;</td>
 <td>以某一次提交为基础创建分支</td>
 <td><hash-code>是某一次提交的hash码</td>
 </tr>
 <tr>
-<td>git merge <branch-name></td>
+<td>git merge &lt;branch-name&gt;</td>
 <td>将某一分支合并到当前分支上</td>
 <td>若两个分支同时操作一行会冲突</td>
 </tr>
@@ -345,12 +345,12 @@
 <td></td>
 </tr>
 <tr>
-<td>git cherry-pick <hashcode></td>
+<td>git cherry-pick &lt;hashcode&gt;</td>
 <td>只想选取1个提交合并到主线</td>
 <td></td>
 </tr>
 <tr>
-<td>git grey <keyword></td>
+<td>git grey &lt;keyword&gt;</td>
 <td>查询关键词</td>
 <td></td>
 </tr>
@@ -360,12 +360,12 @@
 <td></td>
 </tr>
 <tr>
-<td>git revert <hashcode></td>
+<td>git revert &lt;hashcode&gt;</td>
 <td>创建一个删除某次提交的提交</td>
 <td></td>
 </tr>
 <tr>
-<td>git submodule add <module-url></td>
+<td>git submodule add &lt;module-url&gt;</td>
 <td>把第三方的库作为模块引入自己的项目</td>
 <td></td>
 </tr>

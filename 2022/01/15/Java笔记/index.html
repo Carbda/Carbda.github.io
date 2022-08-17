@@ -252,7 +252,7 @@
 </ul>
 <h1 id="2021-1-4"><a href="#2021-1-4" class="headerlink" title="2021.1.4"></a>2021.1.4</h1><h2 id="堆-PriorityQueue"><a href="#堆-PriorityQueue" class="headerlink" title="堆 PriorityQueue"></a><strong>堆</strong> PriorityQueue</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(); <span class="comment">// 小顶堆</span></span><br><span class="line">B = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((x, y) -&gt; (y - x)); <span class="comment">// 大顶堆</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a><strong>容器</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.28rybvdagq3o.webp" alt="image"></p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a><strong>容器</strong></h2><p><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java1.png"></p>
 <p>一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方法</p>
 <h3 id="List"><a href="#List" class="headerlink" title="List"></a><strong>List</strong></h3><p>ArrayList和Vector：</p>
 <ul>
@@ -342,7 +342,7 @@
 <li>threadFactory</li>
 <li>handler</li>
 </ol>
-<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5s0zour3st40.webp" width="80%"></p>
+<h2 id="Java文件加载过程"><a href="#Java文件加载过程" class="headerlink" title="Java文件加载过程"></a>Java文件加载过程</h2><p>如图<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java2.png" style="zoom:80%;" /></p>
 <p>.java先经过编译成.class文件，之后经过解释器的解释执行，成为机器可理解的机器码，之后机器码被OS执行。</p>
 <h2 id="堆和方法区"><a href="#堆和方法区" class="headerlink" title="堆和方法区"></a>堆和方法区</h2><p>堆和方法区是所有线程共享的资源。</p>
 <ul>
@@ -395,11 +395,13 @@
 <h2 id="RSA加密算法（非对称加密算法之一）："><a href="#RSA加密算法（非对称加密算法之一）：" class="headerlink" title="RSA加密算法（非对称加密算法之一）："></a>RSA加密算法（非对称加密算法之一）：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">公钥：（E，N）</span><br><span class="line">密文 = 明文^E mod N</span><br><span class="line">私钥：（D，N）</span><br><span class="line">明文 = 密文^D mod N</span><br></pre></td></tr></table></figure>
 
 <h1 id="2022-3-27"><a href="#2022-3-27" class="headerlink" title="2022.3.27"></a>2022.3.27</h1><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p><strong>堆：</strong> 此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。<br><strong>方法区：</strong> 用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。<br>以上二者都是是各个线程共享的内存区域。<br><strong>运行时常量池：</strong> 运行时常量池是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有常量池表（用于存放编译期生成的各种字面量和符号引用）</p>
-<h2 id="Java对象创建过程"><a href="#Java对象创建过程" class="headerlink" title="Java对象创建过程"></a>Java对象创建过程</h2><p><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.3mviofcs6060.webp" alt="clipboard"></p>
+<h2 id="Java对象创建过程"><a href="#Java对象创建过程" class="headerlink" title="Java对象创建过程"></a>Java对象创建过程</h2><p><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java3.png"></p>
 <p><strong>类加载检查：</strong><br>虚拟机遇到一条 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到这个类的符号引用，并且检查这个符号引用代表的类是否已被加载过。如果没有，那必须先执行相应的类加载过程。<br><strong>分配内存：</strong><br>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。<br><strong>初始化零值：</strong><br>内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（不包括对象头），这一步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用，程序能访问到这些字段的数据类型所对应的零值。<br><strong>设置对象头：</strong><br>初始化零值完成之后，虚拟机要对对象进行必要的设置，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 这些信息存放在对象头中。<br><strong>执行 init 方法：</strong><br>执行 new 指令之后会接着执行 <code>&lt;init&gt;</code> 方法，把对象按照程序员的意愿进行初始化</p>
 <h2 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h2><p>在 Hotspot 虚拟机中，对象在内存中的布局可以分为 3 块区域：<strong>对象头</strong>、<strong>实例数据</strong>和<strong>对齐填充</strong>。<br><strong>对象头：</strong> 包括两部分信息，第一部分用于存储<strong>对象自身的运行时数据</strong>（哈希码、GC 分代年龄、锁状态标志等等），另一部分是<strong>类型指针</strong>，即对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。<br><strong>实例数据：</strong> 是对象真正存储的有效信息，也是在程序中所定义的各种类型的字段内容。<br><strong>对齐填充：</strong> 不是必然存在的，也没有什么特别的含义，仅仅起占位作用。</p>
 <h2 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h2><p>目前主流的访问方式有 <strong>使用句柄</strong> 和 <strong>直接指针</strong> 两种<br><strong>使用句柄：</strong> 如果使用句柄，那么 Java <strong>堆</strong>中将会划分出一块内存来作为<strong>句柄池</strong>，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息<br><strong>直接指针：</strong> 如果使用直接指针访问，那么 Java 堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而 reference 中存储的直接就是对象的地址。</p>
 <h1 id="2022-4-12"><a href="#2022-4-12" class="headerlink" title="2022.4.12"></a>2022.4.12</h1><h2 id="ConcurrentHashMap底层"><a href="#ConcurrentHashMap底层" class="headerlink" title="ConcurrentHashMap底层"></a>ConcurrentHashMap底层</h2><p>结构：<strong>数组+链表</strong>，数组<strong>初始大小为16</strong><br>数组大小到64，链表长度到8会转红黑树，红黑树大小到6会退化回链表<br>如何保证并发安全：<strong>对于Node节点加锁</strong><br><strong>性能优化：</strong><br>1、jdk1.8的粒度是Node节点，而jdk1.7的粒度是segment<br>2、用红黑树的复杂度是O(logn)，而用单向链表复杂度是O(n)<br>3、扩容时是多线程并发扩容，多个线程对于原始线程分片，每个线程负责一个分片的数据迁移<br>size()方法获取<strong>总的元素个数</strong>：<br>1、当线程竞争不激烈，直接用CAS的方式，实现元素个数的原子递增<br>2、当线程竞争激烈，使用一个数组来维护元素个数，要增加总原子个数时，直接从数组中随机选择一个，再通过CAS算法实现原子递增。</p>
+<p><strong>JDK1.7：</strong>用ReentrantLock给segment加锁，保证segment的线程安全</p>
+<p><strong>JDK1.8：</strong>锁的粒度不再是segment了，使用数组链表+红黑树（和HashMap差不多），当对空的数组项加入元素时用CAS的方式加入，若这个数组项上不为空，则使用synchronized加锁后再遍历里面的元素</p>
 <h2 id="String-的-hashCode-是怎么计算的？"><a href="#String-的-hashCode-是怎么计算的？" class="headerlink" title="String 的 hashCode 是怎么计算的？"></a>String 的 hashCode 是怎么计算的？</h2><p>对于String里的char[] value数组，进行遍历，遍历的循环体为 h &#x3D; h*31 + value[i]</p>
 <h2 id="CAS算法"><a href="#CAS算法" class="headerlink" title="CAS算法"></a>CAS算法</h2><p>假设多个线程要对一个共享资源的值进行修改，会对于获取时的值保存为<strong>old value</strong>，在真正进行操作时要比对操作时共享资源的值是否为old value，如果是old value说明自己抢占到了这个资源，可以进行操作，如果不等于old value说明别的线程抢先一步进行操作了，那么需要<strong>自旋</strong>等待，重新获取old value再走一遍流程。如果一直失败，那么会放弃操作（Java里默认自旋10次）<br>但是CAS要是<strong>原子性</strong>的，同时只有一个线程在操作<br>CPU会原生的支持CAS<br>比如AtomicInteger类，在Java里用到了 Unsafe 类里的 getAndAddInt 方法，默认是自旋10次后放弃。</p>
 <h2 id="volatile-关键字"><a href="#volatile-关键字" class="headerlink" title="volatile 关键字"></a>volatile 关键字</h2><p>在当前的 Java 内存模型下，线程可以把变量保存<strong>本地内存</strong>（比如机器的寄存器）中，而不是直接在<strong>主存</strong>中进行读写。这就可能造成一个线程在主存中修改了一个变量的值，而另外一个线程还继续使用它在寄存器中的变量值的拷贝，造成<strong>数据的不一致</strong>。<br>把变量声明为 volatile ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。</p>
@@ -431,7 +433,7 @@
 <li>invokeVirtual指令：用这个指令来调用方法</li>
 <li>方法表（存放方法入口地址）：子类的方法如果重写了，方法表就指向子类实例，否则向上寻找指向父类实例</li>
 </ul>
-<h1 id="2022-4-14"><a href="#2022-4-14" class="headerlink" title="2022.4.14"></a>2022.4.14</h1><h2 id="垃圾回收机制（GC）"><a href="#垃圾回收机制（GC）" class="headerlink" title="垃圾回收机制（GC）"></a>垃圾回收机制（GC）</h2><p>Java 堆是垃圾收集器管理的主要区域，也被称作 <strong>GC堆</strong><br>Java 堆还可以细分为：<strong>新生代</strong>和<strong>老年代</strong>：再细致一点有：<strong>Eden</strong> 空间、<strong>From Survivor</strong>、<strong>To Survivor</strong> 空间等<br><strong>堆</strong>的基本结构：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5cnbtl0ija80.webp" width="90%"></p>
+<h1 id="2022-4-14"><a href="#2022-4-14" class="headerlink" title="2022.4.14"></a>2022.4.14</h1><h2 id="垃圾回收机制（GC）"><a href="#垃圾回收机制（GC）" class="headerlink" title="垃圾回收机制（GC）"></a>垃圾回收机制（GC）</h2><p>Java 堆是垃圾收集器管理的主要区域，也被称作 <strong>GC堆</strong><br>Java 堆还可以细分为：<strong>新生代</strong>和<strong>老年代</strong>：再细致一点有：<strong>Eden</strong> 空间、<strong>From Survivor</strong>、<strong>To Survivor</strong> 空间等<br><strong>堆</strong>的基本结构：<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java4.png"  /></p>
 <h3 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h3><p>此时如果新生的对象无法在 Eden 区创建（Eden 区<strong>无法容纳</strong>) 就会触发一次 <strong>Minor GC</strong> 此时会将 S0 区与Eden 区的对象一起进行<strong>可达性分析</strong>，找出活跃的对象，将它复制到 S1 区并且将S0区域和 Eden 区的对象给清空，这样那些不可达的对象进行清除，并且将S0 区 和 S1区交换。并且对象的年龄还会加 1，当它的年龄增加到一定程度（默认为大于 15 岁），就会被晋升到老年代中。<br><strong>大对象</strong>直接进入<strong>老年代</strong>，大对象就是需要大量连续内存空间的对象（比如：字符串、数组），这是为了避免为大对象分配内存时由于<strong>分配担保机制</strong>带来的复制而降低效率。</p>
 <p><strong>分配担保机制：</strong><br>在发生Minor GC之前，虚拟机会先检查<strong>老年代最大可用的连续空间是否大于新生代所有对象总空间</strong>，如果这个条件成立，那么Minor GC可以确保是安全的。如果不成立，则虚拟机会查看HandlerPromotionFailure这个参数设置的值(true或flase)<strong>是否允许担保失败</strong>(如果这个值为true，代表着JVM说，我允许在这种条件下尝试执行Minor GC，出了事我负责)。如果允许，那么会继续检查<strong>老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小</strong>，如果大于，将尝试进行一次Minor GC，尽管这次Minor GC是有风险的；如果小于，或者HandlerPromotionFailure为false，那么这次Minor GC将升级为<strong>Full GC</strong></p>
 <h3 id="Major-GC"><a href="#Major-GC" class="headerlink" title="Major GC"></a>Major GC</h3><p>发生在老年代的GC ，基本上发生了一次Major GC 就会发生一次 Minor GC。并且Major GC 的速度往往会比 Minor GC 慢 10 倍。</p>
@@ -454,16 +456,15 @@
 <h1 id="2022-4-16"><a href="#2022-4-16" class="headerlink" title="2022.4.16"></a>2022.4.16</h1><h2 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><p>在此种方式下，<strong>用户进程在发起一个IO操作以后，必须等待IO操作的完成，只有当真正完成了IO操作以后，用户进程才能运行。</strong> JAVA传统的IO模型属于此种方式！<br>服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。</p>
 <h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><p>NIO 可以看作是 <strong>I&#x2F;O 多路复用模型</strong>。<br>IO 多路复用模型中，线程首先发起 select 调用，询问内核数据是否准备就绪，等内核把数据准备好了，用户线程再发起 read 调用。read 调用的过程（数据从内核空间 -&gt; 用户空间）还是阻塞的。<br><strong>IO 多路复用模型，通过减少无效的系统调用，减少了对 CPU 资源的消耗。</strong><br>Java 中的 NIO ，有一个非常重要的<strong>选择器 ( Selector )</strong> 的概念，也可以被称为 <strong>多路复用器</strong>。通过它，只需要一个线程便可以管理多个客户端连接。当客户端数据到了之后，才会为其服务。<br>在NIO此种方式下，用户进程发起一个IO操作以后边可返回做其它事情，但是用户进程需要时不时的询问IO操作是否就绪，这就要求用户进程不停的去询问，从而引入不必要的CPU资源浪费。其中目前JAVA的NIO就属于同步非阻塞IO。<br>服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I&#x2F;O请求时才启动一个线程进行处理。</p>
 <h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><p>在此种模式下，<strong>用户进程只需要发起一个IO操作然后立即返回，等IO操作真正的完成以后，应用程序会得到IO操作完成的通知</strong>，此时用户进程只需要对数据进行处理就好了，不需要进行实际的IO读写操作，因为真正的IO读取或者写入操作已经由内核完成了。目前Java中还没有支持此种IO模型。<br>服务器实现模式为一个有效请求一个线程，客户端的I&#x2F;O请求都是有OS先完成了再通知服务器应用去启动线程进行处理。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.6lh5itlj3o00.webp" width="70%">
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java5.png" style="zoom:70%;" />
 
-<h1 id="2022-4-17"><a href="#2022-4-17" class="headerlink" title="2022.4.17"></a>2022.4.17</h1><h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚拟机是如何加载这些 Class 文件呢？<br><strong>过程：</strong><br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2ixg9vov0mw0.webp" alt="clipboard"></p>
+<h1 id="2022-4-17"><a href="#2022-4-17" class="headerlink" title="2022.4.17"></a>2022.4.17</h1><h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚拟机是如何加载这些 Class 文件呢？<br><strong>过程：</strong><br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java6.png"></p>
 <h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><ol>
 <li>通过全类名获取定义此类的<strong>二进制字节流</strong></li>
 <li>将字节流所代表的静态存储结构转换为<strong>方法区的运行时数据结构</strong></li>
 <li>在内存中生成一个代表该类的 <strong>Class 对象</strong>，作为方法区这些数据的访问入口</li>
 </ol>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.68so9vnsqxc0.webp" width="50%">
-
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java7.png"></p>
 <p>确保加载的类符合 JVM 规范和安全，保证被校验类的方法在运行时不会做出危害虚拟机的事件，其实就是一个安全检查。</p>
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些内存都将在方法区中分配。</p>
 <ol>
@@ -479,7 +480,7 @@
 <li><strong>AppClassLoader(应用程序类加载器) ：</strong> 面向我们用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。</li>
 </ol>
 <p>过程如下图：</p>
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.5j6gkpogsxg0.webp" width=60%>
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java8.png" style="zoom:60%;" />
 
 <p>当一个Hello.class这样的文件要被加载时。不考虑我们自定义类加载器，首先会在AppClassLoader中<strong>检查是否加载过</strong>，如果有那就无需再加载了。如果没有，那么会拿到<strong>父加载器</strong>，然后调用父加载器的<strong>loadClass</strong>方法。父类中同理也会先检查自己是否已经加载过，如果没有再往上。注意这个类似递归的过程，直到到达<strong>BootstrapClassLoader</strong>之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，这时候开始考虑自己是否能加载了，如果自己无法加载，会<strong>下沉</strong>到<strong>子加载器</strong>去加载，一直到最底层，如果没有任何加载器能加载，就会抛出<strong>ClassNotFoundException</strong>。</p>
 <p><strong>为什么要设计这种机制?</strong></p>
@@ -503,8 +504,8 @@
 <td align="center">2</td>
 </tr>
 </tbody></table>
-<h3 id="构建哈夫曼树"><a href="#构建哈夫曼树" class="headerlink" title="构建哈夫曼树"></a>构建哈夫曼树</h3><p>首先构建森林：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2jbq98j8uti0.webp" width="40%"><br>两棵根节点值最小的树进行合并，合并方式为生成一棵新树，且让两棵树作为新树的左右子树。将两棵树从森林删除，新树加入森林。<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.14q1onv9it34.webp" width="40%"><br>重复操作，直到森林只剩一棵树为止，该树即为哈夫曼树（顶上应该是20不是12）：<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2oj7dfs6o4y0.webp" width="40%"></p>
-<h3 id="构建哈夫曼编码"><a href="#构建哈夫曼编码" class="headerlink" title="构建哈夫曼编码"></a>构建哈夫曼编码</h3><p>此时哈夫曼树构建完成了，下面我们要对各个字母进行编码，编码原则是，从哈夫曼树的根节点开始，进入左子树则编码号加0，进入右子树则编码号加1，就可以得到对应字母的二进制编码。<br><img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/clipboard.2vdk813tk340.webp" width="40%"><br>各个字母的编码如下：</p>
+<h3 id="构建哈夫曼树"><a href="#构建哈夫曼树" class="headerlink" title="构建哈夫曼树"></a>构建哈夫曼树</h3><p>首先构建森林：<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java9.png" style="zoom:90%;" /><br>两棵根节点值最小的树进行合并，合并方式为生成一棵新树，且让两棵树作为新树的左右子树。将两棵树从森林删除，新树加入森林。<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java10.png" style="zoom:90%;" /><br>重复操作，直到森林只剩一棵树为止，该树即为哈夫曼树（顶上应该是20不是12)：<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java11.png" style="zoom:80%;" /></p>
+<h3 id="构建哈夫曼编码"><a href="#构建哈夫曼编码" class="headerlink" title="构建哈夫曼编码"></a>构建哈夫曼编码</h3><p>此时哈夫曼树构建完成了，下面我们要对各个字母进行编码，编码原则是，从哈夫曼树的根节点开始，进入左子树则编码号加0，进入右子树则编码号加1，就可以得到对应字母的二进制编码。<br><img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/java12.png" style="zoom:80%;" /><br>各个字母的编码如下：</p>
 <table>
 <thead>
 <tr>
