@@ -13,7 +13,7 @@ categories: 数据库
 
 # 缓存数据的处理流程
 
-<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/cache-process.c27b9c06.png" style="zoom:80%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/redis1.png" style="zoom:80%;" />
 
 简单来说就是:
 
@@ -144,7 +144,7 @@ OK
 
 有一个图方便理解：
 
-![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816230746.png)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/redis2.png)
 
 **通过 `lrange` 查看对应下标范围的列表元素：**
 
@@ -313,7 +313,7 @@ Redis 通过**IO 多路复用程序** 来监听来自客户端的大量连接（
 - 文件事件分派器（将 socket 关联到相应的事件处理器）
 - 事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）
 
-<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816230846.png" style="zoom:80%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/redis3.png" style="zoom:80%;" />
 
 # Redis 没有使用多线程？为什么不使用多线程？
 
@@ -378,7 +378,7 @@ OK
 
 Redis 通过一个叫做过期字典（可以看作是 hash 表）来保存数据过期的时间。过期字典的键指向 Redis 数据库中的某个 key(键)，过期字典的值是一个 long long 类型的整数，这个整数保存了 key 所指向的数据库键的过期时间（毫秒精度的 UNIX 时间戳）。
 
-<img src="https://javaguide.cn/assets/redis%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4.96c57f41.png" style="zoom: 50%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/redis4.png" style="zoom: 50%;" />
 
 过期字典是存储在 redisDb 这个结构里的：
 
@@ -587,7 +587,7 @@ Redis 5.0 新增加的一个数据结构 `Stream` 可以用来做消息队列，
 
 总结一下：个人觉得有点像 Java里 HashSet 的初步计算 hashcode 判断元素是否在表里
 
-<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/20220816231036.png" style="zoom:80%;" />
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/redis5.png" style="zoom:80%;" />
 
 # 缓存雪崩
 

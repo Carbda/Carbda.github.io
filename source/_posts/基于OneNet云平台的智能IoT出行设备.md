@@ -12,7 +12,9 @@ sticky: 100
 ### 开箱提醒与开箱记录
 每一次打开箱子，都会被记录，用户可以通过配套的APP知道自己的箱子什么时候被打开或关闭过，同时也可以得知当前箱子的开闭状态。另外可以通过简单设置，当箱子被打开时，配套的APP发送通知给用户。
 手机端弹框界面：
-![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/image.onenet1.png)![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/onenet2.png)
+
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/onenet1.png)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/onenet2.png)
 
 ### 环境较暗自动补光
 当箱子处于打开状态，如果周围环境较暗，箱子的内置照明灯会亮起并照亮箱子内部。即使用户不得不在户外低照明的情况下开箱子，也不用一手提着手电一手找物品。另外，用户也可以手动打开照明灯进行照明。
@@ -20,7 +22,7 @@ sticky: 100
 ### 开箱自动拍照记录开箱人与取放物品
 开启箱子后，摄像头会自动开启并录像，拍摄的画面最终可以在APP中查看。通过把摄像头放置在合适的位置，使得正常开箱后能捕获到人脸。这样，用户不仅可以知道开箱时间，还能知道开箱人的脸部信息，以及取出了什么物品。
 手机端界面：
-![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/onenet5.png)
+![](https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/onenet3.png)
 
 ## 旅行箱状态检测与分析
 ### 温湿度检测
