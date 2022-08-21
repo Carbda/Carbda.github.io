@@ -24,10 +24,10 @@ Spring是用 DI 实现了ioc的功能
 - 创建Spring配置文件，在配置文件中配置要创建的对象
 
 （1）Spring配置文件用xml文件
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.1qnfkpoyajj4.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring1.png" style="zoom:70%;" />
 
 进行测试代码编写
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.4p1l0spu6hw0.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring2.png" width="70%">
 
 ## IOC容器
 
@@ -44,7 +44,7 @@ XML解析、工厂模式、反射
 （2）ApplicationContext：BeanFactory接口的子接口，提供更多更强大的功能，一般由开发人员进行使用（更好）
 *加载配置文件的时候就会创建对象
 3、ApplicationContext 接口有实现类
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.1m1f7cmarvpc.webp" width="50%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring3.png" width="50%">
 
 IOC 操作：**Bean管理**
 
@@ -60,7 +60,7 @@ Bean管理指的是两个操作：
 ## 基于XML
 
 1、创建对象
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.1oe7700ja0xs.webp" width="50%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring4.png" width="50%">
 
 1. 在spring配置文件中使用bean标签，标签里添加相应属性，可以实现对象创建
 2. 介绍常用属性：
@@ -75,7 +75,7 @@ Bean管理指的是两个操作：
 （1）创建类，写set方法
 （2）在spring配置文件配置对象创建，配置属性注入
 
-```
+```java
 <!--2 set注入属性-->
 <bean id="book" class="com.atguigu.spring5.Book">
     <property name="bname" value="yjj"></property>
@@ -88,7 +88,7 @@ Bean管理指的是两个操作：
 （1）创建类，写相应构造方法
 （2）spring配置文件中配置
 
-```
+```java
 <!--3 有参构造注入属性-->
 <bean id="orders" class="com.atguigu.spring5.Orders">
     <constructor-arg name="oName" value="abc"></constructor-arg>
@@ -102,21 +102,24 @@ Bean管理指的是两个操作：
 
 1、字面量
 （1）null值
+```xml
 <!--设置null值-->
 <property name="address">
     <null></null>
 </property>
+```
 （2）属性值包含特殊符号
+```xml
 <property name="address">
     <value><![CDATA[<<南京>>]]></value>
 </property>
-
+```
 2、注入属性-外部bean
 （1）创建两个类service和dao
 （2）在service调用dao里面的方法
 （3）在spring配置文件中进行配置
 
-```
+```xml
 <!--service-->
 <bean id="userService" class="com.atguigu.spring5.service.UserService">
     <!--注入userDao对象-->
@@ -133,7 +136,7 @@ Bean管理指的是两个操作：
 （2）在实体类至间表示一对多关系
 （3）在spring配置文件中进行配置
 
-```
+```xml
 <!--内部bean-->
 <bean id="emp" class="com.atguigu.spring5.bean.Emp">
     <!--设置普通属性-->
@@ -152,7 +155,7 @@ Bean管理指的是两个操作：
 （1）第一种
 （2）第二种（结果是技术部）
 
-```
+```xml
 <!--内部bean-->
 <bean id="emp" class="com.atguigu.spring5.bean.Emp">
     <!--设置普通属性-->
@@ -173,21 +176,21 @@ Bean管理指的是两个操作：
 1. 注入数组类型
 2. 注入List集合类型
 3. 注入Map集合类型
-   <img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3hnugwmfit00.webp" width="50%">
+   <img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring5.png" width="50%">
 
 4、在集合里设置对象类型值
 （1）创建多个对象
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.59knkkoqy4g0.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring6.png" width="70%">
 
 （2）注入list
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.2v88t0sl7yg0.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring7.png" width="40%">
 
 5、把集合注入部分提取出来
 （1）在spring配置文件种引入名称空间util
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.5979hpb955o0.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring8.png" width="70%">
 
 （2）使用util标签完成list集合注入提取
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3pcq6eaaq840.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring9.png" width="70%">
 
 **FactoryBean：**
 1、Spring有两种bean，一种普通bean，另一种叫工厂bean（FactoryBean）
@@ -280,24 +283,24 @@ postProcessAfterInitialization
 第二步	在service里创建dao对象，在属性上添加注解
 （2）@Qualifier：根据属性名称进行注入
 和上面@Autowired一起使用
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.41i7aqie66w0.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring10.png" width="40%">
 
 （3）@Resource：可以根据类型注入，可以根据名称注入
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3jsqvt3bgqe0.webp" width="35%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring11.png" width="35%">
 
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.3gt4iserpt60.webp" width="50%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring12.png" width="50%">
 
 （4）@Value：注入普通属性
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.28qvc63uhb8k.webp" width="30%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring13.png" width="30%">
 
 6、完全注解开发
 （1）创建配置类，替代XML配置文件
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.76fl1k0wke80.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring14.png" width="70%">
 
 （2）编写测试类
 加载配置类换了写法：
 
-```
+```java
 ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 ```
 
@@ -413,15 +416,15 @@ execution( * com.atguigu.dao.*.*(..) )
 2. 使用注解创建User和UserProxy对象（对象上加注解@Component）
 3. 在增强类上面添加注解@Aspect
 4. 在spring配置文件中开启生成代理对象
-   <img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.h5s20hujqco.webp" width="50%">
+   <img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring15.png" width="50%">
 
 4、配置不同类型的通知
 （1）在增强类的里面，在作文通知方法上添加通知类型注解，使用切入点表达式配置
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.jd8mrbdcvnc.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring16.png" width="70%">
 
 5、公共切入点抽取
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.101rs6im8vv4.webp" width="70%">
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.78jw6svhw7c0.webp" width="40%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring17.png" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring18.png" width="40%">
 
 
 6、有多个增强类对同一个方法进行增强，设置增强类优先级
@@ -431,7 +434,7 @@ execution( * com.atguigu.dao.*.*(..) )
 
 7、完全使用注解开发
 创建配置类，不需要创建XML配置文件
-<img src="https://cdn.jsdelivr.net/gh/Carbda/image@master/image.55rovywl4ls0.webp" width="70%">
+<img src="https://carbda-bucket.oss-cn-hangzhou.aliyuncs.com/img/spring19.png" width="70%">
 
 # Spring 对事务的支持
 
