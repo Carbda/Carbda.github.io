@@ -191,9 +191,19 @@ JDK1.8 之后：
 - 基于 volatile 关键字来实现线程间相互通信是使用共享内存的思想，大致意思就是多个线程同时监听一个变量，当这个变量发生变化的时候 ，线程能够感知并执行相应的业务。
 
 **方式二：** 使用Object类的**wait()** 和 **notify()** 方法：
+
 - 配合 **synchronized** 使用
 
+**方式三：** 使用 JUC 工具类 CountDownLatch：
+
+- CountDownLatch底层基于AQS框架，也是维护了一个线程间共享变量 state 实现的。
+
+**方式四：** 使用 LockSupport：
+
+- LockSupport 是一种非常灵活的实现线程间阻塞和唤醒的工具，使用它可以不关注是唤醒线程先运行还是等待线程先运行，但是得知道线程的名字。
+
 # 2022.1.6
+
 ## new String("aa")创建几个对象？
 应该2个？（new方法在堆里创建了一个string对象，并且在常量池创建了一个string对象）
 1. 直接赋值形式的新建string对象是从常量池中拿数据；最多创建一个string对象，虽少创建0个string对象；
@@ -312,16 +322,23 @@ size()方法获取**总的元素个数**：
 ## CAS算法
 假设多个线程要对一个共享资源的值进行修改，会对于获取时的值保存为**old value**，在真正进行操作时要比对操作时共享资源的值是否为old value，如果是old value说明自己抢占到了这个资源，可以进行操作，如果不等于old value说明别的线程抢先一步进行操作了，那么需要**自旋**等待，重新获取old value再走一遍流程。如果一直失败，那么会放弃操作（Java里默认自旋10次）
 但是CAS要是**原子性**的，同时只有一个线程在操作
+
 CPU会原生的支持CAS
+
 比如AtomicInteger类，在Java里用到了 Unsafe 类里的 getAndAddInt 方法，默认是自旋10次后放弃。
+
+解决ABA问题：ABA问题的根源就是无法确认数据修改者的身份，因此可以通过过添加版本号的方式去解决，通过比较值再比较版本号的方式去判断其操作者，直到数据的版本号是操作者颁发的时候才有权利去修改，这样就可以解决ABA的问题。
 
 ## volatile 关键字
 在当前的 Java 内存模型下，线程可以把变量保存**本地内存**（比如机器的寄存器）中，而不是直接在**主存**中进行读写。这就可能造成一个线程在主存中修改了一个变量的值，而另外一个线程还继续使用它在寄存器中的变量值的拷贝，造成**数据的不一致**。
+
 把变量声明为 volatile ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 
 ## 并发编程的三个重要特性
 **原子性：** 一次操作或者多次操作，要么所有的操作全部都得到执行并且不会受到任何因素的干扰而中断，要么都不执行。synchronized 可以保证代码片段的原子性。
+
 **可见性：** 当一个线程对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。volatile 关键字可以保证共享变量的可见性。
+
 **有序性：** 代码在执行的过程中的先后顺序，Java 在编译器以及运行期间的优化，代码的执行顺序未必就是编写代码时候的顺序。volatile 关键字可以禁止指令进行重排序优化。
 
 ## Synchronized的原理
@@ -508,3 +525,150 @@ JVM中提供了三层的**ClassLoader**：
 通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。**如果想实现每一个线程都有自己的专属本地变量该如何解决呢？** JDK 中提供的 **ThreadLocal** 类正是为了解决这样的问题。主要解决的就是**让每个线程绑定自己的值**，可以将ThreadLocal类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。
 
 如果你创建了一个 **ThreadLocal** 变量，那么访问这个变量的每个线程都会有这个变量的本地副本，这也是 **ThreadLocal** 变量名的由来。他们可以使用 `get()` 和 `set()` 方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。
+
+## 代理
+
+简单来说就是：我们使用代理对象来代替对真实对象的访问，这样就可以在不修改原目标对象的前提下，提供额外的功能操作，扩展目标对象的功能。
+
+代理模式的主要作用是扩展目标对象的功能，比如说在目标对象的某个方法执行前后你可以增加一些自定义的操作。
+
+个人理解：不直接访问真实对象，而是去访问代理对象，代理对象会对于真实对象的方法调用进行处理
+
+### 静态代理
+
+静态代理中，**我们对目标对象的每个方法的增强都是手动完成的，非常不灵活（比如接口一旦新增加方法，目标对象和代理对象都要进行修改）且麻烦(需要对每个目标类都单独写一个代理类）**。 实际应用场景非常非常少，日常开发几乎看不到使用静态代理的场景。
+
+上面我们是从实现和应用角度来说的静态代理，从 JVM 层面来说， 静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class 文件。
+
+静态代理实现步骤:
+
+1. 定义一个接口及其实现类；
+2. 创建一个代理类同样实现这个接口
+3. 将目标对象注入进代理类，然后在代理类的对应方法调用目标类中的对应方法。这样的话，我们就可以通过代理类屏蔽对目标对象的访问，并且可以在目标方法执行前后做一些自己想做的事情。
+
+### 动态代理
+
+相比于静态代理来说，动态代理更加灵活。我们不需要针对每个目标类都单独创建一个代理类，并且也不需要我们必须实现接口，我们可以直接代理实现类( *CGLIB 动态代理机制*)。
+
+**从 JVM 角度来说，动态代理是在运行时动态生成类字节码，并加载到 JVM 中的。**
+
+动态代理的实现方式有很多种，比如 **JDK 动态代理**、**CGLIB 动态代理**等等。
+
+#### JDK动态代理
+
+1. 定义一个接口及其实现类；
+
+2. 自定义 **InvocationHandler** 并重写 **`invoke`** 方法，在 `invoke` 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑；
+
+3. 通过 **`Proxy.newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h)`** 方法创建代理对象；
+
+**`invoke()`** 方法有下面三个参数：
+
+1. **proxy** :动态生成的代理类
+2. **method** : 与代理类对象调用的方法相对应
+3. **args** : 当前 method 方法的参数
+
+也就是说：**你通过`Proxy` 类的 `newProxyInstance()` 创建的代理对象在调用方法的时候，实际会调用到实现`InvocationHandler` 接口的类的 `invoke()`方法。** 你可以在 `invoke()` 方法中自定义处理逻辑，比如在方法执行前后做什么事情。
+
+#### CGLIB代理
+
+**CGLIB** 动态代理通过继承实现。如果目标类**没有实现接口**，那么 Spring AOP 会选择使用 CGLIB 来动态代理目标类。
+
+CGLIB 可以在运行时动态生成类的字节码，**动态创建目标类的子类对象，在子类对象中增强目标类。**
+
+**优点**：目标类不需要实现特定的接口，更加灵活。
+
+## 泛型
+
+泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。
+
+Java 的泛型是伪泛型，这是因为 Java 在运行期间，所有的泛型信息都会被擦掉，这也就是通常所说类型擦除 。
+
+```java
+List<Integer> list = new ArrayList<>();
+
+list.add(12);
+//这里直接添加会报错
+list.add("a");
+Class<? extends List> clazz = list.getClass();
+Method add = clazz.getDeclaredMethod("add", Object.class);
+//但是通过反射添加是可以的
+//这就说明在运行期间所有的泛型信息都会被擦掉
+add.invoke(list, "kl");
+System.out.println(list);
+```
+
+泛型一般有三种使用方式: 泛型类、泛型接口、泛型方法。
+
+**泛型类：**
+
+```java
+//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic<T> {
+    private T key;
+    public Generic(T key) {
+        this.key = key;
+    }
+    public T getKey() {
+        return key;
+    }
+}
+```
+
+如何实例化泛型类：
+
+```java
+Generic<Integer> genericInteger = new Generic<Integer>(123456);
+```
+
+**泛型接口：** 
+
+```java
+public interface Generator<T> {
+    public T method();
+}
+```
+
+实现泛型接口，不指定类型：
+
+```java
+class GeneratorImpl<T> implements Generator<T>{
+    @Override
+    public T method() {
+        return null;
+    }
+}
+```
+
+实现泛型接口，指定类型：
+
+```java
+class GeneratorImpl implements Generator<String>{
+    @Override
+    public String method() {
+        return "hello";
+    }
+}
+```
+
+**泛型方法：**
+
+```java
+public static <E> void printArray(E[] inputArray) {
+    for (E element : inputArray) {
+        System.out.printf("%s ", element);
+    }
+    System.out.println();
+}
+```
+
+使用：
+
+```java
+// 创建不同类型数组： Integer, Double 和 Character
+Integer[] intArray = { 1, 2, 3 };
+String[] stringArray = { "Hello", "World" };
+printArray(intArray);
+printArray(stringArray);
+```

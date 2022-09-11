@@ -127,17 +127,17 @@ public class OrderService {
 ## @Value 是如何工作的？
 @Value注解和@Resource、@Autowired类似，也是用来对属性进行依赖注入的，只不过@Value是用来从Properties文件中获取值的，并且@Value可以解析SpEL（Spring表达式）
 
-```
+```java
 @Value("zhouyu")
 ```
 直接将字符串 "zhouyu" 赋值给属性，如果属性类型不是 String ，或无法进行类型转化，则报错。
 
-```
+```java
 @Value("${zhouyu}")
 ```
 将会把 ${} 中的字符串当作key，从 Properties 文件中找到对应的 value 赋值给属性，如果没找到，则会把 “${zhouyu}” 当作普通字符串注入给属性。
 
-```
+```java
 @Value("#{zhouyu}")
 ```
 会将 #{} 中的字符串当作Spring表达式进行解析，Spring会把 "zhouyu" 当作 beanName，并从Spring容器中找对应 bean ，如果找到则进行属性注入，没找到则报错。
@@ -149,7 +149,7 @@ Object getObject()：	返回的是Bean对象
 boolean isSingleton)()：	返回的是否是单例Bean对象
 Class getObjectType()：	返回的是Bean对象的类型
 
-```
+```java
 @Component("zhouyu")
 public class ZhouyuFactoryBean implements FactoryBean
     @override
@@ -239,3 +239,76 @@ AOP是发生在Bean的生命周期中的：
 4. 如果有切面，就表示当前target对象需要进行AOP
 5. 通过Cglib或JDK动态代理机制生成一个代理对象，作为最终的bean对象
 6. 代理对象中有一个target属性指向了target对象
+
+# Spring如何管理bean
+
+## 创建bean的三种方式
+
+**第一种方式：使用默认构造函数创建**
+
+在spring的配置文件中使用bena标签，配id和class属性，没有其他属性和标签时，采用默认构造函数创建对象
+
+此时如果类中没有默认构造函数，则无法创建
+
+```xml
+<bean id="acountService" class="cn.rzpt.service.impl.AcountServiceImpl"></bean>
+```
+
+**第二种方法：使用普通工厂模式创建对象或使用某个类中的方法创建对象，并存入spring容器中**
+
+```java
+public class AccoutFactory {
+
+    public IAcountService getAccountService(){
+        return new AcountServiceImpl();
+    }
+}
+```
+
+```xml
+<bean id="instanceFactory" class="cn.rzpt.factory.AccoutFactory"></bean>
+<bean id="acountService" factory-bean="instanceFactory" factory-method="getAccountService"></bean>
+```
+
+**第三种方法：使用静态工厂中的静态方法创建对象或者使用某个类中的静态方法创建对象，并存入spring容器**
+
+```java
+public class StaticAccoutFactory {
+
+    public static IAcountService getAccountService(){
+        return new AcountServiceImpl();
+    }
+}
+```
+
+```xml
+<bean id="acountService" class="cn.rzpt.factory.StaticAccoutFactory" factory-method="getAccountService"></bean>
+```
+
+## bean对象的作用范围
+
+bean 标签的 **scope** 属性，作用用于指定 **bean 的作用范围**
+
+取值：
+
+- singleton：单例的（默认值）
+- prototype：多例的
+- request：作用于web应用的请求范围
+- session：作用于web应用的会话范围
+- global-session：作用于集群环境的会话范围（全局会话范围），当不是集群环境是就是Session。
+
+## bean对象的生命周期
+
+**单例对象：**
+
+- 出生：容器创建时就创建对象
+- 存在：容器在对象在
+- 消失：容器销毁对象销毁
+
+总结：单例对象的生命周期与容器一致
+
+**多例对象：**
+
+- 出生：使用对象时创建对象
+- 存在：对象在使用，就一直存在
+- 消失：当对象长时间不用且没有别的对象引用时，由java的垃圾回收机制回收。
