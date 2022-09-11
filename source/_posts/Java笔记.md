@@ -577,6 +577,7 @@ JVM中提供了三层的**ClassLoader**：
 CGLIB 可以在运行时动态生成类的字节码，**动态创建目标类的子类对象，在子类对象中增强目标类。**
 
 **优点**：目标类不需要实现特定的接口，更加灵活。
+<<<<<<< HEAD
 
 ## 泛型
 
@@ -672,3 +673,5 @@ String[] stringArray = { "Hello", "World" };
 printArray(intArray);
 printArray(stringArray);
 ```
+=======
+>>>>>>> 6fcd67961825e929efcf8c31479d896a04af0a21
